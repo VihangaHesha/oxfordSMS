@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<AnchorPane fx:id="rootStudentPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.StudentFormController">
+   <children>
+      <ImageView fitHeight="189.0" fitWidth="338.0" layoutX="275.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/images/dvn6.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="anchorInRootDash" prefHeight="406.0" prefWidth="280.0">
+         <children>
+            <Pane prefHeight="400.0" prefWidth="273.0">
+               <children>
+                  <ImageView fitHeight="179.0" fitWidth="273.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/images/132100371_9dafa5a4-0b32-46da-97f6-397d1999b795.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="paneDash" prefHeight="474.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.DashboardFormController">
+   <children>
+      <ImageView fitHeight="495.0" fitWidth="740.0" layoutX="-8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/images/132100371_9dafa5a4-0b32-46da-97f6-397d1999b795.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="310.0" layoutY="185.0" onAction="#btnEmployeeOnAction" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #F2CB05;" text="Employee">
+         <font>
+            <Font name="Bookman Old Style Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="84.0" layoutY="185.0" onAction="#btnStudentOnAction" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #F2CB05;" text="Student">
+         <font>
+            <Font name="Bookman Old Style Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="534.0" layoutY="185.0" onAction="#btnEquipmentOnAction" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #F2CB05;" text="Equipment">
+         <font>
+            <Font name="Bookman Old Style Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXButton>
+      <JFXButton fx:id="btnUser" layoutX="644.0" layoutY="14.0" onAction="#btnUserOnAction" prefHeight="40.0" prefWidth="28.0" text=" ">
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons/icons8-user-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXButton>
+      <ImageView fitHeight="70.0" fitWidth="71.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons/Oxford%20Educational%20Institute.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tblSchedule" layoutX="85.0" layoutY="271.0" prefHeight="153.0" prefWidth="591.0">
+        <columns>
+          <TableColumn prefWidth="81.0" text="Subject No" />
+          <TableColumn prefWidth="148.0" text="Subject" />
+            <TableColumn prefWidth="125.0" text="From" />
+            <TableColumn minWidth="0.0" prefWidth="121.0" text="To" />
+            <TableColumn prefWidth="115.0" text="Hall ID" />
+        </columns>
+      </TableView>
+      <Label fx:id="lblDate" layoutX="367.0" layoutY="456.0" text="Label" />
+      <JFXButton buttonType="RAISED" layoutX="648.0" layoutY="438.0" onAction="#btnBackwardOnAction" prefHeight="36.0" prefWidth="28.0" text=" ">
+         <graphic>
+            <ImageView fitHeight="48.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons/icons8-sign-out-30.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXButton>
+      <BarChart fx:id="bcStudentChart" layoutX="130.0" layoutY="14.0" prefHeight="153.0" prefWidth="500.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+   </children>
+</AnchorPane>

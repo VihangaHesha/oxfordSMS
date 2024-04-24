@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootNode" prefHeight="380.0" prefWidth="651.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.LoginFormController">
+   <children>
+      <ImageView fitHeight="414.0" fitWidth="698.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/images/dvn6.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="223.0" layoutY="48.0" lineSpacing="2.0" text="Oxford Educational Institute" textAlignment="RIGHT" textFill="#1e2128" underline="true">
+         <font>
+            <Font name="Century Gothic Bold" size="20.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnLogin" buttonType="RAISED" layoutX="284.0" layoutY="337.0" onAction="#btnLoginOnAction" prefHeight="36.0" prefWidth="131.0" style="-fx-background-color: #323640; -fx-text-fill: #F0F0F2;" text="Sign In">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="36.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons/icons8-sign-in-30.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <TextField fx:id="txtUsername" layoutX="245.0" layoutY="144.0" prefHeight="36.0" prefWidth="223.0" promptText="Username" style="-fx-background-color: #323640; -fx-text-fill: #F0F0F2;">
+         <font>
+            <Font name="Arial Italic" size="15.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="pfPassword" layoutX="245.0" layoutY="217.0" prefHeight="36.0" prefWidth="223.0" promptText="Password" style="-fx-background-color: #323640; -fx-text-fill: #F0F0F2;">
+         <font>
+            <Font name="Arial Italic" size="15.0" />
+         </font>
+      </PasswordField>
+      <Label layoutX="238.0" layoutY="297.0" text="Don't have an account ?">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Hyperlink layoutX="378.0" layoutY="294.0" onAction="#linkActionOnRegister" style="-fx-text-fill: #F0F0F2;" text="Sign Up here">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Hyperlink>
+      <ImageView fitHeight="68.0" fitWidth="76.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons/Oxford%20Educational%20Institute.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="245.0" layoutY="122.0" text="Username :">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="245.0" layoutY="195.0" text="Password :" />
+      <Hyperlink layoutX="293.0" layoutY="261.0" onAction="#linkActionOnForgetPassword" style="-fx-text-fill: #F0F0F2;" text="Forget Password ?">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Hyperlink>
+   </children>
+</AnchorPane>
