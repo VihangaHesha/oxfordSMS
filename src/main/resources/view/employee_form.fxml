@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,7 +18,7 @@
          <children>
             <Pane prefHeight="511.0" prefWidth="157.0" style="-fx-background-color: #A67A44; -fx-background-radius: 5;">
                <children>
-                  <JFXButton buttonType="RAISED" layoutX="-1.0" layoutY="106.0" onAction="#btnEmployeeDeleteOnAction" prefHeight="60.0" prefWidth="157.0" style="-fx-background-color: #636257;" text="Delete Employee" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="-1.0" layoutY="123.0" onAction="#btnEmployeeDeleteOnAction" prefHeight="60.0" prefWidth="157.0" style="-fx-background-color: #636257;" text="Delete Employee" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -32,7 +33,7 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutY="169.0" onAction="#btnEmployeeEditOnAction" prefHeight="60.0" prefWidth="157.0" style="-fx-background-color: #636257;" text="Edit Employee" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutY="186.0" onAction="#btnEmployeeEditOnAction" prefHeight="60.0" prefWidth="157.0" style="-fx-background-color: #636257;" text="Edit Employee" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -47,7 +48,7 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="22.0" layoutY="454.0" onAction="#btnExit" prefHeight="43.0" prefWidth="111.0" style="-fx-background-color: #F2E8DC;" text="Exit">
+                  <JFXButton buttonType="RAISED" layoutX="22.0" layoutY="442.0" onAction="#btnExit" prefHeight="43.0" prefWidth="111.0" style="-fx-background-color: #F2E8DC;" text="Exit">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -59,7 +60,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="-1.0" layoutY="396.0" onAction="#btnEmployeeToDashOnAction" prefHeight="44.0" prefWidth="157.0" style="-fx-background-color: #F2E8DC;" text="Dashboard">
+                  <JFXButton buttonType="RAISED" layoutX="-1.0" layoutY="384.0" onAction="#btnEmployeeToDashOnAction" prefHeight="44.0" prefWidth="157.0" style="-fx-background-color: #F2E8DC;" text="Dashboard">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -74,7 +75,7 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="-1.0" layoutY="232.0" onAction="#btnEmployeeSalaryOnAction" prefHeight="60.0" prefWidth="157.0" style="-fx-background-color: #636257;" text="Salary" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="-1.0" layoutY="249.0" onAction="#btnEmployeeSalaryOnAction" prefHeight="60.0" prefWidth="157.0" style="-fx-background-color: #636257;" text="Salary" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -89,7 +90,7 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="-1.0" layoutY="43.0" onAction="#btnEmployeeAddOnAction" prefHeight="60.0" prefWidth="157.0" style="-fx-background-color: #636257;" text="Add Employee" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="-1.0" layoutY="60.0" onAction="#btnEmployeeAddOnAction" prefHeight="60.0" prefWidth="157.0" style="-fx-background-color: #636257;" text="Add Employee" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -104,6 +105,11 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
+                  <ImageView fitHeight="48.0" fitWidth="61.0" layoutX="55.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/icons/Oxford%20Educational%20Institute%20(1).png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
          </children>
@@ -112,8 +118,19 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <StackPane layoutX="114.0" layoutY="144.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <StackPane fx:id="employeeContainer" layoutX="114.0" layoutY="144.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #F2E8DC;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>
    </center>
+   <top>
+      <Pane fx:id="datePane" prefHeight="20.0" prefWidth="781.0" style="-fx-background-color: #F2E2CE;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lblDate" layoutX="377.0" layoutY="2.0">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
 </BorderPane>

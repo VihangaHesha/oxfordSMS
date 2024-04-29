@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,7 +18,7 @@
          <children>
             <Pane prefHeight="514.0" prefWidth="157.0" style="-fx-background-color: #287306; -fx-background-radius: 10;">
                <children>
-                  <JFXButton buttonType="RAISED" layoutY="144.0" onAction="#btnEquipmentDeleteOnAction" prefHeight="60.0" prefWidth="157.0" style="-fx-background-color: #143330;" text="Delete Equipment" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutY="168.0" onAction="#btnEquipmentDeleteOnAction" prefHeight="60.0" prefWidth="157.0" style="-fx-background-color: #143330;" text="Delete Equipment" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -32,7 +33,7 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutY="226.0" onAction="#btnEquipmentEditOnAction" prefHeight="60.0" prefWidth="157.0" style="-fx-background-color: #143330;" text="Edit Equipment" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutY="241.0" onAction="#btnEquipmentEditOnAction" prefHeight="60.0" prefWidth="157.0" style="-fx-background-color: #143330;" text="Edit Equipment" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -47,7 +48,7 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="23.0" layoutY="454.0" onAction="#btnExit" prefHeight="43.0" prefWidth="111.0" style="-fx-background-color: #AFDBCF;" text="Exit">
+                  <JFXButton buttonType="RAISED" layoutX="23.0" layoutY="442.0" onAction="#btnExit" prefHeight="43.0" prefWidth="111.0" style="-fx-background-color: #AFDBCF;" text="Exit">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -74,7 +75,7 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutY="62.0" onAction="#btnEquipmentAddOnAction" prefHeight="60.0" prefWidth="157.0" style="-fx-background-color: #143330;" text="Add Equipment" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutY="96.0" onAction="#btnEquipmentAddOnAction" prefHeight="60.0" prefWidth="157.0" style="-fx-background-color: #143330;" text="Add Equipment" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -89,6 +90,11 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
+                  <ImageView fitHeight="67.0" fitWidth="65.0" layoutX="46.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/icons/Oxford%20Educational%20Institute%20(1).png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
          </children>
@@ -97,8 +103,19 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <StackPane layoutX="122.0" layoutY="159.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <StackPane fx:id="equipmentContainer" layoutX="122.0" layoutY="159.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>
    </center>
+   <top>
+      <Pane fx:id="datePane" prefHeight="20.0" prefWidth="781.0" style="-fx-background-color: #C2D918;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lblDate" layoutX="377.0" layoutY="2.0">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
 </BorderPane>

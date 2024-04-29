@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="stDeletePane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #85C4F5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.student_forms.DeleteStudentFormController">
+   <children>
+      <TableView fx:id="tblStudent" layoutX="14.0" layoutY="224.0" prefHeight="253.0" prefWidth="596.0">
+         <columns>
+            <TableColumn prefWidth="50.0" text="ID" />
+            <TableColumn prefWidth="56.0" text="User" />
+            <TableColumn prefWidth="143.0" text="Name" />
+            <TableColumn prefWidth="104.0" text="Contact" />
+            <TableColumn prefWidth="177.0" text="Address" />
+            <TableColumn prefWidth="65.0" text="Grade" />
+         </columns>
+      </TableView>
+      <Label alignment="CENTER" layoutX="224.0" layoutY="14.0" prefHeight="34.0" prefWidth="177.0" text="Delete A Student">
+         <font>
+            <Font name="Bookman Old Style Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="184.0" layoutY="135.0" text="Name :">
+         <font>
+            <Font name="Bookman Old Style" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="218.0" layoutY="87.0" text="ID :">
+         <font>
+            <Font name="Bookman Old Style" size="13.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="266.0" layoutY="176.0" onAction="#btnStudentDeleteOnAction" prefHeight="34.0" prefWidth="132.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" text="Delete Data">
+         <font>
+            <Font name="Bookman Old Style Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/icons/icons8-delete-48.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <TextField fx:id="txtStudentName" layoutX="233.0" layoutY="131.0" prefHeight="25.0" prefWidth="210.0" style="-fx-background-color: #737373; -fx-text-fill: black;" />
+      <TextField fx:id="txtStudentId" layoutX="257.0" layoutY="83.0" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #737373; -fx-text-fill: black;" />
+      <Separator layoutX="212.0" layoutY="43.0" prefHeight="7.0" prefWidth="200.0" style="-fx-background-color: black;" />
+      <ImageView fitHeight="70.0" fitWidth="71.0" layoutX="540.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/icons/Oxford%20Educational%20Institute%20(1).png" />
+         </image>
+      </ImageView>
+   </children>
+   <stylesheets>
+      <URL value="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" />
+      <URL value="@../../../java/lk/ijse/oxford/StyleSheet2.css" />
+   </stylesheets>
+</Pane>

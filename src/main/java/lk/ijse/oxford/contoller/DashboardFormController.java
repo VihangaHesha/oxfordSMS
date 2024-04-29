@@ -16,10 +16,14 @@ import lk.ijse.oxford.model.tm.StudentTm;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class DashboardFormController {
     @FXML
     private Label lblDate;
+    @FXML
+    private Label lblTime;
     @FXML
     private TableColumn<?,?> colSubjectNo;
     @FXML
@@ -51,8 +55,16 @@ public class DashboardFormController {
     }
 
     private void setDate() {
-        LocalDate now = LocalDate.now();
-        lblDate.setText(String.valueOf(now));
+        LocalTime time = LocalTime.now();
+        LocalDate date = LocalDate.now();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
+        DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("EEEE(dd)-MMM-yyyy");
+        String formattedTime = time.format(formatter);
+        String formattedDate = date.format(formatter1);
+
+        lblDate.setText(formattedDate);
+        lblTime.setText(formattedTime);
     }
 
     public void btnEmployeeOnAction(ActionEvent actionEvent) throws IOException {

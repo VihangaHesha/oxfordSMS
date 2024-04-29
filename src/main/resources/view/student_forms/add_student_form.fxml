@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="stAddPane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #85C4F5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.student_forms.AddStudentFormContoller">
+   <children>
+      <TableView fx:id="tblStudent" layoutX="14.0" layoutY="224.0" prefHeight="253.0" prefWidth="596.0">
+         <columns>
+            <TableColumn prefWidth="50.0" text="ID" />
+            <TableColumn prefWidth="56.0" text="User" />
+            <TableColumn prefWidth="143.0" text="Name" />
+            <TableColumn prefWidth="104.0" text="Contact" />
+            <TableColumn prefWidth="177.0" text="Address" />
+            <TableColumn prefWidth="65.0" text="Grade" />
+         </columns>
+      </TableView>
+      <Label alignment="CENTER" layoutX="224.0" layoutY="14.0" prefHeight="34.0" prefWidth="177.0" text="Add A Student">
+         <font>
+            <Font name="Bookman Old Style Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="7.0" layoutY="107.0" text="Contact Number :">
+         <font>
+            <Font name="Bookman Old Style" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="68.0" text="Name :">
+         <font>
+            <Font name="Bookman Old Style" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="145.0" text="Address :">
+         <font>
+            <Font name="Bookman Old Style" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="312.0" layoutY="145.0" text="Type :">
+         <font>
+            <Font name="Bookman Old Style" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="313.0" layoutY="68.0" text="ID :">
+         <font>
+            <Font name="Bookman Old Style" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="312.0" layoutY="107.0" text="User :">
+         <font>
+            <Font name="Bookman Old Style" size="13.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="389.0" layoutY="181.0" onAction="#btnStudentAddOnAction" prefHeight="34.0" prefWidth="132.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" text="Add New Data">
+         <font>
+            <Font name="Bookman Old Style Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/icons/icons8-add-50%20(1).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <TextField fx:id="txtStudentName" layoutX="69.0" layoutY="64.0" prefHeight="25.0" prefWidth="210.0" style="-fx-background-color: #737373; -fx-text-fill: black;" />
+      <TextField fx:id="txtContactNumber" layoutX="125.0" layoutY="103.0" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: #737373; -fx-text-fill: black;" />
+      <TextField fx:id="txtGrade" layoutX="354.0" layoutY="141.0" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #737373; -fx-text-fill: black;" />
+      <TextField fx:id="txtStudentId" layoutX="352.0" layoutY="64.0" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #737373; -fx-text-fill: black;" />
+      <TextField fx:id="txtUserId" layoutX="353.0" layoutY="103.0" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #737373; -fx-text-fill: black;" />
+      <TextArea fx:id="txtAddress" layoutX="80.0" layoutY="143.0" prefHeight="49.0" prefWidth="200.0" style="-fx-background-color: #737373;" />
+      <Separator layoutX="212.0" layoutY="43.0" prefHeight="7.0" prefWidth="200.0" style="-fx-background-color: black;" />
+      <ImageView fitHeight="70.0" fitWidth="71.0" layoutX="540.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/icons/Oxford%20Educational%20Institute%20(1).png" />
+         </image>
+      </ImageView>
+   </children>
+   <stylesheets>
+      <URL value="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" />
+      <URL value="@../../../java/lk/ijse/oxford/StyleSheet2.css" />
+   </stylesheets>
+</Pane>

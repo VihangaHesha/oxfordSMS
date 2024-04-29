@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -62,7 +63,7 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="13.0" layoutY="454.0" onAction="#btnExit" prefHeight="43.0" prefWidth="111.0" text="Exit">
+                  <JFXButton buttonType="RAISED" layoutX="13.0" layoutY="438.0" onAction="#btnExit" prefHeight="43.0" prefWidth="111.0" text="Exit">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -89,7 +90,7 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutY="379.0" onAction="#btnStudentToDashOnAction" prefHeight="44.0" prefWidth="137.0" text="Dashboard">
+                  <JFXButton buttonType="RAISED" layoutY="363.0" onAction="#btnStudentToDashOnAction" prefHeight="44.0" prefWidth="137.0" text="Dashboard">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -130,8 +131,19 @@
             <Cursor fx:constant="HAND" />
          </cursor>
          <children>
-            <StackPane layoutX="102.0" layoutY="116.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <StackPane fx:id="container" layoutX="102.0" layoutY="116.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>
    </center>
+   <top>
+      <Pane fx:id="datePane" prefHeight="20.0" prefWidth="781.0" style="-fx-background-color: #9DBFE0;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="lblDate" layoutX="377.0" layoutY="2.0">
+               <font>
+                  <Font name="Bookman Old Style Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </top>
 </BorderPane>

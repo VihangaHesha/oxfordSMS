@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
@@ -13,46 +14,46 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="paneDash" prefHeight="511.0" prefWidth="781.0" stylesheets="@../../java/lk/ijse/oxford/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.DashboardFormController">
+<AnchorPane fx:id="paneDash" prefHeight="511.0" prefWidth="769.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.DashboardFormController">
    <children>
-      <ImageView fitHeight="680.0" fitWidth="1280.0" pickOnBounds="true">
+      <ImageView fitHeight="511.0" fitWidth="781.0" pickOnBounds="true">
          <image>
             <Image url="@../assets/images/bigstock-Close-Up-Of-Caucasian-Little-G-378110947-1080x675.jpg" />
          </image>
       </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="321.0" layoutY="210.0" onAction="#btnEmployeeOnAction" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #F2CB05;" text="Employee">
+      <JFXButton buttonType="RAISED" layoutX="315.0" layoutY="202.0" onAction="#btnEmployeeOnAction" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #A67A44; -fx-text-fill: white; -fx-border-color: gray;" text="Employee">
          <font>
             <Font name="Bookman Old Style Bold" size="18.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="60.0" layoutY="210.0" onAction="#btnStudentOnAction" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #F2CB05;" text="Student">
+      <JFXButton buttonType="RAISED" layoutX="25.0" layoutY="202.0" onAction="#btnStudentOnAction" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #3C6AA6; -fx-text-fill: white; -fx-border-color: gray;" text="Student">
          <font>
             <Font name="Bookman Old Style Bold" size="18.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="772.0" layoutY="293.0" onAction="#btnEquipmentOnAction" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #F2CB05;" text="Equipment">
+      <JFXButton buttonType="RAISED" layoutX="603.0" layoutY="202.0" onAction="#btnEquipmentOnAction" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #698C1C; -fx-text-fill: #0D0D0D; -fx-border-color: gray;" text="Equipment">
          <font>
             <Font name="Bookman Old Style Bold" size="18.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></JFXButton>
-      <JFXButton fx:id="btnUser" buttonType="RAISED" layoutX="1175.0" layoutY="21.0" onAction="#btnUserOnAction" prefHeight="74.0" prefWidth="63.0" text=" ">
+      <JFXButton fx:id="btnUser" buttonType="RAISED" layoutX="691.0" layoutY="23.0" onAction="#btnUserOnAction" prefHeight="52.0" prefWidth="30.0" text=" ">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <graphic>
-            <ImageView fitHeight="60.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="46.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/icons/icons8-name-48.png" />
                </image>
             </ImageView>
          </graphic></JFXButton>
-      <TableView fx:id="tblSchedule" layoutX="204.0" layoutY="412.0" prefHeight="227.0" prefWidth="718.0">
+      <TableView fx:id="tblSchedule" layoutX="113.0" layoutY="281.0" prefHeight="146.0" prefWidth="560.0">
         <columns>
           <TableColumn fx:id="colSubjectNo" prefWidth="81.0" text="No" />
           <TableColumn fx:id="colSubject" prefWidth="148.0" text="Subject" />
@@ -64,11 +65,11 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Label fx:id="lblDate" layoutX="390.0" layoutY="482.0" prefHeight="18.0" prefWidth="4.0" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="lblTime" alignment="CENTER" layoutX="290.0" layoutY="479.0" prefHeight="28.0" prefWidth="206.0" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font name="Bookman Old Style" size="15.0" />
+            <Font name="Bookman Old Style Bold" size="14.0" />
          </font></Label>
-      <JFXButton buttonType="RAISED" layoutX="1191.0" layoutY="618.0" onAction="#btnBackwardOnAction" prefHeight="36.0" prefWidth="28.0" text=" ">
+      <JFXButton buttonType="RAISED" layoutX="716.0" layoutY="461.0" onAction="#btnBackwardOnAction" prefHeight="36.0" prefWidth="28.0" text=" ">
          <graphic>
             <ImageView fitHeight="48.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -79,7 +80,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></JFXButton>
-      <BarChart fx:id="bcStudentChart" layoutX="102.0" layoutY="21.0" prefHeight="185.0" prefWidth="579.0">
+      <BarChart fx:id="bcStudentChart" layoutX="94.0" layoutY="14.0" prefHeight="160.0" prefWidth="579.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -90,5 +91,19 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </BarChart>
+      <Label fx:id="lblDate" alignment="CENTER" layoutX="290.0" layoutY="443.0" prefHeight="25.0" prefWidth="206.0" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Bookman Old Style Bold" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="79.0" fitWidth="80.0" layoutX="15.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons/Oxford%20Educational%20Institute%20(1).png" />
+         </image>
+      </ImageView>
    </children>
+   <stylesheets>
+      <URL value="@../../java/lk/ijse/oxford/NormalStyleSheet.css" />
+      <URL value="@../../java/lk/ijse/oxford/StyleSheet2.css" />
+   </stylesheets>
 </AnchorPane>
