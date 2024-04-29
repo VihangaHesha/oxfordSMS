@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="editEmpPane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #85C4F5;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.student_forms.StudentFeesController">
+   <children>
+      <ImageView fitHeight="70.0" fitWidth="71.0" layoutX="540.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/icons/Oxford%20Educational%20Institute%20(1).png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="202.0" layoutY="18.0" prefHeight="34.0" prefWidth="221.0" text="Class Fees">
+         <font>
+            <Font name="Bookman Old Style Bold" size="19.0" />
+         </font>
+      </Label>
+      <Separator layoutX="195.0" layoutY="46.0" prefHeight="6.0" prefWidth="234.0" style="-fx-background-color: black;" />
+      <Label layoutX="224.0" layoutY="80.0" text="ID :">
+         <font>
+            <Font name="Bookman Old Style" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtStId" layoutX="253.0" layoutY="76.0" prefHeight="25.0" prefWidth="149.0" promptText="Insert Student ID" style="-fx-background-color: #737373; -fx-text-fill: black;">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </TextField>
+      <TableView fx:id="tblStudent" layoutX="15.0" layoutY="227.0" prefHeight="253.0" prefWidth="596.0">
+         <columns>
+            <TableColumn prefWidth="50.0" text="ID" />
+            <TableColumn prefWidth="56.0" text="User" />
+            <TableColumn prefWidth="143.0" text="Name" />
+            <TableColumn prefWidth="104.0" text="Contact" />
+            <TableColumn prefWidth="177.0" text="Address" />
+            <TableColumn prefWidth="65.0" text="Grade" />
+         </columns>
+      </TableView>
+      <Label layoutX="341.0" layoutY="133.0" text="Date :">
+         <font>
+            <Font name="Bookman Old Style Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="62.0" layoutY="127.0" text="Name :">
+         <font>
+            <Font name="Bookman Old Style Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="176.0" text="Amount :">
+         <font>
+            <Font name="Bookman Old Style Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblStudentName" layoutX="117.0" layoutY="127.0" prefHeight="15.0" prefWidth="79.0">
+         <font>
+            <Font name="Bookman Old Style Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblAttendDate" layoutX="404.0" layoutY="133.0" prefHeight="15.0" prefWidth="98.0">
+         <font>
+            <Font name="Bookman Old Style Bold" size="15.0" />
+         </font>
+      </Label>
+      <Line endX="86.0" layoutX="186.0" layoutY="144.0" startX="-69.3359375" />
+      <Line endX="63.0" layoutX="463.0" layoutY="150.0" startX="-69.3359375" />
+      <JFXButton buttonType="RAISED" layoutX="393.0" layoutY="176.0" onAction="#btnPayFeesOnAction" prefHeight="34.0" prefWidth="149.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" text="Pay">
+         <font>
+            <Font name="Bookman Old Style Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/icons/icons8-bank-cards-60.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <TextField fx:id="txtFeesAmount" layoutX="128.0" layoutY="171.0" prefHeight="25.0" prefWidth="149.0" promptText="Inssert Fee Amount" style="-fx-background-color: #737373; -fx-text-fill: black;">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </TextField>
+   </children>
+</Pane>

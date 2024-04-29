@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="salaryEmpPane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #E1D2B9;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.employee_forms.EmployeeSalaryFormController">
+   <children>
+      <ImageView fitHeight="70.0" fitWidth="71.0" layoutX="540.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/icons/Oxford%20Educational%20Institute%20(1).png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="220.0" layoutY="14.0" prefHeight="34.0" prefWidth="185.0" text="Employee Salary">
+         <font>
+            <Font name="Bookman Old Style Bold" size="19.0" />
+         </font>
+      </Label>
+      <Separator layoutX="195.0" layoutY="46.0" prefHeight="6.0" prefWidth="234.0" style="-fx-background-color: black;" />
+      <Label layoutX="312.0" layoutY="128.0" text="Salary Date :">
+         <font>
+            <Font name="Bookman Old Style Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="122.0" text="Name :">
+         <font>
+            <Font name="Bookman Old Style Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="165.0" text="Amount :">
+         <font>
+            <Font name="Bookman Old Style Bold" size="13.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblSalary" layoutX="14.0" layoutY="224.0" prefHeight="253.0" prefWidth="596.0">
+         <columns>
+            <TableColumn prefWidth="88.0" text="ID" />
+            <TableColumn prefWidth="109.0" text="Emp ID" />
+            <TableColumn prefWidth="257.0" text="Amount" />
+            <TableColumn prefWidth="141.0" text="Date" />
+         </columns>
+      </TableView>
+      <Label layoutX="213.0" layoutY="76.0" text="ID :">
+         <font>
+            <Font name="Bookman Old Style" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtEmpId" layoutX="242.0" layoutY="72.0" prefHeight="25.0" prefWidth="149.0" promptText="Inser Employee ID" style="-fx-background-color: #737373; -fx-text-fill: black;">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </TextField>
+      <Label fx:id="txtEmpName" layoutX="88.0" layoutY="122.0" prefHeight="15.0" prefWidth="79.0">
+         <font>
+            <Font name="Bookman Old Style Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtSalaryamount" layoutX="94.0" layoutY="165.0" prefHeight="15.0" prefWidth="79.0">
+         <font>
+            <Font name="Bookman Old Style Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtSalaryDate" layoutX="409.0" layoutY="128.0" prefHeight="15.0" prefWidth="98.0">
+         <font>
+            <Font name="Bookman Old Style Bold" size="15.0" />
+         </font>
+      </Label>
+      <Line endX="50.0" layoutX="157.0" layoutY="182.0" startX="-69.3359375" />
+      <Line endX="86.0" layoutX="157.0" layoutY="139.0" startX="-69.3359375" />
+      <Line endX="63.0" layoutX="468.0" layoutY="145.0" startX="-69.3359375" />
+      <JFXButton buttonType="RAISED" layoutX="383.0" layoutY="166.0" onAction="#btnEmpSalarySearchOnAction" prefHeight="34.0" prefWidth="149.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" text="Search">
+         <font>
+            <Font name="Bookman Old Style Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/icons/icons8-search-50.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+   </children>
+</Pane>
