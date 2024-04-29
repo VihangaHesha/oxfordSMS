@@ -15,16 +15,6 @@
 
 <Pane fx:id="empAddPane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #E1D2B9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.employee_forms.AddEmployeeFormContoller">
    <children>
-      <TableView fx:id="tblEmployee" layoutX="14.0" layoutY="224.0" prefHeight="253.0" prefWidth="596.0">
-        <columns>
-          <TableColumn prefWidth="50.0" text="ID" />
-          <TableColumn prefWidth="56.0" text="User" />
-            <TableColumn prefWidth="143.0" text="Name" />
-            <TableColumn prefWidth="104.0" text="Contact" />
-            <TableColumn prefWidth="177.0" text="Address" />
-            <TableColumn prefWidth="65.0" text="Type" />
-        </columns>
-      </TableView>
       <Label layoutX="224.0" layoutY="14.0" prefHeight="34.0" prefWidth="177.0" text="Add An Employee">
          <font>
             <Font name="Bookman Old Style Bold" size="19.0" />
@@ -76,6 +66,16 @@
             <Image url="@../../assets/icons/Oxford%20Educational%20Institute%20(1).png" />
          </image>
       </ImageView>
+      <TableView fx:id="tblEmployee" layoutX="14.0" layoutY="224.0" prefHeight="253.0" prefWidth="596.0">
+         <columns>
+            <TableColumn fx:id="colEmpId" prefWidth="50.0" text="ID" />
+            <TableColumn fx:id="colUserId" prefWidth="56.0" text="User" />
+            <TableColumn fx:id="colEmpName" prefWidth="143.0" text="Name" />
+            <TableColumn fx:id="colContact" prefWidth="104.0" text="Contact" />
+            <TableColumn fx:id="colEmpAddress" prefWidth="177.0" text="Address" />
+            <TableColumn fx:id="colEmpType" prefWidth="65.0" text="Type" />
+         </columns>
+      </TableView>
    </children>
    <stylesheets>
       <URL value="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" />

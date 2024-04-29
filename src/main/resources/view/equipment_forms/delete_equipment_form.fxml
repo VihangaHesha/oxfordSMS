@@ -1,14 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<Pane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.oxford.contoller.equipment_forms.DeleteEquipmentFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<Pane fx:id="deleteEquipmentPane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #9BBF65;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.equipment_forms.DeleteEquipmentFormController">
+   <children>
+      <TableView fx:id="tblEquipment" layoutX="14.0" layoutY="224.0" prefHeight="253.0" prefWidth="596.0">
+         <columns>
+            <TableColumn fx:id="colEquipmentId" prefWidth="72.0" text="ID" />
+            <TableColumn fx:id="colEmpId" prefWidth="79.0" text="Emp ID" />
+            <TableColumn fx:id="colEquipmentDesc" prefWidth="361.0" text="Description" />
+            <TableColumn fx:id="colEquipmentQty" prefWidth="83.0" text="Qty" />
+         </columns>
+      </TableView>
+      <Label alignment="CENTER" layoutX="197.0" layoutY="11.0" prefHeight="35.0" prefWidth="230.0" text="Delete An Equipment">
+         <font>
+            <Font name="Bookman Old Style Bold" size="19.0" />
+         </font>
+      </Label>
+      <Separator layoutX="179.0" layoutY="43.0" prefHeight="7.0" prefWidth="266.0" style="-fx-background-color: black;" />
+      <Label layoutX="162.0" layoutY="132.0" text="Description :">
+         <font>
+            <Font name="Bookman Old Style" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="218.0" layoutY="85.0" text="ID :">
+         <font>
+            <Font name="Bookman Old Style" size="13.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="266.0" layoutY="171.0" onAction="#btnEquipmentDeleteOnAction" prefHeight="34.0" prefWidth="132.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" text="Delete Data">
+         <font>
+            <Font name="Bookman Old Style Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/icons/icons8-delete-48.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <TextField fx:id="txtEquipDesc" layoutX="252.0" layoutY="128.0" prefHeight="25.0" prefWidth="210.0" promptText="Insert Description" style="-fx-background-color: #737373; -fx-text-fill: black;">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="txtEquipId" layoutX="257.0" layoutY="81.0" prefHeight="25.0" prefWidth="149.0" promptText="Insert ID" style="-fx-background-color: #737373; -fx-text-fill: black;">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextField>
+      <ImageView fitHeight="70.0" fitWidth="71.0" layoutX="540.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/icons/Oxford%20Educational%20Institute%20(1).png" />
+         </image>
+      </ImageView>
+   </children>
 </Pane>

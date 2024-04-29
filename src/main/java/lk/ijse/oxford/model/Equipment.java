@@ -5,8 +5,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Equipment {
+public class Equipment  {
     private String equipId;
     private String description;
-    private String qty;
+    private int qty;
 }

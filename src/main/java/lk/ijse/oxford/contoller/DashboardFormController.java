@@ -1,5 +1,7 @@
 package lk.ijse.oxford.contoller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,12 +14,17 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.oxford.model.tm.StudentTm;
+import lk.ijse.oxford.model.TimeTable;
+import lk.ijse.oxford.model.tm.TimeTableTm;
+import lk.ijse.oxford.repository.TimeTableRepo;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DashboardFormController {
     @FXML
@@ -29,29 +36,55 @@ public class DashboardFormController {
     @FXML
     private TableColumn<?,?> colSubject;
     @FXML
-    private TableColumn<?,?> colTimeFrom;
-    @FXML
-    private TableColumn<?,?> colTimeTo;
-    @FXML
-    private TableColumn<?,?> colHallId;
+    private TableColumn<?,?> colTimePeriod;
+
     @FXML
     private BarChart bcStudentChart;
     @FXML
-    private TableView<StudentTm>tblSchedule;
+    private TableView<TimeTableTm> tblSchedule;
     @FXML
     public AnchorPane rootNode;
+    private List<TimeTable> timeTableList = new ArrayList<>();
 
     public void initialize(){
+        this.timeTableList = getTimeTable();
         setDate();
         setCellFactory();
+        loadTimeTable();
+
+    }
+
+    private void loadTimeTable() {
+        ObservableList<TimeTableTm> tmList = FXCollections.observableArrayList();
+
+        for (TimeTable tb : timeTableList) {
+            TimeTableTm tableTm = new TimeTableTm(
+                    tb.getTimeId(),
+                    tb.getTimePeriod(),
+                    tb.getSubject()
+            );
+
+            tmList.add(tableTm);
+        }
+        tblSchedule.setItems(tmList);
+        TimeTableTm selectedItem = tblSchedule.getSelectionModel().getSelectedItem();
+    }
+
+    private List<TimeTable> getTimeTable() {
+        List<TimeTable> timeTableList = null;
+        try {
+            timeTableList = TimeTableRepo.getAll();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return timeTableList;
     }
 
     private void setCellFactory() {
-        colSubjectNo.setCellValueFactory(new PropertyValueFactory<>("No"));
-        colSubject.setCellValueFactory(new PropertyValueFactory<>("Subject"));
-        colTimeFrom.setCellValueFactory(new PropertyValueFactory<>("From"));
-        colTimeTo.setCellValueFactory(new PropertyValueFactory<>("To"));
-        colHallId.setCellValueFactory(new PropertyValueFactory<>("Hall Id"));
+        colSubjectNo.setCellValueFactory(new PropertyValueFactory<>("timeId"));
+        colTimePeriod.setCellValueFactory(new PropertyValueFactory<>("timePeriod"));
+        colSubject.setCellValueFactory(new PropertyValueFactory<>("subject"));
+
     }
 
     private void setDate() {

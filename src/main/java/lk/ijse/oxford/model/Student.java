@@ -6,8 +6,9 @@ import lombok.*;
 @Data
 public class Student {
     private String stId;
-    private String name;
     private String grade;
+    private String name;
     private String contact;
     private String address;
+    private String userId;
 }

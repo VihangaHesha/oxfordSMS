@@ -1,14 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.oxford.contoller.UserFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="userNode" prefHeight="511.0" prefWidth="781.0" stylesheets="@../../java/lk/ijse/oxford/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.UserFormController">
+   <children>
+      <ImageView fitHeight="536.0" fitWidth="803.0" layoutX="-7.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/images/alexander-grey-eMP4sYPJ9x0-unsplash.jpg" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="310.0" layoutY="24.0" prefHeight="45.0" prefWidth="176.0" text="Hello User !">
+         <font>
+            <Font name="Bookman Old Style Bold" size="22.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons/icons8-waving-hand-40.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Label>
+      <Label layoutX="43.0" layoutY="117.0" prefHeight="30.0" prefWidth="78.0" text="Name :">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="43.0" layoutY="173.0" prefHeight="30.0" prefWidth="99.0" text="Address :">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="43.0" layoutY="227.0" prefHeight="22.0" prefWidth="123.0" text="Description :">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblUserDesc" alignment="TOP_LEFT" layoutX="166.0" layoutY="234.0" prefHeight="70.0" prefWidth="262.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblUserName" layoutX="126.0" layoutY="113.0" prefHeight="30.0" prefWidth="262.0">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblUserAddress" layoutX="142.0" layoutY="173.0" prefHeight="30.0" prefWidth="314.0" />
+   </children>
 </AnchorPane>
