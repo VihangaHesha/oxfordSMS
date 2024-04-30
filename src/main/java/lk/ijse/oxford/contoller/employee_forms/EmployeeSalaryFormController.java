@@ -84,8 +84,10 @@ public class EmployeeSalaryFormController {
         String empId = txtEmpId.getText();
         try {
             Salary salary = SalaryRepo.searchByCode(empId);
+            System.out.println(salary.toString());
             if (salary != null) {
                 Employee emp = EmployeRepo.searchByCode(empId);
+                System.out.println(emp.toString());
                 if (emp != null) {
                     lblEmpName.setText(emp.getName());
                     lblSalaryAmount.setText(String.valueOf(salary.getAmount()));

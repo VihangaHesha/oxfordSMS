@@ -24,7 +24,7 @@ public class AddEquipmentFormController {
     @FXML
     private TextField txtEquipId;
     @FXML
-    private TextField txtEquipDesc;
+    private TextField txtEquiptDesc;
     @FXML
     private TextField txtEquipQty;
     @FXML
@@ -77,10 +77,11 @@ public class AddEquipmentFormController {
     }
     public void btnEquipmentAddOnAction(ActionEvent actionEvent) {
         String eId = txtEquipId.getText();
-        String desc = txtEquipDesc.getText();
+        String desc = txtEquiptDesc.getText();
         int qty = Integer.parseInt(txtEquipQty.getText());
 
         Equipment equipment = new Equipment(eId,desc,qty);
+        System.out.println(equipment.toString());
 
         try {
             boolean isSaved = EquipmentRepo.save(equipment);

@@ -94,7 +94,8 @@ public class AddStudentFormContoller {
         String grade = txtGrade.getText();
         String userId = txtUserId.getText();
 
-        Student student = new Student(id, name,grade , tel,address,userId);
+        Student student = new Student(id, grade,name , tel,address,userId);
+        System.out.println(student.toString());
 
         try {
             boolean isSaved = StudentRepo.save(student);

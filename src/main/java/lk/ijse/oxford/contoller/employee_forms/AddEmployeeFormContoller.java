@@ -4,10 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.oxford.model.Employee;
 import lk.ijse.oxford.model.Student;
@@ -25,7 +22,7 @@ public class AddEmployeeFormContoller {
     @FXML
     private TextField txtContactNumber;
     @FXML
-    private TextField txtAddresses;
+    private TextArea txtAddress;
     @FXML
     private TextField txtEmpId;
     @FXML
@@ -94,12 +91,13 @@ public class AddEmployeeFormContoller {
     public void btnEmpAddOnAction(ActionEvent actionEvent) {
         String id = txtEmpId.getText();
         String name = txtEmployeeName.getText();
-        String address = txtAddresses.getText();
+        String address = txtAddress.getText();
         String tel = txtContactNumber.getText();
         String type = txtEmpType.getText();
         String userId = txtUserId.getText();
 
-        Employee employee = new Employee(id, name,type , tel,address,userId);
+        Employee employee = new Employee(id, name, tel,address,type,userId);
+        System.out.println(employee.toString());
 
         try {
             boolean isSaved = EmployeRepo.save(employee);

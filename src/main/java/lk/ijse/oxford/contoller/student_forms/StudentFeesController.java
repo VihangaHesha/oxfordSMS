@@ -98,7 +98,10 @@ public class StudentFeesController {
         String subject = txtSubject.getText();
         double amount = Double.parseDouble(txtFeesAmount.getText());
 
-        Payment payment = new Payment(id, amount,date, subject, payId);
+        Payment payment = new Payment(payId, amount,date, id, subject);
+
+
+        System.out.println(payment.toString());
 
         try {
             boolean isSaved = PaymentRepo.save(payment);
