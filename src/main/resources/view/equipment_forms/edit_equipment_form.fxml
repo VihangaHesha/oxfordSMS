@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #9BBF65;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.equipment_forms.EditEquipmentFormController">
+   <children>
+      <TableView fx:id="tblEquipment" layoutX="15.0" layoutY="226.0" prefHeight="253.0" prefWidth="596.0">
+         <columns>
+            <TableColumn fx:id="colEquipmentId" prefWidth="72.0" text="ID" />
+            <TableColumn fx:id="colEmpId" prefWidth="79.0" text="Emp ID" />
+            <TableColumn fx:id="colEquipmentDesc" prefWidth="361.0" text="Description" />
+            <TableColumn fx:id="colEquipmentQty" prefWidth="83.0" text="Qty" />
+         </columns>
+      </TableView>
+      <ImageView fitHeight="70.0" fitWidth="71.0" layoutX="540.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/icons/Oxford%20Educational%20Institute%20(1).png" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="435.0" layoutY="187.0" onAction="#btnEquipmentEditOnAction" prefHeight="34.0" prefWidth="149.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" text="Change the Data">
+         <font>
+            <Font name="Bookman Old Style Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/icons/icons8-edit-50%20(1).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Label alignment="CENTER" layoutX="199.0" layoutY="14.0" prefHeight="34.0" prefWidth="247.0" text="Edit A Equipment Detail">
+         <font>
+            <Font name="Bookman Old Style Bold" size="19.0" />
+         </font>
+      </Label>
+      <Separator layoutX="183.0" layoutY="45.0" prefHeight="6.0" prefWidth="279.0" style="-fx-background-color: black;" />
+      <Label layoutX="27.0" layoutY="166.0" text="Description :">
+         <font>
+            <Font name="Bookman Old Style" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="351.0" layoutY="109.0" text="QTY :">
+         <font>
+            <Font name="Bookman Old Style" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="109.0" text="ID :">
+         <font>
+            <Font name="Bookman Old Style" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtEquipDesc" layoutX="113.0" layoutY="162.0" prefHeight="25.0" prefWidth="210.0" promptText="Insert Name" style="-fx-background-color: #737373; -fx-text-fill: black;">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtEquipQty" layoutX="393.0" layoutY="104.0" prefHeight="25.0" prefWidth="149.0" promptText="Insert Quantity" style="-fx-background-color: #737373; -fx-text-fill: black;">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtEquipId" layoutX="69.0" layoutY="105.0" prefHeight="25.0" prefWidth="149.0" promptText="Insert ID" style="-fx-background-color: #737373; -fx-text-fill: black;">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </TextField>
+   </children>
+</Pane>
