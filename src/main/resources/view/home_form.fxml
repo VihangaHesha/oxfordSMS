@@ -32,7 +32,7 @@
             <TableColumn fx:id="colDate" prefWidth="100.0" text="Date" />
          </columns>
       </TableView>
-      <BarChart fx:id="bcStudentChart" layoutX="50.0" layoutY="64.0" prefHeight="302.0" prefWidth="637.0">
+      <BarChart fx:id="bcStudentChart" layoutX="50.0" layoutY="139.0" prefHeight="227.0" prefWidth="637.0">
          <xAxis>
             <CategoryAxis side="BOTTOM" stylesheets="@../style/NormalStyleSheet.css" fx:id="xDateOfAttend" />
          </xAxis>
