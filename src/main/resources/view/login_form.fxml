@@ -23,12 +23,12 @@
             <Font name="Century Gothic Bold" size="20.0" />
          </font>
       </Label>
-      <JFXButton fx:id="btnLogin" buttonType="RAISED" layoutX="284.0" layoutY="337.0" onAction="#btnLoginOnAction" prefHeight="36.0" prefWidth="131.0" style="-fx-background-color: #323640; -fx-text-fill: #F0F0F2;" text="Sign In">
+      <JFXButton fx:id="btnLogin" buttonType="RAISED" layoutX="245.0" layoutY="333.0" onAction="#btnLoginOnAction" prefHeight="36.0" prefWidth="223.0" style="-fx-background-color: #323640; -fx-text-fill: #F0F0F2;" text="Sign In">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="36.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/icons/icons8-sign-in-30.png" />
                </image>
@@ -48,12 +48,12 @@
             <Font name="Arial Italic" size="15.0" />
          </font>
       </PasswordField>
-      <Label layoutX="238.0" layoutY="297.0" text="Don't have an account ?">
+      <Label layoutX="245.0" layoutY="297.0" text="Don't have an account ?">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Hyperlink layoutX="378.0" layoutY="294.0" onAction="#linkActionOnRegister" style="-fx-text-fill: #F0F0F2;" text="Sign Up here">
+      <Hyperlink layoutX="385.0" layoutY="294.0" onAction="#linkActionOnRegister" style="-fx-text-fill: #F0F0F2;" text="Sign Up here">
          <font>
             <Font size="13.0" />
          </font>
@@ -69,7 +69,7 @@
          </font>
       </Label>
       <Label layoutX="245.0" layoutY="195.0" text="Password :" />
-      <Hyperlink layoutX="293.0" layoutY="261.0" onAction="#linkActionOnForgetPassword" style="-fx-text-fill: #F0F0F2;" text="Forget Password ?">
+      <Hyperlink layoutX="300.0" layoutY="261.0" onAction="#linkActionOnForgetPassword" style="-fx-text-fill: #F0F0F2;" text="Forget Password ?">
          <font>
             <Font size="13.0" />
          </font>

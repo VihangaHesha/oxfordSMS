@@ -2,80 +2,22 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="bdEquipment" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="511.0" prefWidth="781.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.EquipmentFormController">
-   <left>
-      <VBox prefHeight="523.0" prefWidth="157.0" BorderPane.alignment="CENTER">
+<BorderPane fx:id="bdEquipment" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1120.0" styleClass="stackPanes" stylesheets="@../style/PaneStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.EquipmentFormController">
+   <top>
+      <HBox prefHeight="69.0" prefWidth="781.0" styleClass="formPanes" stylesheets="@../style/PaneStyles.css" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="514.0" prefWidth="157.0" style="-fx-background-color: #287306; -fx-background-radius: 10;">
+            <Pane prefHeight="69.0" prefWidth="1121.0" style="-fx-background-color: #ACB4FF;">
                <children>
-                  <JFXButton buttonType="RAISED" layoutY="168.0" onAction="#btnEquipmentDeleteOnAction" prefHeight="60.0" prefWidth="157.0" style="-fx-background-color: #143330;" text="Delete Equipment" textFill="WHITE">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <graphic>
-                        <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/icons/icons8-delete-48%20(2).png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <font>
-                        <Font name="Bookman Old Style Bold" size="12.0" />
-                     </font>
-                  </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutY="241.0" onAction="#btnEquipmentEditOnAction" prefHeight="60.0" prefWidth="157.0" style="-fx-background-color: #143330;" text="Edit Equipment" textFill="WHITE">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <graphic>
-                        <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/icons/icons8-edit-50.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <font>
-                        <Font name="Bookman Old Style Bold" size="12.0" />
-                     </font>
-                  </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="23.0" layoutY="442.0" onAction="#btnExit" prefHeight="43.0" prefWidth="111.0" style="-fx-background-color: #AFDBCF;" text="Exit">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <graphic>
-                        <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/icons/icons8-exit-50.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutY="358.0" onAction="#btnEquipmentToDashOnAction" prefHeight="44.0" prefWidth="157.0" style="-fx-background-color: #AFDBCF;" text="Dashboard">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <graphic>
-                        <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/icons/icons8-home-50.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <font>
-                        <Font name="Bookman Old Style Bold" size="12.0" />
-                     </font>
-                  </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutY="96.0" onAction="#btnEquipmentAddOnAction" prefHeight="60.0" prefWidth="157.0" style="-fx-background-color: #143330;" text="Add Equipment" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="262.0" layoutY="11.0" onAction="#btnEquipmentAddOnAction" prefHeight="46.0" prefWidth="157.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Add Equipment" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -90,7 +32,37 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <ImageView fitHeight="67.0" fitWidth="65.0" layoutX="46.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                  <JFXButton buttonType="RAISED" layoutX="481.0" layoutY="12.0" onAction="#btnEquipmentDeleteOnAction" prefHeight="46.0" prefWidth="157.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Delete Equipment" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/icons/icons8-delete-48%20(2).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="700.0" layoutY="12.0" onAction="#btnEquipmentEditOnAction" prefHeight="46.0" prefWidth="157.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Edit Equipment" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/icons/icons8-edit-50.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Bookman Old Style Bold" size="12.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fitHeight="67.0" fitWidth="77.0" layoutX="1052.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../assets/icons/Oxford%20Educational%20Institute%20(1).png" />
                      </image>
@@ -98,24 +70,13 @@
                </children>
             </Pane>
          </children>
-      </VBox>
-   </left>
+      </HBox>
+   </top>
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <StackPane fx:id="equipmentContainer" layoutX="122.0" layoutY="159.0" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #9BBF65;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <StackPane fx:id="equipmentContainer" prefHeight="531.0" prefWidth="1120.0" />
          </children>
       </AnchorPane>
    </center>
-   <top>
-      <Pane fx:id="datePane" prefHeight="20.0" prefWidth="781.0" style="-fx-background-color: #C2D918;" BorderPane.alignment="CENTER">
-         <children>
-            <Label fx:id="lblDate" layoutX="377.0" layoutY="2.0">
-               <font>
-                  <Font name="Bookman Old Style Bold" size="14.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-   </top>
 </BorderPane>

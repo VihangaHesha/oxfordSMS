@@ -1,0 +1,20 @@
+.table-view{
+    -fx-background-color: #A9C1D6;
+}
+.table-view .column-header-background{
+    -fx-background-color: transparent;
+    -fx-border-width: 2px;
+    -fx-border-color: transparent transparent #063B52 transparent;
+}
+.table-view .column-header{
+    -fx-background-color: transparent;
+}
+.table-view .column-header-background .label{
+    -fx-text-fill: #063B52;
+}
+.table-row-cell{
+    -fx-background-color: transparent;
+}
+.table-row-cell:odd{
+    -fx-background-color: #CEDBE7;
+}

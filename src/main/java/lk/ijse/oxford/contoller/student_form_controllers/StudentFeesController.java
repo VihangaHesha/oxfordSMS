@@ -1,4 +1,4 @@
-package lk.ijse.oxford.contoller.student_forms;
+package lk.ijse.oxford.contoller.student_form_controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -6,29 +6,35 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.oxford.model.Payment;
 import lk.ijse.oxford.model.Student;
 import lk.ijse.oxford.model.tm.StudentTm;
+import lk.ijse.oxford.repository.PaymentRepo;
 import lk.ijse.oxford.repository.StudentRepo;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddStudentFormContoller {
+public class StudentFeesController {
     @FXML
-    private TextField txtStudentName;
+    private TextField txtPayId;
+
     @FXML
-    private TextField txtStudentId;
+    private TextField txtDate;
     @FXML
-    private TextField txtContactNumber;
+    private TextField txtStId;
     @FXML
-    private TextField txtUserId;
+    private TextField txtFeesAmount;
     @FXML
-    private TextField txtGrade;
+    private TextField txtSubject;
     @FXML
-    private TextArea txtAddress;
+    private Label lblStudentName;
     @FXML
-    private TableColumn<?,?>colStId;
+    private Label lblDate;
+    @FXML
+    private TableColumn<?,?> colStId;
     @FXML
     private TableColumn<?,?>colUserId;
     @FXML
@@ -40,7 +46,7 @@ public class AddStudentFormContoller {
     @FXML
     private TableColumn<?,?>colStGrade;
     @FXML
-    private TableView<StudentTm>tblStudent;
+    private TableView<StudentTm> tblStudent;
     private List<Student> studentList = new ArrayList<>();
 
     public void initialize(){
@@ -85,22 +91,22 @@ public class AddStudentFormContoller {
         colStAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
     }
+    public void btnPayFeesOnAction(ActionEvent actionEvent) {
+        String payId = txtPayId.getText();
+        String id = txtStId.getText();
+        Date date = Date.valueOf(txtDate.getText());
+        String subject = txtSubject.getText();
+        double amount = Double.parseDouble(txtFeesAmount.getText());
 
-    public void btnStudentAddOnAction(ActionEvent actionEvent) {
-        String id = txtStudentId.getText();
-        String name = txtStudentName.getText();
-        String address = txtAddress.getText();
-        String tel = txtContactNumber.getText();
-        String grade = txtGrade.getText();
-        String userId = txtUserId.getText();
+        Payment payment = new Payment(payId, amount,date, id, subject);
 
-        Student student = new Student(id, grade,name , tel,address,userId);
-        System.out.println(student.toString());
+
+        System.out.println(payment.toString());
 
         try {
-            boolean isSaved = StudentRepo.save(student);
+            boolean isSaved = PaymentRepo.save(payment);
             if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Student Data Saved!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "Fee Payment Successful!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

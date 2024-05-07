@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="editEmpPane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #85C4F5;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.student_forms.StudentFeesController">
+<Pane fx:id="editEmpPane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #85C4F5;" stylesheets="@../../style/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.student_form_controllers.StudentFeesController">
    <children>
       <ImageView fitHeight="70.0" fitWidth="71.0" layoutX="540.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -39,7 +39,7 @@
             <Font name="Bookman Old Style Bold" size="13.0" />
          </font>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="393.0" layoutY="176.0" onAction="#btnPayFeesOnAction" prefHeight="34.0" prefWidth="149.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" text="Pay">
+      <JFXButton buttonType="RAISED" layoutX="393.0" layoutY="176.0" onAction="#btnPayFeesOnAction" prefHeight="34.0" prefWidth="149.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../style/NormalStyleSheet.css" text="Pay">
          <font>
             <Font name="Bookman Old Style Bold" size="12.0" />
          </font>

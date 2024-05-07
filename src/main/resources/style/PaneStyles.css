@@ -1,0 +1,16 @@
+.pane{
+    -fx-background-radius: 0 20 20 0;
+    -fx-border-radius: 20 0 20 20;
+}
+.formPanes{
+    -fx-background-radius: 0 0 20 20;
+    -fx-border-radius: 20 0 20 20;
+}
+.normalPanes{
+    -fx-background-radius: 30;
+    -fx-background-color: #73A3EF;
+}
+
+.stackPanes{
+    -fx-background-color: #82B8D9;
+}

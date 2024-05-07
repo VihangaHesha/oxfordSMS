@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1120.0" style="-fx-background-color: #96ACD9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.HomeFormController">
+   <children>
+      <Label fx:id="lblTimes" alignment="CENTER" layoutX="828.0" layoutY="14.0" prefHeight="70.0" prefWidth="182.0" textFill="#1a1665">
+         <font>
+            <Font name="Colonna MT" size="42.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDates" alignment="CENTER" ellipsisString="" layoutX="703.0" layoutY="70.0" prefHeight="70.0" prefWidth="412.0" textFill="#1a1665" textOverrun="CLIP">
+         <font>
+            <Font name="Engravers MT" size="24.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblSchedule" layoutX="50.0" layoutY="384.0" prefHeight="205.0" prefWidth="637.0" stylesheets="@../style/TableStyleSheet.css">
+         <columns>
+            <TableColumn fx:id="colSubjectNo" prefWidth="83.0" text="ID" />
+            <TableColumn fx:id="colSubject" prefWidth="240.0" text="Subject" />
+            <TableColumn fx:id="colTimePeriod" prefWidth="213.0" text="Time Period" />
+            <TableColumn fx:id="colDate" prefWidth="100.0" text="Date" />
+         </columns>
+      </TableView>
+      <BarChart fx:id="bcStudentChart" layoutX="50.0" layoutY="64.0" prefHeight="302.0" prefWidth="637.0">
+         <xAxis>
+            <CategoryAxis side="BOTTOM" stylesheets="@../style/NormalStyleSheet.css" fx:id="xDateOfAttend" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis fx:id="yStudentNumber" side="LEFT" />
+         </yAxis>
+      </BarChart>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="205.0" layoutX="891.0" layoutY="384.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="215.0" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="205.0" layoutX="891.0" layoutY="151.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="215.0" />
+      <Label fx:id="lblTotalSlary" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="896.0" layoutY="464.0" prefHeight="50.0" prefWidth="205.0" styleClass="text" stylesheets="@../style/ProjectStyleSheet.css">
+         <font>
+            <Font name="Bookman Old Style Bold" size="22.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="139.0" layoutX="723.0" layoutY="449.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="140.0" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="139.0" layoutX="723.0" layoutY="298.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="140.0" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="139.0" layoutX="723.0" layoutY="151.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="140.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="724.0" layoutY="150.0" prefHeight="40.0" prefWidth="136.0" styleClass="text" stylesheets="@../style/ProjectStyleSheet.css" text="Student Count ">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="725.0" layoutY="297.0" prefHeight="40.0" prefWidth="136.0" styleClass="text" stylesheets="@../style/ProjectStyleSheet.css" text="Employee Count ">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="726.0" layoutY="448.0" prefHeight="40.0" prefWidth="136.0" styleClass="text" stylesheets="@../style/ProjectStyleSheet.css" text="Total Equipments">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblEquipCount" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="738.0" layoutY="477.0" prefHeight="70.0" prefWidth="105.0" styleClass="text" stylesheets="@../style/ProjectStyleSheet.css">
+         <font>
+            <Font name="Bookman Old Style Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblEmployeeCount" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="738.0" layoutY="324.0" prefHeight="70.0" prefWidth="105.0" styleClass="text" stylesheets="@../style/ProjectStyleSheet.css">
+         <font>
+            <Font name="Bookman Old Style Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblStudentCount" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="738.0" layoutY="181.0" prefHeight="70.0" prefWidth="105.0" styleClass="text" stylesheets="@../style/ProjectStyleSheet.css">
+         <font>
+            <Font name="Bookman Old Style Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTotalPayment" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="896.0" layoutY="229.0" prefHeight="50.0" prefWidth="205.0" styleClass="text" stylesheets="@../style/ProjectStyleSheet.css">
+         <font>
+            <Font name="Bookman Old Style Bold" size="22.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="771.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons/icons8-student-96.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="773.0" layoutY="539.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons/icons8-stationary-65.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="772.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons/icons8-employee-96.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="940.0" layoutY="285.0" prefHeight="30.0" prefWidth="115.0" styleClass="text" stylesheets="@../style/ProjectStyleSheet.css" text="Total Payment">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="940.0" layoutY="307.0" prefHeight="22.0" prefWidth="115.0" styleClass="text" stylesheets="@../style/ProjectStyleSheet.css" text="Of">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="952.0" layoutY="321.0" prefHeight="30.0" prefWidth="94.0" styleClass="text" stylesheets="@../style/ProjectStyleSheet.css" text="The Month">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="939.0" layoutY="521.0" prefHeight="30.0" prefWidth="115.0" styleClass="text" stylesheets="@../style/ProjectStyleSheet.css" text="Total Salaries">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="939.0" layoutY="543.0" prefHeight="22.0" prefWidth="115.0" styleClass="text" stylesheets="@../style/ProjectStyleSheet.css" text="Of">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="953.0" layoutY="557.0" prefHeight="30.0" prefWidth="94.0" styleClass="text" stylesheets="@../style/ProjectStyleSheet.css" text="The Month">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="17.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="971.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons/icons8-education-fees-payment-96.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="971.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons/icons8-salary-96.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

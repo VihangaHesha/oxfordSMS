@@ -1,13 +1,10 @@
-package lk.ijse.oxford.contoller.student_forms;
+package lk.ijse.oxford.contoller.student_form_controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.oxford.model.Student;
 import lk.ijse.oxford.model.tm.StudentTm;
@@ -17,9 +14,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DeleteStudentFormController {
+public class EditStudentFormController {
+    @FXML
+    private TextField txtStudentName;
     @FXML
     private TextField txtStudentId;
+    @FXML
+    private TextField txtContactNumber;
+    @FXML
+    private TextField txtUserId;
+    @FXML
+    private TextField txtGrade;
+    @FXML
+    private TextArea txtAddress;
     @FXML
     private TableColumn<?,?> colStId;
     @FXML
@@ -78,16 +85,26 @@ public class DeleteStudentFormController {
         colStAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
     }
-    public void btnStudentDeleteOnAction(ActionEvent actionEvent) {
+
+
+    public void btnStudentEditOnAction(ActionEvent actionEvent) {
         String id = txtStudentId.getText();
+        String name = txtStudentName.getText();
+        String address = txtAddress.getText();
+        String tel = txtContactNumber.getText();
+        String grade = txtGrade.getText();
+        String userId = txtUserId.getText();
+
+        Student student = new Student(id, name, address, tel,grade,userId);
 
         try {
-            boolean isDeleted = StudentRepo.delete(id);
-            if (isDeleted) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Student Data Deleted!").show();
+            boolean isUpdated = StudentRepo.update(student);
+            if (isUpdated) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Student Data Is Updated!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+
     }
 }

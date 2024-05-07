@@ -3,6 +3,7 @@ package lk.ijse.oxford.repository;
 import lk.ijse.oxford.db.DbConnection;
 import lk.ijse.oxford.model.TimeTable;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,8 +24,9 @@ public class TimeTableRepo {
             String id = resultSet.getString(1);
             String timePeriod = resultSet.getString(2);
             String subject = resultSet.getString(3);
+            Date date = Date.valueOf(resultSet.getString(4));
 
-            TimeTable tb = new TimeTable(id, timePeriod,subject);
+            TimeTable tb = new TimeTable(id, timePeriod,subject,date);
             timeTableList.add(tb);
         }
         return timeTableList;

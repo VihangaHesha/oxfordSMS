@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="editEmpPane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #E1D2B9;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.employee_forms.EditEmployeeFormController">
+<Pane fx:id="editEmpPane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #E1D2B9;" stylesheets="@../../style/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.employee_form_controllers.EditEmployeeFormController">
    <children>
       <ImageView fitHeight="70.0" fitWidth="71.0" layoutX="540.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -35,7 +35,7 @@
             <TableColumn fx:id="colEmpType" prefWidth="65.0" text="Type" />
          </columns>
       </TableView>
-      <JFXButton buttonType="RAISED" layoutX="425.0" layoutY="177.0" onAction="#btnEmpEditOnAction" prefHeight="34.0" prefWidth="149.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" text="Change the Data">
+      <JFXButton buttonType="RAISED" layoutX="425.0" layoutY="177.0" onAction="#btnEmpEditOnAction" prefHeight="34.0" prefWidth="149.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../style/NormalStyleSheet.css" text="Change the Data">
          <font>
             <Font name="Bookman Old Style Bold" size="12.0" />
          </font>

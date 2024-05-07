@@ -1,4 +1,4 @@
-package lk.ijse.oxford.contoller.student_forms;
+package lk.ijse.oxford.contoller.student_form_controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EditStudentFormController {
+public class AddStudentFormContoller {
     @FXML
     private TextField txtStudentName;
     @FXML
@@ -28,7 +28,7 @@ public class EditStudentFormController {
     @FXML
     private TextArea txtAddress;
     @FXML
-    private TableColumn<?,?> colStId;
+    private TableColumn<?,?>colStId;
     @FXML
     private TableColumn<?,?>colUserId;
     @FXML
@@ -40,7 +40,7 @@ public class EditStudentFormController {
     @FXML
     private TableColumn<?,?>colStGrade;
     @FXML
-    private TableView<StudentTm> tblStudent;
+    private TableView<StudentTm>tblStudent;
     private List<Student> studentList = new ArrayList<>();
 
     public void initialize(){
@@ -86,8 +86,7 @@ public class EditStudentFormController {
         colUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
     }
 
-
-    public void btnStudentEditOnAction(ActionEvent actionEvent) {
+    public void btnStudentAddOnAction(ActionEvent actionEvent) {
         String id = txtStudentId.getText();
         String name = txtStudentName.getText();
         String address = txtAddress.getText();
@@ -95,16 +94,16 @@ public class EditStudentFormController {
         String grade = txtGrade.getText();
         String userId = txtUserId.getText();
 
-        Student student = new Student(id, name, address, tel,grade,userId);
+        Student student = new Student(id, grade,name , tel,address,userId);
+        System.out.println(student.toString());
 
         try {
-            boolean isUpdated = StudentRepo.update(student);
-            if (isUpdated) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Student Data Is Updated!").show();
+            boolean isSaved = StudentRepo.save(student);
+            if (isSaved) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Student Data Saved!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
-
     }
 }

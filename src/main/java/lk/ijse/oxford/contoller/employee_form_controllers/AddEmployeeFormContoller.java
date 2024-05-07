@@ -1,4 +1,4 @@
-package lk.ijse.oxford.contoller.employee_forms;
+package lk.ijse.oxford.contoller.employee_form_controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -7,16 +7,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.oxford.model.Employee;
-import lk.ijse.oxford.model.Student;
 import lk.ijse.oxford.model.tm.EmployeeTm;
 import lk.ijse.oxford.repository.EmployeRepo;
-import lk.ijse.oxford.repository.StudentRepo;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EditEmployeeFormController {
+public class AddEmployeeFormContoller {
     @FXML
     private TextField txtEmployeeName;
     @FXML
@@ -88,7 +86,7 @@ public class EditEmployeeFormController {
         colEmpAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
     }
-    public void btnEmpEditOnAction(ActionEvent actionEvent) {
+    public void btnEmpAddOnAction(ActionEvent actionEvent) {
         String id = txtEmpId.getText();
         String name = txtEmployeeName.getText();
         String address = txtAddress.getText();
@@ -96,12 +94,13 @@ public class EditEmployeeFormController {
         String type = txtEmpType.getText();
         String userId = txtUserId.getText();
 
-        Employee employee = new Employee(id, name, address, tel,type,userId);
+        Employee employee = new Employee(id, name, tel,address,type,userId);
+        System.out.println(employee.toString());
 
         try {
-            boolean isUpdated = EmployeRepo.update(employee);
-            if (isUpdated) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Student Data Is Updated!").show();
+            boolean isSaved = EmployeRepo.save(employee);
+            if (isSaved) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Employee Data Saved!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

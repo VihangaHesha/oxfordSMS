@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="editEmpPane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #85C4F5;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.student_forms.EditStudentFormController">
+<Pane fx:id="editEmpPane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #85C4F5;" stylesheets="@../../style/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.student_form_controllers.EditStudentFormController">
    <children>
       <ImageView fitHeight="70.0" fitWidth="71.0" layoutX="540.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -25,7 +25,7 @@
          </font>
       </Label>
       <Separator layoutX="195.0" layoutY="46.0" prefHeight="6.0" prefWidth="234.0" style="-fx-background-color: black;" />
-      <JFXButton buttonType="RAISED" layoutX="429.0" layoutY="185.0" onAction="#btnStudentEditOnAction" prefHeight="34.0" prefWidth="149.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" text="Change the Data">
+      <JFXButton buttonType="RAISED" layoutX="429.0" layoutY="185.0" onAction="#btnStudentEditOnAction" prefHeight="34.0" prefWidth="149.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../style/NormalStyleSheet.css" text="Change the Data">
          <font>
             <Font name="Bookman Old Style Bold" size="12.0" />
          </font>

@@ -68,5 +68,18 @@ public class EquipmentRepo {
 
         return pstm.executeUpdate() > 0;
     }
+
+    public static int getEquipmentCount() throws SQLException {
+        String sql ="SELECT COUNT(*) equipment_count FROM Equipment";
+        PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        int equipmentCount=0;
+        if (resultSet.next()){
+            equipmentCount = resultSet.getInt("equipment_count");
+        }
+        return equipmentCount;
+    }
 }
 

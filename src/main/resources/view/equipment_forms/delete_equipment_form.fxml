@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="deleteEquipmentPane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #9BBF65;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.equipment_forms.DeleteEquipmentFormController">
+<Pane fx:id="deleteEquipmentPane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #9BBF65;" stylesheets="@../../style/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.equipment_form_controllers.DeleteEquipmentFormController">
    <children>
       <TableView fx:id="tblEquipment" layoutX="14.0" layoutY="224.0" prefHeight="253.0" prefWidth="596.0">
          <columns>
@@ -37,7 +37,7 @@
             <Font name="Bookman Old Style" size="13.0" />
          </font>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="266.0" layoutY="171.0" onAction="#btnEquipmentDeleteOnAction" prefHeight="34.0" prefWidth="132.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" text="Delete Data">
+      <JFXButton buttonType="RAISED" layoutX="266.0" layoutY="171.0" onAction="#btnEquipmentDeleteOnAction" prefHeight="34.0" prefWidth="132.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../style/NormalStyleSheet.css" text="Delete Data">
          <font>
             <Font name="Bookman Old Style Bold" size="12.0" />
          </font>

@@ -1,4 +1,4 @@
-package lk.ijse.oxford.contoller.student_forms;
+package lk.ijse.oxford.contoller.student_form_controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

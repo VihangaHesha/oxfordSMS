@@ -1,26 +1,32 @@
-package lk.ijse.oxford.contoller.employee_forms;
+package lk.ijse.oxford.contoller.employee_form_controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.oxford.model.Employee;
 import lk.ijse.oxford.model.tm.EmployeeTm;
 import lk.ijse.oxford.repository.EmployeRepo;
-import lk.ijse.oxford.repository.StudentRepo;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DeleteEmployeeFormController {
+public class EditEmployeeFormController {
+    @FXML
+    private TextField txtEmployeeName;
+    @FXML
+    private TextField txtContactNumber;
+    @FXML
+    private TextArea txtAddress;
     @FXML
     private TextField txtEmpId;
+    @FXML
+    private TextField txtUserId;
+    @FXML
+    private TextField txtEmpType;
     @FXML
     private TableColumn<?,?> colEmpId;
     @FXML
@@ -80,16 +86,23 @@ public class DeleteEmployeeFormController {
         colEmpAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
     }
-    public void btnEmpDeleteOnAction(ActionEvent actionEvent) {
+    public void btnEmpEditOnAction(ActionEvent actionEvent) {
         String id = txtEmpId.getText();
+        String name = txtEmployeeName.getText();
+        String address = txtAddress.getText();
+        String tel = txtContactNumber.getText();
+        String type = txtEmpType.getText();
+        String userId = txtUserId.getText();
+
+        Employee employee = new Employee(id, name, address, tel,type,userId);
 
         try {
-            boolean isDeleted = EmployeRepo.delete(id);
-            if (isDeleted) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Employee Data Deleted!").show();
+            boolean isUpdated = EmployeRepo.update(employee);
+            if (isUpdated) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Student Data Is Updated!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
-    }
+}

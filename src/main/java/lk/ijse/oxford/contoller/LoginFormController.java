@@ -8,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import lk.ijse.oxford.db.DbConnection;
 
@@ -58,9 +59,10 @@ public class LoginFormController {
     }
 
     private void navigateToDashboard() throws IOException {
-        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml"));
+        BorderPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml"));
 
         Scene scene = new Scene(rootNode);
+//        scene.getStylesheets().add(getClass().getResource("ProjectStyleSheet.css").toExternalForm());
 
         Stage stage = (Stage) this.rootNode.getScene().getWindow();
         stage.setScene(scene);

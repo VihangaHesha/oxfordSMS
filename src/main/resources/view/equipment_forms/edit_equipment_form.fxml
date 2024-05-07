@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #9BBF65;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.equipment_forms.EditEquipmentFormController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #9BBF65;" stylesheets="@../../style/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.equipment_form_controllers.EditEquipmentFormController">
    <children>
       <TableView fx:id="tblEquipment" layoutX="15.0" layoutY="226.0" prefHeight="253.0" prefWidth="596.0">
          <columns>
@@ -26,7 +26,7 @@
             <Image url="@../../assets/icons/Oxford%20Educational%20Institute%20(1).png" />
          </image>
       </ImageView>
-      <JFXButton buttonType="RAISED" layoutX="435.0" layoutY="187.0" onAction="#btnEquipmentEditOnAction" prefHeight="34.0" prefWidth="149.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" text="Change the Data">
+      <JFXButton buttonType="RAISED" layoutX="435.0" layoutY="187.0" onAction="#btnEquipmentEditOnAction" prefHeight="34.0" prefWidth="149.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../style/NormalStyleSheet.css" text="Change the Data">
          <font>
             <Font name="Bookman Old Style Bold" size="12.0" />
          </font>

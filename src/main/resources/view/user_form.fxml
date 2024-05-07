@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="userNode" prefHeight="511.0" prefWidth="781.0" stylesheets="@../../java/lk/ijse/oxford/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.UserFormController">
+<AnchorPane fx:id="userNode" prefHeight="511.0" prefWidth="781.0" stylesheets="@../style/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.UserFormController">
    <children>
       <ImageView fitHeight="536.0" fitWidth="803.0" layoutX="-7.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
          <image>

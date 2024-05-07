@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="stDeletePane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #85C4F5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.student_forms.DeleteStudentFormController">
+<Pane fx:id="stDeletePane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #85C4F5;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.student_form_controllers.DeleteStudentFormController">
    <children>
       <Label alignment="CENTER" layoutX="224.0" layoutY="14.0" prefHeight="34.0" prefWidth="177.0" text="Delete A Student">
          <font>
@@ -29,7 +29,7 @@
             <Font name="Bookman Old Style" size="13.0" />
          </font>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="266.0" layoutY="176.0" onAction="#btnStudentDeleteOnAction" prefHeight="34.0" prefWidth="132.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" text="Delete Data">
+      <JFXButton buttonType="RAISED" layoutX="266.0" layoutY="176.0" onAction="#btnStudentDeleteOnAction" prefHeight="34.0" prefWidth="132.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../style/NormalStyleSheet.css" text="Delete Data">
          <font>
             <Font name="Bookman Old Style Bold" size="12.0" />
          </font>
@@ -61,7 +61,7 @@
       </TableView>
    </children>
    <stylesheets>
-      <URL value="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" />
-      <URL value="@../../../java/lk/ijse/oxford/StyleSheet2.css" />
+      <URL value="@../../style/NormalStyleSheet.css" />
+      <URL value="@../../style/PaneStyles.css" />
    </stylesheets>
 </Pane>

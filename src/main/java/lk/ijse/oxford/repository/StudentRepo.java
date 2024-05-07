@@ -78,4 +78,16 @@ public class StudentRepo {
     }
 
 
+    public static int getStudentCount() throws SQLException {
+        String sql ="SELECT COUNT(*) AS student_count FROM Student";
+        PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        int studentCount= 0;
+        if (resultSet.next()){
+            studentCount=resultSet.getInt("student_count");
+        }
+        return studentCount;
+    }
 }

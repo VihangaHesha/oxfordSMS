@@ -1,38 +1,25 @@
-package lk.ijse.oxford.contoller.student_forms;
+package lk.ijse.oxford.contoller.student_form_controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import lk.ijse.oxford.model.Payment;
 import lk.ijse.oxford.model.Student;
 import lk.ijse.oxford.model.tm.StudentTm;
-import lk.ijse.oxford.repository.PaymentRepo;
 import lk.ijse.oxford.repository.StudentRepo;
 
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentFeesController {
+public class DeleteStudentFormController {
     @FXML
-    private TextField txtPayId;
-
-    @FXML
-    private TextField txtDate;
-    @FXML
-    private TextField txtStId;
-    @FXML
-    private TextField txtFeesAmount;
-    @FXML
-    private TextField txtSubject;
-    @FXML
-    private Label lblStudentName;
-    @FXML
-    private Label lblDate;
+    private TextField txtStudentId;
     @FXML
     private TableColumn<?,?> colStId;
     @FXML
@@ -91,22 +78,13 @@ public class StudentFeesController {
         colStAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
         colUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
     }
-    public void btnPayFeesOnAction(ActionEvent actionEvent) {
-        String payId = txtPayId.getText();
-        String id = txtStId.getText();
-        Date date = Date.valueOf(txtDate.getText());
-        String subject = txtSubject.getText();
-        double amount = Double.parseDouble(txtFeesAmount.getText());
-
-        Payment payment = new Payment(payId, amount,date, id, subject);
-
-
-        System.out.println(payment.toString());
+    public void btnStudentDeleteOnAction(ActionEvent actionEvent) {
+        String id = txtStudentId.getText();
 
         try {
-            boolean isSaved = PaymentRepo.save(payment);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Fee Payment Successful!").show();
+            boolean isDeleted = StudentRepo.delete(id);
+            if (isDeleted) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Student Data Deleted!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();

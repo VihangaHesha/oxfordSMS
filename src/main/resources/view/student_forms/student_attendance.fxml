@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="editEmpPane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #85C4F5;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.student_forms.StudentAttendanceController">
+<Pane fx:id="editEmpPane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #85C4F5;" stylesheets="@../../style/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.student_form_controllers.StudentAttendanceController">
    <children>
       <ImageView fitHeight="70.0" fitWidth="71.0" layoutX="540.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -67,7 +67,7 @@
       <Line endX="50.0" layoutX="228.0" layoutY="191.0" startX="-69.3359375" />
       <Line endX="86.0" layoutX="186.0" layoutY="144.0" startX="-69.3359375" />
       <Line endX="63.0" layoutX="463.0" layoutY="150.0" startX="-69.3359375" />
-      <JFXButton buttonType="RAISED" layoutX="393.0" layoutY="176.0" onAction="#btnAttendSearchOnAction" prefHeight="34.0" prefWidth="149.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" text="Search">
+      <JFXButton buttonType="RAISED" layoutX="393.0" layoutY="176.0" onAction="#btnAttendSearchOnAction" prefHeight="34.0" prefWidth="149.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../style/NormalStyleSheet.css" text="Search">
          <font>
             <Font name="Bookman Old Style Bold" size="12.0" />
          </font>

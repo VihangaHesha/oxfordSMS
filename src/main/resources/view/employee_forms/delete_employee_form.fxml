@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="empDeletePane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #E1D2B9;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.employee_forms.DeleteEmployeeFormController">
+<Pane fx:id="empDeletePane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #E1D2B9;" stylesheets="@../../style/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.employee_form_controllers.DeleteEmployeeFormController">
    <children>
       <Label layoutX="223.0" layoutY="27.0" text="Delete An Employee">
          <font>
@@ -30,7 +30,7 @@
       </Label>
       <TextField fx:id="txtEmployeeName" layoutX="213.0" layoutY="148.0" prefHeight="25.0" prefWidth="210.0" style="-fx-background-color: #737373; -fx-text-fill: black;" />
       <TextField fx:id="txtEmpId" layoutX="248.0" layoutY="92.0" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #737373; -fx-text-fill: black;" />
-      <JFXButton buttonType="RAISED" layoutX="478.0" layoutY="173.0" onAction="#btnEmpDeleteOnAction" prefHeight="34.0" prefWidth="132.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" text="Delete A Data">
+      <JFXButton buttonType="RAISED" layoutX="478.0" layoutY="173.0" onAction="#btnEmpDeleteOnAction" prefHeight="34.0" prefWidth="132.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../style/NormalStyleSheet.css" text="Delete A Data">
          <font>
             <Font name="Bookman Old Style Bold" size="12.0" />
          </font>

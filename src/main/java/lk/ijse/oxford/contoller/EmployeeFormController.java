@@ -59,16 +59,4 @@ public class EmployeeFormController implements Initializable {
         employeeContainer.getChildren().setAll(fxml);
     }
 
-    public void btnEmployeeToDashOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/dashboard_form.fxml"));
-        Stage stage = (Stage) bdEmployee.getScene().getWindow();
-
-        stage.setScene(new Scene(anchorPane));
-        stage.setTitle("Dashboard Form");
-        stage.centerOnScreen();
-    }
-
-    public void btnExit(ActionEvent actionEvent) {
-        System.exit(0);
-    }
 }

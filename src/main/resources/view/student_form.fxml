@@ -2,23 +2,32 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="bdStudent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="511.0" prefWidth="781.0" stylesheets="@../../java/lk/ijse/oxford/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.StudentFormController">
-   <left>
-      <VBox prefHeight="511.0" prefWidth="138.0" BorderPane.alignment="CENTER">
+<BorderPane fx:id="bdStudent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1120.0" styleClass="stackPanes" stylesheets="@../style/PaneStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.StudentFormController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
          <children>
-            <Pane prefHeight="511.0" prefWidth="138.0" style="-fx-background-color: #2669BF; -fx-background-radius: 10;" stylesheets="@../../java/lk/ijse/oxford/NormalStyleSheet.css">
+            <StackPane fx:id="container" layoutX="102.0" layoutY="116.0" prefHeight="150.0" prefWidth="200.0" stylesheets="@../style/PaneStyles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <HBox prefHeight="69.0" prefWidth="781.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="69.0" prefWidth="1120.0" style="-fx-background-color: #ACB4FF;">
                <children>
-                  <JFXButton buttonType="RAISED" layoutX="1.0" layoutY="30.0" onAction="#btnStudentAddOnAction" prefHeight="60.0" prefWidth="137.0" style="-fx-background-color: #223459;" text="Add Student" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="136.0" layoutY="13.0" onAction="#btnStudentAddOnAction" prefHeight="46.0" prefWidth="137.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Add Student" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -33,7 +42,7 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="1.0" layoutY="92.0" onAction="#btnStudentDeleteOnAction" prefHeight="60.0" prefWidth="137.0" style="-fx-background-color: #223459;" text="Delete Student" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="314.0" layoutY="13.0" onAction="#btnStudentDeleteOnAction" prefHeight="46.0" prefWidth="137.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Delete Student" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -48,7 +57,7 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="1.0" layoutY="154.0" onAction="#btnStudentEditOnAction" prefHeight="60.0" prefWidth="137.0" style="-fx-background-color: #223459;" text="Edit Student" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="492.0" layoutY="13.0" onAction="#btnStudentEditOnAction" prefHeight="46.0" prefWidth="137.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Edit Student" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -63,19 +72,7 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="13.0" layoutY="438.0" onAction="#btnExit" prefHeight="43.0" prefWidth="111.0" text="Exit">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <graphic>
-                        <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/icons/icons8-exit-50.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="1.0" layoutY="216.0" onAction="#btnStudentAttendanceOnAction" prefHeight="60.0" prefWidth="137.0" style="-fx-background-color: #223459;" text="Attendance" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="670.0" layoutY="11.0" onAction="#btnStudentAttendanceOnAction" prefHeight="46.0" prefWidth="137.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Attendance" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -90,22 +87,7 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutY="363.0" onAction="#btnStudentToDashOnAction" prefHeight="44.0" prefWidth="137.0" text="Dashboard">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <graphic>
-                        <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../assets/icons/icons8-home-50.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <font>
-                        <Font name="Bookman Old Style Bold" size="12.0" />
-                     </font>
-                  </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="1.0" layoutY="278.0" onAction="#btnStudentFeesOnAction" prefHeight="60.0" prefWidth="137.0" style="-fx-background-color: #223459;" text="Class Fees" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="848.0" layoutY="11.0" onAction="#btnStudentFeesOnAction" prefHeight="46.0" prefWidth="137.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Class Fees" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -120,30 +102,14 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
+                  <ImageView fitHeight="68.0" fitWidth="78.0" layoutX="1051.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/icons/Oxford%20Educational%20Institute%20(1).png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
          </children>
-      </VBox>
-   </left>
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <children>
-            <StackPane fx:id="container" layoutX="102.0" layoutY="116.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-         </children>
-      </AnchorPane>
-   </center>
-   <top>
-      <Pane fx:id="datePane" prefHeight="20.0" prefWidth="781.0" style="-fx-background-color: #9DBFE0;" BorderPane.alignment="CENTER">
-         <children>
-            <Label fx:id="lblDate" layoutX="377.0" layoutY="2.0">
-               <font>
-                  <Font name="Bookman Old Style Bold" size="14.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
+      </HBox>
    </top>
 </BorderPane>

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="empAddPane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #E1D2B9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.employee_forms.AddEmployeeFormContoller">
+<Pane fx:id="empAddPane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #E1D2B9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.employee_form_controllers.AddEmployeeFormContoller">
    <children>
       <Label layoutX="224.0" layoutY="14.0" prefHeight="34.0" prefWidth="177.0" text="Add An Employee">
          <font>
@@ -43,7 +43,7 @@
          <font>
             <Font name="Bookman Old Style" size="13.0" />
          </font></Label>
-      <JFXButton buttonType="RAISED" layoutX="389.0" layoutY="181.0" onAction="#btnEmpAddOnAction" prefHeight="34.0" prefWidth="132.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" text="Add New Data">
+      <JFXButton buttonType="RAISED" layoutX="389.0" layoutY="181.0" onAction="#btnEmpAddOnAction" prefHeight="34.0" prefWidth="132.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../style/NormalStyleSheet.css" text="Add New Data">
          <font>
             <Font name="Bookman Old Style Bold" size="12.0" />
          </font>
@@ -78,7 +78,7 @@
       </TableView>
    </children>
    <stylesheets>
-      <URL value="@../../../java/lk/ijse/oxford/NormalStyleSheet.css" />
-      <URL value="@../../../java/lk/ijse/oxford/StyleSheet2.css" />
+      <URL value="@../../style/NormalStyleSheet.css" />
+      <URL value="@../../style/PaneStyles.css" />
    </stylesheets>
 </Pane>

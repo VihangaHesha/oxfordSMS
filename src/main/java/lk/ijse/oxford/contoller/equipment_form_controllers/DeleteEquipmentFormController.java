@@ -1,4 +1,4 @@
-package lk.ijse.oxford.contoller.equipment_forms;
+package lk.ijse.oxford.contoller.equipment_form_controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,7 +12,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.oxford.model.Equipment;
 import lk.ijse.oxford.model.tm.EquipmentTm;
 import lk.ijse.oxford.repository.EquipmentRepo;
-import lk.ijse.oxford.repository.StudentRepo;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
