@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1120.0" style="-fx-background-color: #96ACD9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.HomeFormController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.HomeFormController">
    <children>
       <Label fx:id="lblTimes" alignment="CENTER" layoutX="828.0" layoutY="14.0" prefHeight="70.0" prefWidth="182.0" textFill="#1a1665">
          <font>
@@ -24,7 +24,7 @@
             <Font name="Engravers MT" size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="tblSchedule" layoutX="50.0" layoutY="384.0" prefHeight="205.0" prefWidth="637.0" stylesheets="@../style/TableStyleSheet.css">
+      <TableView fx:id="tblSchedule" layoutX="50.0" layoutY="384.0" prefHeight="205.0" prefWidth="637.0" stylesheets="@../style/NormalStyleSheet.css">
          <columns>
             <TableColumn fx:id="colSubjectNo" prefWidth="83.0" text="ID" />
             <TableColumn fx:id="colSubject" prefWidth="240.0" text="Subject" />
@@ -32,7 +32,7 @@
             <TableColumn fx:id="colDate" prefWidth="100.0" text="Date" />
          </columns>
       </TableView>
-      <BarChart fx:id="bcStudentChart" layoutX="50.0" layoutY="139.0" prefHeight="227.0" prefWidth="637.0">
+      <BarChart fx:id="bcStudentChart" layoutX="50.0" layoutY="136.0" prefHeight="236.0" prefWidth="637.0">
          <xAxis>
             <CategoryAxis side="BOTTOM" stylesheets="@../style/NormalStyleSheet.css" fx:id="xDateOfAttend" />
          </xAxis>
@@ -42,7 +42,7 @@
       </BarChart>
       <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="205.0" layoutX="891.0" layoutY="384.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="215.0" />
       <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="205.0" layoutX="891.0" layoutY="151.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="215.0" />
-      <Label fx:id="lblTotalSlary" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="896.0" layoutY="464.0" prefHeight="50.0" prefWidth="205.0" styleClass="text" stylesheets="@../style/ProjectStyleSheet.css">
+      <Label fx:id="lblTotalSalary" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="896.0" layoutY="464.0" prefHeight="50.0" prefWidth="205.0" styleClass="text" stylesheets="@../style/ProjectStyleSheet.css">
          <font>
             <Font name="Bookman Old Style Bold" size="22.0" />
          </font>
@@ -138,6 +138,21 @@
       <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="971.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/icons/icons8-salary-96.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblDates1" alignment="CENTER" ellipsisString="" layoutX="12.0" layoutY="11.0" prefHeight="40.0" prefWidth="182.0" text="Greetings User!" textFill="#1a1665" textOverrun="CLIP">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDates11" alignment="CENTER" ellipsisString="" layoutX="14.0" layoutY="50.0" prefHeight="40.0" prefWidth="259.0" text="Welcome To Dashboard." textFill="#1a1665" textOverrun="CLIP">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="23.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="55.0" fitWidth="67.0" layoutX="187.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons/icons8-waving-hand-40.png" />
          </image>
       </ImageView>
    </children>

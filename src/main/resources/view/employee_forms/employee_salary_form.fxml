@@ -10,83 +10,106 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="salaryEmpPane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #E1D2B9;" stylesheets="@../../style/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.employee_form_controllers.EmployeeSalaryFormController">
+<Pane fx:id="salaryEmpPane" prefHeight="541.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" stylesheets="@../../style/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.employee_form_controllers.EmployeeSalaryFormController">
    <children>
-      <ImageView fitHeight="70.0" fitWidth="71.0" layoutX="540.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../assets/icons/Oxford%20Educational%20Institute%20(1).png" />
-         </image>
-      </ImageView>
-      <Label alignment="CENTER" layoutX="220.0" layoutY="14.0" prefHeight="34.0" prefWidth="185.0" text="Employee Salary">
+      <Label alignment="CENTER" layoutX="455.0" layoutY="14.0" prefHeight="34.0" prefWidth="211.0" text="Employee Salary">
          <font>
-            <Font name="Bookman Old Style Bold" size="19.0" />
+            <Font name="Bookman Old Style Bold" size="24.0" />
          </font>
       </Label>
-      <Separator layoutX="195.0" layoutY="46.0" prefHeight="6.0" prefWidth="234.0" style="-fx-background-color: black;" />
-      <Label layoutX="312.0" layoutY="128.0" text="Salary Date :">
-         <font>
-            <Font name="Bookman Old Style Bold" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="33.0" layoutY="122.0" text="Name :">
-         <font>
-            <Font name="Bookman Old Style Bold" size="13.0" />
-         </font>
-      </Label>
-      <Label layoutX="25.0" layoutY="165.0" text="Amount :">
-         <font>
-            <Font name="Bookman Old Style Bold" size="13.0" />
-         </font>
-      </Label>
-      <TableView fx:id="tblSalary" layoutX="14.0" layoutY="224.0" prefHeight="253.0" prefWidth="596.0">
+      <Separator layoutX="443.0" layoutY="44.0" prefHeight="8.0" prefWidth="234.0" style="-fx-background-color: black;" />
+      <TableView fx:id="tblSalary" layoutX="210.0" layoutY="260.0" onMouseClicked="#empSalarySearchOnAction" prefHeight="252.0" prefWidth="701.0">
          <columns>
             <TableColumn fx:id="colSalaryId" prefWidth="88.0" text="ID" />
             <TableColumn fx:id="colEmpId" prefWidth="109.0" text="Emp ID" />
-            <TableColumn fx:id="colAmount" prefWidth="257.0" text="Amount" />
-            <TableColumn fx:id="colDate" prefWidth="141.0" text="Date" />
+            <TableColumn fx:id="colName" prefWidth="214.0" text="Name" />
+            <TableColumn fx:id="colAmount" prefWidth="163.0" text="Amount" />
+            <TableColumn fx:id="colDate" prefWidth="126.0" text="Date" />
          </columns>
       </TableView>
-      <Label layoutX="213.0" layoutY="76.0" text="ID :">
+      <JFXButton buttonType="RAISED" layoutX="949.0" layoutY="136.0" onAction="#btnEmpSalarySearchOnAction" prefHeight="59.0" prefWidth="156.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Search" textFill="WHITE">
          <font>
-            <Font name="Bookman Old Style" size="13.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtEmpId" layoutX="242.0" layoutY="72.0" prefHeight="25.0" prefWidth="149.0" promptText="Inser Employee ID" style="-fx-background-color: #737373; -fx-text-fill: black;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
-      <Label fx:id="lblEmpName" layoutX="88.0" layoutY="122.0" prefHeight="15.0" prefWidth="79.0">
-         <font>
-            <Font name="Bookman Old Style Bold" size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblSalaryamount" layoutX="94.0" layoutY="165.0" prefHeight="15.0" prefWidth="79.0">
-         <font>
-            <Font name="Bookman Old Style Bold" size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblSalaryDate" layoutX="409.0" layoutY="128.0" prefHeight="15.0" prefWidth="98.0">
-         <font>
-            <Font name="Bookman Old Style Bold" size="15.0" />
-         </font>
-      </Label>
-      <Line endX="50.0" layoutX="157.0" layoutY="182.0" startX="-69.3359375" />
-      <Line endX="86.0" layoutX="157.0" layoutY="139.0" startX="-69.3359375" />
-      <Line endX="63.0" layoutX="468.0" layoutY="145.0" startX="-69.3359375" />
-      <JFXButton buttonType="RAISED" layoutX="383.0" layoutY="166.0" onAction="#btnEmpSalarySearchOnAction" prefHeight="34.0" prefWidth="149.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../style/NormalStyleSheet.css" text="Search">
-         <font>
-            <Font name="Bookman Old Style Bold" size="12.0" />
+            <Font name="Bookman Old Style Bold" size="18.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="34.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../assets/icons/icons8-search-50.png" />
+                  <Image url="@../../assets/icons/icons8-search-96.png" />
                </image>
             </ImageView>
          </graphic>
       </JFXButton>
+      <Label fx:id="lblEmpName" layoutX="341.0" layoutY="144.0" prefHeight="27.0" prefWidth="192.0">
+         <font>
+            <Font name="Bookman Old Style Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSalaryAmount" alignment="CENTER" contentDisplay="CENTER" layoutX="552.0" layoutY="214.0" prefHeight="26.0" prefWidth="156.0">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSalaryDate" layoutX="700.0" layoutY="147.0" prefHeight="25.0" prefWidth="138.0">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="21.0" />
+         </font>
+      </Label>
+      <Line endX="87.0" layoutX="621.0" layoutY="239.0" startX="-69.3359375" />
+      <Line endX="123.0" layoutX="410.0" layoutY="170.0" startX="-69.3359375" />
+      <Line endX="63.0" layoutX="771.0" layoutY="171.0" startX="-69.3359375" />
+      <Label layoutX="470.0" layoutY="211.0" prefHeight="34.0" prefWidth="81.0" text="Amount :">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="273.0" layoutY="141.0" prefHeight="34.0" prefWidth="66.0" text="Name :">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="644.0" layoutY="143.0" prefHeight="34.0" prefWidth="57.0" text="Date :">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="477.0" layoutY="96.0" prefHeight="26.0" prefWidth="41.0" text="ID :">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtEmpId" layoutX="515.0" layoutY="92.0" prefHeight="34.0" prefWidth="149.0" promptText="Insert Employee ID" style="-fx-background-color: #737373; -fx-text-fill: black;">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </TextField>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="205.0" layoutX="22.0" layoutY="23.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="215.0" />
+      <Label fx:id="lblTotalSalary" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="27.0" layoutY="96.0" prefHeight="50.0" prefWidth="205.0" styleClass="text" stylesheets="@../../style/ProjectStyleSheet.css">
+         <font>
+            <Font name="Bookman Old Style Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="70.0" layoutY="160.0" prefHeight="30.0" prefWidth="115.0" styleClass="text" stylesheets="@../../style/ProjectStyleSheet.css" text="Total Salaries">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="70.0" layoutY="182.0" prefHeight="22.0" prefWidth="115.0" styleClass="text" stylesheets="@../../style/ProjectStyleSheet.css" text="Of">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="84.0" layoutY="196.0" prefHeight="30.0" prefWidth="94.0" styleClass="text" stylesheets="@../../style/ProjectStyleSheet.css" text="The Month">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="17.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="102.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../assets/icons/icons8-salary-96.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

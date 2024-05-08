@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
@@ -9,92 +10,105 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="editEmpPane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #85C4F5;" stylesheets="@../../style/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.student_form_controllers.StudentFeesController">
+<Pane fx:id="studentFeesPane" prefHeight="541.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" stylesheets="@../../style/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.student_form_controllers.StudentFeesController">
    <children>
-      <ImageView fitHeight="70.0" fitWidth="71.0" layoutX="540.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../assets/icons/Oxford%20Educational%20Institute%20(1).png" />
-         </image>
-      </ImageView>
-      <Label alignment="CENTER" layoutX="202.0" layoutY="18.0" prefHeight="34.0" prefWidth="221.0" text="Class Fees">
+      <Label alignment="CENTER" layoutX="460.0" layoutY="24.0" prefHeight="34.0" prefWidth="221.0" text="Class Fees">
          <font>
-            <Font name="Bookman Old Style Bold" size="19.0" />
+            <Font name="Bookman Old Style Bold" size="25.0" />
          </font>
       </Label>
-      <Separator layoutX="195.0" layoutY="46.0" prefHeight="6.0" prefWidth="234.0" style="-fx-background-color: black;" />
-      <Label layoutX="38.0" layoutY="94.0" text="ID :">
+      <Separator layoutX="453.0" layoutY="55.0" prefHeight="6.0" prefWidth="234.0" style="-fx-background-color: black;" />
+      <JFXButton buttonType="RAISED" layoutX="932.0" layoutY="137.0" onAction="#btnCheckOutOnAction" prefHeight="48.0" prefWidth="150.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Check Out" textFill="WHITE">
          <font>
-            <Font name="Bookman Old Style" size="13.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtStId" layoutX="67.0" layoutY="90.0" prefHeight="25.0" prefWidth="149.0" promptText="Insert Student ID" style="-fx-background-color: #737373; -fx-text-fill: black;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
-      <Label layoutX="38.0" layoutY="132.0" text="Amount :">
-         <font>
-            <Font name="Bookman Old Style Bold" size="13.0" />
-         </font>
-      </Label>
-      <JFXButton buttonType="RAISED" layoutX="393.0" layoutY="176.0" onAction="#btnPayFeesOnAction" prefHeight="34.0" prefWidth="149.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../style/NormalStyleSheet.css" text="Pay">
-         <font>
-            <Font name="Bookman Old Style Bold" size="12.0" />
+            <Font name="Bookman Old Style Bold" size="16.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../assets/icons/icons8-bank-cards-60.png" />
+                  <Image url="@../../assets/icons/icons8-check-all-96.png" />
                </image>
             </ImageView>
          </graphic>
       </JFXButton>
-      <TextField fx:id="txtFeesAmount" layoutX="107.0" layoutY="127.0" prefHeight="25.0" prefWidth="149.0" promptText="Inssert Fee Amount" style="-fx-background-color: #737373; -fx-text-fill: black;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
-      <TableView fx:id="tblStudent" layoutX="14.0" layoutY="224.0" prefHeight="253.0" prefWidth="596.0">
-         <columns>
-            <TableColumn fx:id="colStId" prefWidth="50.0" text="ID" />
-            <TableColumn fx:id="colUserId" prefWidth="56.0" text="User" />
-            <TableColumn fx:id="colStName" prefWidth="143.0" text="Name" />
-            <TableColumn fx:id="colContact" prefWidth="104.0" text="Contact" />
-            <TableColumn fx:id="colStAddress" prefWidth="177.0" text="Address" />
-            <TableColumn fx:id="colStGrade" prefWidth="65.0" text="Grade" />
-         </columns>
+      <TableView fx:id="tblFeePayment" layoutX="310.0" layoutY="299.0" prefHeight="221.0" prefWidth="564.0">
+        <columns>
+          <TableColumn fx:id="colSubId" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="colSubDesc" prefWidth="230.0" text="Description" />
+            <TableColumn fx:id="colFeeAmount" prefWidth="171.0" text="Fee Amount" />
+            <TableColumn fx:id="colAction" prefWidth="87.0" text="Action" />
+        </columns>
       </TableView>
-      <Label layoutX="333.0" layoutY="94.0" text="Subject">
+      <JFXComboBox fx:id="cmbSubjectName" layoutX="747.0" layoutY="102.0" onAction="#cmbSubjectOnAction" prefHeight="25.0" prefWidth="156.0" />
+      <Label layoutX="310.0" layoutY="161.0" prefHeight="34.0" prefWidth="84.0" text="Amount :">
          <font>
-            <Font name="Bookman Old Style Bold" size="13.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtSubject" layoutX="402.0" layoutY="89.0" prefHeight="25.0" prefWidth="149.0" promptText="Inssert Fee Amount" style="-fx-background-color: #737373; -fx-text-fill: black;">
+      <Label layoutX="310.0" layoutY="106.0" prefHeight="26.0" prefWidth="66.0" text="ID :">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtPayId" layoutX="343.0" layoutY="102.0" prefHeight="34.0" prefWidth="214.0" promptText="Insert Name" style="-fx-background-color: #737373; -fx-text-fill: black;">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
       </TextField>
-      <Label layoutX="38.0" layoutY="167.0" text="Payment Id :">
+      <Label layoutX="673.0" layoutY="161.0" prefHeight="34.0" prefWidth="58.0" text="Date :">
          <font>
-            <Font name="Bookman Old Style Bold" size="13.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtPayId" layoutX="129.0" layoutY="162.0" prefHeight="25.0" prefWidth="149.0" promptText="Insert Payment Id" style="-fx-background-color: #737373; -fx-text-fill: black;">
+      <Label layoutX="673.0" layoutY="102.0" prefHeight="34.0" prefWidth="73.0" text="Subject :">
          <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
-      <Label layoutX="333.0" layoutY="131.0" text="Date :">
-         <font>
-            <Font name="Bookman Old Style Bold" size="13.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDate" layoutX="393.0" layoutY="126.0" prefHeight="25.0" prefWidth="149.0" promptText="Insert Date" style="-fx-background-color: #737373; -fx-text-fill: black;">
+      <Label layoutX="489.0" layoutY="237.0" prefHeight="34.0" prefWidth="109.0" text="Payment ID :">
          <font>
-            <Font name="System Italic" size="12.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
-      </TextField>
+      </Label>
+      <Label fx:id="lblSubFee" layoutX="401.0" layoutY="161.0" prefHeight="34.0" prefWidth="115.0" underline="true">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPaymentId" layoutX="602.0" layoutY="237.0" prefHeight="34.0" prefWidth="93.0" underline="true">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDate" layoutX="737.0" layoutY="161.0" prefHeight="34.0" prefWidth="130.0" underline="true">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="924.0" layoutY="399.0" onAction="#btnPayFeesOnAction" prefHeight="61.0" prefWidth="166.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Pay The Fee(s)" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="16.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/icons/icons8-transaction-96.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="460.0" layoutX="14.0" layoutY="64.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="214.0" />
+      <Label layoutX="888.0" layoutY="327.0" prefHeight="34.0" prefWidth="93.0" text="Net Total:">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblNetTotal" layoutX="976.0" layoutY="327.0" prefHeight="34.0" prefWidth="115.0" underline="true">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

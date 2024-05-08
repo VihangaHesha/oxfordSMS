@@ -4,11 +4,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import lk.ijse.oxford.model.Equipment;
 import lk.ijse.oxford.model.tm.EquipmentTm;
 import lk.ijse.oxford.repository.EquipmentRepo;
@@ -19,9 +17,12 @@ import java.util.List;
 
 public class EditEquipmentFormController {
     @FXML
+    private Label lblEquipCount;
+    private int equipCount;
+    @FXML
     private TextField txtEquipId;
     @FXML
-    private TextField txtEquipDesc;
+    private TextField txtEquiptDesc;
     @FXML
     private TextField txtEquipQty;
     @FXML
@@ -39,6 +40,16 @@ public class EditEquipmentFormController {
         this.equipmentList = getAllEquipment();
         setCellValueFactory();
         loadEquipmentTable();
+        try {
+            equipCount=EquipmentRepo.getEquipmentCount();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        setEquipmentCount(equipCount);
+    }
+
+    private void setEquipmentCount(int equipCount) {
+        lblEquipCount.setText(String.valueOf(equipCount));
     }
 
 
@@ -74,7 +85,7 @@ public class EditEquipmentFormController {
     }
     public void btnEquipmentEditOnAction(ActionEvent actionEvent) {
         String id = txtEquipId.getText();
-        String desc = txtEquipDesc.getText();
+        String desc = txtEquiptDesc.getText();
         int qty = Integer.parseInt(txtEquipQty.getText());
 
         Equipment equipment = new Equipment(id,desc,qty);
@@ -87,5 +98,16 @@ public class EditEquipmentFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+    }
+
+    public void equipEditOnAction(MouseEvent mouseEvent) {
+        EquipmentTm selectedItem = (EquipmentTm) tblEquipment.getSelectionModel().getSelectedItem();
+        txtEquipId.setText(selectedItem.getEquipId());
+        txtEquiptDesc.setText(selectedItem.getDescription());
+        txtEquipQty.setText(String.valueOf(selectedItem.getQty()));
+    }
+
+    public void btnEquipRefresh(ActionEvent actionEvent) {
+        initialize();
     }
 }

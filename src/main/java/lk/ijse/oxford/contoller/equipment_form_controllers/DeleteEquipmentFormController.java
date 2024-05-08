@@ -4,12 +4,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import lk.ijse.oxford.model.Equipment;
+import lk.ijse.oxford.model.tm.EmployeeTm;
 import lk.ijse.oxford.model.tm.EquipmentTm;
 import lk.ijse.oxford.repository.EquipmentRepo;
 
@@ -19,7 +18,12 @@ import java.util.List;
 
 public class DeleteEquipmentFormController {
     @FXML
+    private Label lblEquipCount;
+    private int equipCount;
+    @FXML
     private TextField txtEquipId;
+    @FXML
+    private TextField txtEquiptDesc;
     @FXML
     private TableColumn<?,?> colEquipmentId;
     @FXML
@@ -35,6 +39,16 @@ public class DeleteEquipmentFormController {
         this.equipmentList = getAllEquipment();
         setCellValueFactory();
         loadEquipmentTable();
+        try {
+            equipCount=EquipmentRepo.getEquipmentCount();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        setEquipCount(equipCount);
+    }
+
+    private void setEquipCount(int equipCount) {
+        lblEquipCount.setText(String.valueOf(equipCount));
     }
 
 
@@ -79,5 +93,15 @@ public class DeleteEquipmentFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+    }
+
+    public void equipDeleteOnAction(MouseEvent mouseEvent) {
+        EquipmentTm selectedItem = (EquipmentTm) tblEquipment.getSelectionModel().getSelectedItem();
+        txtEquipId.setText(selectedItem.getEquipId());
+        txtEquiptDesc.setText(selectedItem.getDescription());
+    }
+
+    public void btnEmpRefresh(ActionEvent actionEvent) {
+        initialize();
     }
 }

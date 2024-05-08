@@ -6,76 +6,113 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="empAddPane" prefHeight="491.0" prefWidth="624.0" style="-fx-background-color: #E1D2B9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.employee_form_controllers.AddEmployeeFormContoller">
+<Pane fx:id="empAddPane" prefHeight="541.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.employee_form_controllers.AddEmployeeFormContoller">
    <children>
-      <Label layoutX="224.0" layoutY="14.0" prefHeight="34.0" prefWidth="177.0" text="Add An Employee">
+      <Label layoutX="446.0" layoutY="14.0" prefHeight="26.0" prefWidth="221.0" text="Add An Employee">
          <font>
-            <Font name="Bookman Old Style Bold" size="19.0" />
+            <Font name="Bookman Old Style Bold" size="24.0" />
          </font></Label>
-      <Label layoutX="7.0" layoutY="107.0" text="Contact Number :">
-         <font>
-            <Font name="Bookman Old Style" size="13.0" />
-         </font></Label>
-      <Label layoutX="20.0" layoutY="68.0" text="Name :">
-         <font>
-            <Font name="Bookman Old Style" size="13.0" />
-         </font></Label>
-      <Label layoutX="20.0" layoutY="145.0" text="Address :">
-         <font>
-            <Font name="Bookman Old Style" size="13.0" />
-         </font></Label>
-      <Label layoutX="312.0" layoutY="145.0" text="Type :">
-         <font>
-            <Font name="Bookman Old Style" size="13.0" />
-         </font></Label>
-      <Label layoutX="313.0" layoutY="68.0" text="ID :">
-         <font>
-            <Font name="Bookman Old Style" size="13.0" />
-         </font></Label>
-      <Label layoutX="312.0" layoutY="107.0" text="User :">
-         <font>
-            <Font name="Bookman Old Style" size="13.0" />
-         </font></Label>
-      <JFXButton buttonType="RAISED" layoutX="389.0" layoutY="181.0" onAction="#btnEmpAddOnAction" prefHeight="34.0" prefWidth="132.0" style="-fx-border-color: black; -fx-border-radius: 30; -fx-border-style: solid;" stylesheets="@../../style/NormalStyleSheet.css" text="Add New Data">
-         <font>
-            <Font name="Bookman Old Style Bold" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../assets/icons/icons8-add-50%20(1).png" />
-               </image>
-            </ImageView>
-         </graphic></JFXButton>
-      <TextField fx:id="txtEmployeeName" layoutX="69.0" layoutY="64.0" prefHeight="25.0" prefWidth="210.0" style="-fx-background-color: #737373; -fx-text-fill: black;" />
-      <TextField fx:id="txtContactNumber" layoutX="125.0" layoutY="103.0" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: #737373; -fx-text-fill: black;" />
-      <TextField fx:id="txtEmpType" layoutX="354.0" layoutY="141.0" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #737373; -fx-text-fill: black;" />
-      <TextField fx:id="txtEmpId" layoutX="352.0" layoutY="64.0" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #737373; -fx-text-fill: black;" />
-      <TextField fx:id="txtUserId" layoutX="353.0" layoutY="103.0" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: #737373; -fx-text-fill: black;" />
-      <TextArea fx:id="txtAddress" layoutX="80.0" layoutY="143.0" prefHeight="49.0" prefWidth="200.0" style="-fx-background-color: #737373;" />
-      <Separator layoutX="212.0" layoutY="43.0" prefHeight="7.0" prefWidth="200.0" style="-fx-background-color: black;" />
-      <ImageView fitHeight="70.0" fitWidth="71.0" layoutX="540.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../assets/icons/Oxford%20Educational%20Institute%20(1).png" />
-         </image>
-      </ImageView>
-      <TableView fx:id="tblEmployee" layoutX="14.0" layoutY="224.0" prefHeight="253.0" prefWidth="596.0">
+      <Separator layoutX="434.0" layoutY="43.0" prefHeight="7.0" prefWidth="243.0" style="-fx-background-color: black;" />
+      <TableView fx:id="tblEmployee" layoutX="206.0" layoutY="256.0" prefHeight="271.0" prefWidth="708.0">
          <columns>
             <TableColumn fx:id="colEmpId" prefWidth="50.0" text="ID" />
             <TableColumn fx:id="colUserId" prefWidth="56.0" text="User" />
             <TableColumn fx:id="colEmpName" prefWidth="143.0" text="Name" />
             <TableColumn fx:id="colContact" prefWidth="104.0" text="Contact" />
-            <TableColumn fx:id="colEmpAddress" prefWidth="177.0" text="Address" />
-            <TableColumn fx:id="colEmpType" prefWidth="65.0" text="Type" />
+            <TableColumn fx:id="colEmpAddress" prefWidth="252.0" text="Address" />
+            <TableColumn fx:id="colEmpType" prefWidth="102.0" text="Type" />
          </columns>
       </TableView>
+      <Label layoutX="96.0" layoutY="137.0" prefHeight="34.0" prefWidth="161.0" text="Contact Number :">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="183.0" layoutY="89.0" prefHeight="26.0" prefWidth="66.0" text="Name :">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="168.0" layoutY="192.0" prefHeight="26.0" prefWidth="83.0" text="Address :">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="643.0" layoutY="200.0" prefHeight="26.0" prefWidth="66.0" text="Type :">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="671.0" layoutY="97.0" prefHeight="26.0" prefWidth="41.0" text="ID :">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="634.0" layoutY="149.0" prefHeight="26.0" prefWidth="74.0" text="User Id :">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="934.0" layoutY="93.0" onAction="#btnEmpAddOnAction" prefHeight="68.0" prefWidth="161.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Add New Data" textFill="WHITE">
+         <font>
+            <Font name="Bookman Old Style Bold" size="14.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/icons/icons8-add-administrator-96.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <TextField fx:id="txtEmployeeName" layoutX="251.0" layoutY="90.0" prefHeight="34.0" prefWidth="214.0" promptText="Insert Name" style="-fx-background-color: #737373; -fx-text-fill: black;">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtContactNumber" layoutX="250.0" layoutY="142.0" prefHeight="34.0" prefWidth="167.0" promptText="Insert Contact Number" style="-fx-background-color: #737373; -fx-text-fill: black;">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtEmpType" layoutX="709.0" layoutY="199.0" prefHeight="34.0" prefWidth="149.0" promptText="Insert Employee Type" style="-fx-background-color: #737373; -fx-text-fill: black;">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtEmpId" layoutX="709.0" layoutY="93.0" prefHeight="34.0" prefWidth="149.0" promptText="Insert ID" style="-fx-background-color: #737373; -fx-text-fill: black;">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtUserId" layoutX="708.0" layoutY="146.0" prefHeight="34.0" prefWidth="149.0" promptText="Insert User ID" style="-fx-background-color: #737373; -fx-text-fill: black;">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtAddress" layoutX="251.0" layoutY="193.0" prefHeight="34.0" prefWidth="320.0" promptText="Insert Address" style="-fx-background-color: #737373; -fx-text-fill: black;">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </TextField>
+      <JFXButton buttonType="RAISED" layoutX="946.0" layoutY="176.0" onAction="#btnEmpRefreshOnAction" prefHeight="59.0" prefWidth="138.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Refresh" textFill="WHITE">
+         <font>
+            <Font name="Bookman Old Style Bold" size="18.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/icons/icons8-refresh-96.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
    </children>
    <stylesheets>
       <URL value="@../../style/NormalStyleSheet.css" />

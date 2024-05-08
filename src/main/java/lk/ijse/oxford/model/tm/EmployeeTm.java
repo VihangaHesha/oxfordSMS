@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @Data
 public class EmployeeTm {
     private String empId;
+    private String userId;
     private String name;
     private String contact;
     private String address;
     private String type;
-    private String userId;
 }

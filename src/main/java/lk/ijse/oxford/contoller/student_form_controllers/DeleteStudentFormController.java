@@ -1,25 +1,32 @@
 package lk.ijse.oxford.contoller.student_form_controllers;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.Cursor;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import lk.ijse.oxford.model.Student;
+import lk.ijse.oxford.model.tm.AttedanceTm;
 import lk.ijse.oxford.model.tm.StudentTm;
 import lk.ijse.oxford.repository.StudentRepo;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class DeleteStudentFormController {
     @FXML
+    private Label lblStudentCount;
+    private int studentCount;
+    @FXML
     private TextField txtStudentId;
+    @FXML
+    private TextField txtStudentName;
     @FXML
     private TableColumn<?,?> colStId;
     @FXML
@@ -40,6 +47,16 @@ public class DeleteStudentFormController {
         this.studentList = getAllStudents();
         setCellValueFactory();
         loadStudentTable();
+        try {
+            studentCount = StudentRepo.getStudentCount();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        setStudentCount(studentCount);
+    }
+
+    private void setStudentCount(int studentCount) {
+        lblStudentCount.setText(String.valueOf(studentCount));
     }
 
     private List<Student> getAllStudents() {
@@ -56,7 +73,7 @@ public class DeleteStudentFormController {
         ObservableList<StudentTm> tmList = FXCollections.observableArrayList();
 
         for (Student student : studentList) {
-            StudentTm customerTm = new StudentTm(
+            StudentTm studentTm = new StudentTm(
                     student.getStId(),
                     student.getUserId(),
                     student.getName(),
@@ -65,7 +82,7 @@ public class DeleteStudentFormController {
                     student.getGrade()
             );
 
-            tmList.add(customerTm);
+            tmList.add(studentTm);
         }
         tblStudent.setItems(tmList);
     }
@@ -89,5 +106,17 @@ public class DeleteStudentFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+    }
+
+    public void btnStudentRefreshOnAction(ActionEvent actionEvent) {
+        initialize();
+        txtStudentName.setText("");
+        txtStudentId.setText("");
+    }
+
+    public void deleteClickedOnAction(MouseEvent mouseEvent) {
+        StudentTm selectedItem = tblStudent.getSelectionModel().getSelectedItem();
+        txtStudentId.setText(selectedItem.getStId());
+        txtStudentName.setText(selectedItem.getName());
     }
 }

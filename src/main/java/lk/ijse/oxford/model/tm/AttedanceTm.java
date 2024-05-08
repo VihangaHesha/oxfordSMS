@@ -1,4 +1,4 @@
-package lk.ijse.oxford.model;
+package lk.ijse.oxford.model.tm;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,10 +7,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Attendance {
-    private String StId;
+public class AttedanceTm {
+    private String attendId;
     private java.sql.Date Date;
     private String attendMark;
+    private String StId;
     private String Name;
-    private String attendId;
 }

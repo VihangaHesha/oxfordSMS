@@ -9,8 +9,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import lk.ijse.oxford.model.Employee;
 import lk.ijse.oxford.model.Salary;
+import lk.ijse.oxford.model.tm.AttedanceTm;
+import lk.ijse.oxford.model.tm.EmployeeTm;
 import lk.ijse.oxford.model.tm.SalaryTm;
 import lk.ijse.oxford.repository.EmployeRepo;
 import lk.ijse.oxford.repository.SalaryRepo;
@@ -27,9 +30,14 @@ public class EmployeeSalaryFormController {
     @FXML
     private Label lblSalaryAmount;
     @FXML
+    private Label lblTotalSalary;
+    private int totalSalary;
+    @FXML
     private Label lblSalaryDate;
     @FXML
     private TableColumn<?,?> colEmpId;
+    @FXML
+    private TableColumn<?,?> colName;
     @FXML
     private TableColumn<?,?>colSalaryId;
     @FXML
@@ -44,6 +52,16 @@ public class EmployeeSalaryFormController {
         this.salaryList = getAllSalaries();
         setCellValueFactory();
         loadEmployeeTable();
+        try {
+            totalSalary = SalaryRepo.getTotalSalary();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        setTotalSalary(totalSalary);
+    }
+
+    private void setTotalSalary(int totalSalary) {
+        lblTotalSalary.setText(String.valueOf("Rs."+totalSalary+"/="));
     }
 
 
@@ -65,7 +83,8 @@ public class EmployeeSalaryFormController {
                     salary.getSalaryId(),
                     salary.getAmount(),
                     salary.getDate(),
-                    salary.getEmpId()
+                    salary.getEmpId(),
+                    salary.getName()
                     );
 
             tmList.add(salaryTm);
@@ -76,6 +95,7 @@ public class EmployeeSalaryFormController {
     private void setCellValueFactory() {
         colSalaryId.setCellValueFactory(new PropertyValueFactory<>("salaryId"));
         colEmpId.setCellValueFactory(new PropertyValueFactory<>("empId"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
         colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
 
@@ -97,5 +117,13 @@ public class EmployeeSalaryFormController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void empSalarySearchOnAction(MouseEvent mouseEvent) {
+        SalaryTm selectedItem = tblSalary.getSelectionModel().getSelectedItem();
+        txtEmpId.setText(selectedItem.getEmpId());
+        lblEmpName.setText(selectedItem.getName());
+        lblSalaryDate.setText(String.valueOf(selectedItem.getDate()));
+        lblSalaryAmount.setText(String.valueOf(selectedItem.getAmount()));
     }
 }

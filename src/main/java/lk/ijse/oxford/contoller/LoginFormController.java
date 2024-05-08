@@ -37,7 +37,7 @@ public class LoginFormController {
 
     private void checkCredentionals(String username, String pw) throws SQLException, IOException {
 
-        String sql="SELECT Name,Password FROM user WHERE Name =? ";
+        String sql="SELECT Name,Password,UserId FROM user WHERE Name =? ";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -45,6 +45,7 @@ public class LoginFormController {
         pstm.setObject(1,username);
 
         ResultSet resultSet = pstm.executeQuery();
+        String userId=resultSet.getString(3);
         if (resultSet.next()){
             String dbPw = resultSet.getString(2);
             if (dbPw.equals(pw)){
@@ -62,8 +63,6 @@ public class LoginFormController {
         BorderPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml"));
 
         Scene scene = new Scene(rootNode);
-//        scene.getStylesheets().add(getClass().getResource("ProjectStyleSheet.css").toExternalForm());
-
         Stage stage = (Stage) this.rootNode.getScene().getWindow();
         stage.setScene(scene);
         stage.centerOnScreen();

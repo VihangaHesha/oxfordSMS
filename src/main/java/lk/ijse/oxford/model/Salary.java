@@ -14,4 +14,5 @@ public class Salary {
     private double amount;
     private Date date;
     private String EmpId;
+    private String name;
 }

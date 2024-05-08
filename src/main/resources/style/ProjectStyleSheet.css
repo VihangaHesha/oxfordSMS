@@ -20,3 +20,13 @@
 .formButtons:pressed{
     -fx-background-color : #73A3EF ;
 }
+.formInFormButtons{
+    -fx-background-color: #4871B3;
+    -fx-border-radius: 10px, 10px, 10px, 10px;
+}
+.formInFormButtons:hover{
+    -fx-background-color : #116EBF ;
+}
+.formInFormButtons:pressed{
+    -fx-background-color : #73A3EF ;
+}

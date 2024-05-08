@@ -1,5 +1,6 @@
 package lk.ijse.oxford.contoller.student_form_controllers;
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,7 +27,7 @@ public class AddStudentFormContoller {
     @FXML
     private TextField txtGrade;
     @FXML
-    private TextArea txtAddress;
+    private TextField txtAddress;
     @FXML
     private TableColumn<?,?>colStId;
     @FXML
@@ -101,9 +102,20 @@ public class AddStudentFormContoller {
             boolean isSaved = StudentRepo.save(student);
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Student Data Saved!").show();
+                txtStudentName.setText("");
+                txtContactNumber.setText("");
+                txtAddress.setText("");
+                txtStudentId.setText("");
+                txtGrade.setText("");
+                txtUserId.setText("");
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+
+    }
+
+    public void btnStudentRefreshOnAction(ActionEvent actionEvent) {
+        initialize();
     }
 }

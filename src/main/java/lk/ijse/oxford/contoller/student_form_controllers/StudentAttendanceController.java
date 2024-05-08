@@ -6,17 +6,23 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import lk.ijse.oxford.model.Attendance;
 import lk.ijse.oxford.model.Student;
+import lk.ijse.oxford.model.tm.AttedanceTm;
 import lk.ijse.oxford.model.tm.StudentTm;
 import lk.ijse.oxford.repository.AttendanceRepo;
 import lk.ijse.oxford.repository.StudentRepo;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class StudentAttendanceController {
+    @FXML
+    private Label lblCurrentAttendance;
+    private int currentAttendance;
     @FXML
     private Label lblStudentName;
     @FXML
@@ -24,67 +30,74 @@ public class StudentAttendanceController {
     @FXML
     private Label lblAttendMark;
     @FXML
-    private TextField txtStId;
+    private TextField txtStudentId;
     @FXML
     private TableColumn<?,?> colStId;
     @FXML
-    private TableColumn<?,?>colUserId;
+    private TableColumn<?,?> colStName;
     @FXML
-    private TableColumn<?,?>colStName;
+    private TableColumn<?,?>colAttendId;
     @FXML
-    private TableColumn<?,?>colContact;
+    private TableColumn<?,?>colAttendMark;
     @FXML
-    private TableColumn<?,?>colStAddress;
+    private TableColumn<?,?>colDate;
     @FXML
-    private TableColumn<?,?>colStGrade;
-    @FXML
-    private TableView<StudentTm> tblStudent;
-    private List<Student> studentList = new ArrayList<>();
+    private TableView<AttedanceTm> tblAttendance;
+    private List<Attendance> attendanceList = new ArrayList<>();
 
     public void initialize(){
-        this.studentList = getAllStudents();
+        LocalDate date = LocalDate.now();
+        this.attendanceList = getAllAttendance();
         setCellValueFactory();
         loadStudentTable();
-    }
-
-    private List<Student> getAllStudents() {
-        List<Student> customerList = null;
         try {
-            customerList = StudentRepo.getAll();
+            currentAttendance = AttendanceRepo.getAttendanceCount(date);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return customerList;
+        setAttendCount(currentAttendance);
+    }
+
+    private void setAttendCount(int currentAttendance) {
+        lblCurrentAttendance.setText(String.valueOf(currentAttendance));
+    }
+
+    private List<Attendance> getAllAttendance() {
+        List<Attendance> attendanceList = null;
+        try {
+            attendanceList = AttendanceRepo.getAll();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return attendanceList;
     }
 
     private void loadStudentTable() {
-        ObservableList<StudentTm> tmList = FXCollections.observableArrayList();
+        ObservableList<AttedanceTm> tmList = FXCollections.observableArrayList();
 
-        for (Student student : studentList) {
-            StudentTm customerTm = new StudentTm(
-                    student.getStId(),
-                    student.getUserId(),
-                    student.getName(),
-                    student.getContact(),
-                    student.getAddress(),
-                    student.getGrade()
+        for (Attendance attendance : attendanceList) {
+            AttedanceTm attedanceTm = new AttedanceTm(
+                    attendance.getAttendId(),
+                    attendance.getDate(),
+                    attendance.getAttendMark(),
+                    attendance.getStId(),
+                    attendance.getName()
             );
 
-            tmList.add(customerTm);
+            tmList.add(attedanceTm);
         }
-        tblStudent.setItems(tmList);
+        tblAttendance.setItems(tmList);
     }
 
     private void setCellValueFactory() {
-        colStId.setCellValueFactory(new PropertyValueFactory<>("stId"));
+        colAttendId.setCellValueFactory(new PropertyValueFactory<>("attendId"));
         colStName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colStGrade.setCellValueFactory(new PropertyValueFactory<>("grade"));
-        colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
-        colStAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
-        colUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
+        colAttendMark.setCellValueFactory(new PropertyValueFactory<>("attendMark"));
+        colStId.setCellValueFactory(new PropertyValueFactory<>("stId"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
     }
     public void btnAttendSearchOnAction(ActionEvent actionEvent) {
-        String id =txtStId.getText();
+        String id =txtStudentId.getText();
 
         try {
             Attendance attendance = AttendanceRepo.searchById(id);
@@ -97,5 +110,13 @@ public class StudentAttendanceController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+    }
+
+    public void getStudentDetailOnAction(MouseEvent mouseEvent) {
+        AttedanceTm selectedItem = tblAttendance.getSelectionModel().getSelectedItem();
+        lblStudentName.setText(selectedItem.getName());
+        lblAttendDate.setText(String.valueOf(selectedItem.getDate()));
+        lblAttendMark.setText(selectedItem.getAttendMark());
+        txtStudentId.setText(selectedItem.getStId());
     }
 }

@@ -4,11 +4,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import lk.ijse.oxford.model.Employee;
 import lk.ijse.oxford.model.tm.EmployeeTm;
 import lk.ijse.oxford.repository.EmployeRepo;
@@ -19,7 +17,12 @@ import java.util.List;
 
 public class DeleteEmployeeFormController {
     @FXML
+    private Label lblEmployeeCount;
+    private int employeeCount;
+    @FXML
     private TextField txtEmpId;
+    @FXML
+    private TextField txtEmployeeName;
     @FXML
     private TableColumn<?,?> colEmpId;
     @FXML
@@ -40,6 +43,16 @@ public class DeleteEmployeeFormController {
         this.employeeList = getAllEmployees();
         setCellValueFactory();
         loadEmployeeTable();
+        try {
+            employeeCount=EmployeRepo.getEmployeeCount();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        setEmployeeCount(employeeCount);
+    }
+
+    private void setEmployeeCount(int employeeCount) {
+        lblEmployeeCount.setText(String.valueOf(employeeCount));
     }
 
 
@@ -91,4 +104,16 @@ public class DeleteEmployeeFormController {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
+
+    public void empDeleteOnAction(MouseEvent mouseEvent) {
+        EmployeeTm selectedItem = tblEmployee.getSelectionModel().getSelectedItem();
+        txtEmpId.setText(selectedItem.getEmpId());
+        txtEmployeeName.setText(selectedItem.getName());
     }
+
+    public void btnEmpRefreshOnAction(ActionEvent actionEvent) {
+        initialize();
+        txtEmployeeName.setText("");
+        txtEmpId.setText("");
+    }
+}

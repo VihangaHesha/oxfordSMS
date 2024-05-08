@@ -20,7 +20,7 @@ public class AddEmployeeFormContoller {
     @FXML
     private TextField txtContactNumber;
     @FXML
-    private TextArea txtAddress;
+    private TextField txtAddress;
     @FXML
     private TextField txtEmpId;
     @FXML
@@ -101,9 +101,25 @@ public class AddEmployeeFormContoller {
             boolean isSaved = EmployeRepo.save(employee);
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Employee Data Saved!").show();
+                txtEmployeeName.setText("");
+                txtContactNumber.setText("");
+                txtAddress.setText("");
+                txtEmpId.setText("");
+                txtEmpType.setText("");
+                txtUserId.setText("");
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+    }
+
+    public void btnEmpRefreshOnAction(ActionEvent actionEvent) {
+        initialize();
+        txtEmployeeName.setText("");
+        txtContactNumber.setText("");
+        txtAddress.setText("");
+        txtEmpId.setText("");
+        txtEmpType.setText("");
+        txtUserId.setText("");
     }
 }

@@ -10,10 +10,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.oxford.model.TimeTable;
 import lk.ijse.oxford.model.tm.TimeTableTm;
-import lk.ijse.oxford.repository.EmployeRepo;
-import lk.ijse.oxford.repository.EquipmentRepo;
-import lk.ijse.oxford.repository.StudentRepo;
-import lk.ijse.oxford.repository.TimeTableRepo;
+import lk.ijse.oxford.repository.*;
 
 import java.sql.Date;
 import java.sql.SQLException;
@@ -39,6 +36,7 @@ public class HomeFormController {
     private int equipmentCount;
     @FXML
     private Label lblTotalSalary;
+    private int totalSalary;
     @FXML
     private Label lblTotalPayment;
     @FXML
@@ -66,12 +64,18 @@ public class HomeFormController {
             studentCount = StudentRepo.getStudentCount();
             employeeCount = EmployeRepo.getEmployeeCount();
             equipmentCount = EquipmentRepo.getEquipmentCount();
+            totalSalary = SalaryRepo.getTotalSalary();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         setStudentCount(studentCount);
         setEmployeeCount(employeeCount);
         setEquipmentCount(equipmentCount);
+        setTotalSalary(totalSalary);
+    }
+
+    private void setTotalSalary(int totalSalary) {
+        lblTotalSalary.setText(String.valueOf("Rs."+totalSalary+"/="));
     }
 
     private void setEquipmentCount(int equipmentCount) {

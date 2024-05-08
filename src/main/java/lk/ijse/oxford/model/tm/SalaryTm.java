@@ -15,6 +15,7 @@ public class SalaryTm {
     private double amount;
     private Date date;
     private String EmpId;
+    private String name;
 
 }
 

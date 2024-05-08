@@ -6,8 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import lk.ijse.oxford.model.Employee;
 import lk.ijse.oxford.model.tm.EmployeeTm;
+import lk.ijse.oxford.model.tm.SalaryTm;
 import lk.ijse.oxford.repository.EmployeRepo;
 
 import java.sql.SQLException;
@@ -20,7 +22,7 @@ public class EditEmployeeFormController {
     @FXML
     private TextField txtContactNumber;
     @FXML
-    private TextArea txtAddress;
+    private TextField txtAddress;
     @FXML
     private TextField txtEmpId;
     @FXML
@@ -104,5 +106,26 @@ public class EditEmployeeFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+    }
+
+    public void empDetailsOnToFieldsOnAction(MouseEvent mouseEvent) {
+        EmployeeTm selectedItem = tblEmployee.getSelectionModel().getSelectedItem();
+        txtEmpId.setText(selectedItem.getEmpId());
+        txtUserId.setText(selectedItem.getUserId());
+        txtEmployeeName.setText(selectedItem.getName());
+        txtContactNumber.setText(selectedItem.getContact());
+        txtAddress.setText(selectedItem.getAddress());
+        txtEmpType.setText(selectedItem.getType());
+
+    }
+
+    public void btnEmpRefreshOnAction(ActionEvent actionEvent) {
+        initialize();
+        txtEmployeeName.setText("");
+        txtContactNumber.setText("");
+        txtAddress.setText("");
+        txtEmpId.setText("");
+        txtEmpType.setText("");
+        txtUserId.setText("");
     }
 }
