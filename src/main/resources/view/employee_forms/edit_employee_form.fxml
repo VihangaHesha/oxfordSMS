@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="editEmpPane" prefHeight="541.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" stylesheets="@../../style/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.employee_form_controllers.EditEmployeeFormController">
+<Pane fx:id="editEmpPane" prefHeight="541.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.employee_form_controllers.EditEmployeeFormController">
    <children>
       <Label alignment="CENTER" layoutX="457.0" layoutY="9.0" prefHeight="40.0" prefWidth="227.0" text="Edit An Employee">
          <font>
@@ -19,7 +19,7 @@
          </font>
       </Label>
       <Separator layoutX="437.0" layoutY="43.0" prefHeight="6.0" prefWidth="263.0" style="-fx-background-color: black;" />
-      <TableView fx:id="tblEmployee" layoutX="216.0" layoutY="266.0" onMouseClicked="#empDetailsOnToFieldsOnAction" prefHeight="271.0" prefWidth="708.0">
+      <TableView fx:id="tblEmployee" layoutX="216.0" layoutY="266.0" onMouseClicked="#empDetailsOnToFieldsOnAction" prefHeight="271.0" prefWidth="708.0" stylesheets="@../../style/NormalStyleSheet.css">
          <columns>
             <TableColumn fx:id="colEmpId" prefWidth="50.0" text="ID" />
             <TableColumn fx:id="colUserId" prefWidth="56.0" text="User" />

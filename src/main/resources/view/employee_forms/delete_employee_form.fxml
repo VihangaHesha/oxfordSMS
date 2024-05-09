@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
@@ -21,7 +20,7 @@
          </font>
       </Label>
       <Separator layoutX="413.0" layoutY="46.0" prefHeight="5.0" prefWidth="294.0" style="-fx-background-color: black;" />
-      <TableView fx:id="tblEmployee" layoutX="206.0" layoutY="256.0" onMouseClicked="#empDeleteOnAction" prefHeight="271.0" prefWidth="708.0">
+      <TableView fx:id="tblEmployee" layoutX="206.0" layoutY="256.0" onMouseClicked="#empDeleteOnAction" prefHeight="271.0" prefWidth="708.0" stylesheets="@../../style/NormalStyleSheet.css">
          <columns>
             <TableColumn fx:id="colEmpId" prefWidth="50.0" text="ID" />
             <TableColumn fx:id="colUserId" prefWidth="56.0" text="User" />
@@ -92,8 +91,4 @@
          </image>
       </ImageView>
    </children>
-   <stylesheets>
-      <URL value="@../../style/NormalStyleSheet.css" />
-      <URL value="@../../style/ProjectStyleSheet.css" />
-   </stylesheets>
 </Pane>

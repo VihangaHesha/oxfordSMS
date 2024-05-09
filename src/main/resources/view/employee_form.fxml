@@ -25,7 +25,7 @@
          <children>
             <Pane prefHeight="69.0" prefWidth="1202.0" style="-fx-background-color: #ACB4FF;" stylesheets="@../style/PaneStyles.css">
                <children>
-                  <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="236.0" layoutY="12.0" onAction="#btnEmployeeAddOnAction" prefHeight="46.0" prefWidth="157.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Add Employee" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="156.0" layoutY="12.0" onAction="#btnEmployeeAddOnAction" prefHeight="46.0" prefWidth="157.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Add Employee" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -40,7 +40,7 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="427.0" layoutY="12.0" onAction="#btnEmployeeDeleteOnAction" prefHeight="46.0" prefWidth="157.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Delete Employee" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="347.0" layoutY="12.0" onAction="#btnEmployeeDeleteOnAction" prefHeight="46.0" prefWidth="157.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Delete Employee" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -55,7 +55,7 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="618.0" layoutY="12.0" onAction="#btnEmployeeEditOnAction" prefHeight="46.0" prefWidth="157.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Edit Employee" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" contentDisplay="RIGHT" layoutX="538.0" layoutY="12.0" onAction="#btnEmployeeEditOnAction" prefHeight="46.0" prefWidth="157.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Edit Employee" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -70,7 +70,7 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="RIGHT" layoutX="809.0" layoutY="12.0" onAction="#btnEmployeeSalaryOnAction" prefHeight="46.0" prefWidth="157.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Salary" textFill="WHITE">
+                  <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="RIGHT" layoutX="729.0" layoutY="12.0" onAction="#btnEmployeeSalaryOnAction" prefHeight="46.0" prefWidth="157.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Salary" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -85,16 +85,21 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <ImageView fitHeight="65.0" fitWidth="101.0" layoutX="1050.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../assets/icons/Oxford%20Educational%20Institute%20(1).png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="6.0" layoutY="7.0" prefHeight="45.0" prefWidth="140.0" text="EMPLOYEE" textFill="#1a1665" underline="true">
+                  <Label layoutX="980.0" layoutY="12.0" prefHeight="45.0" prefWidth="140.0" text="EMPLOYEE" textFill="#1a1665" underline="true">
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="26.0" />
                      </font>
                   </Label>
+                  <ImageView fitHeight="65.0" fitWidth="101.0" layoutX="10.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/icons/Oxford%20Educational%20Institute%20(1).png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="47.0" fitWidth="58.0" layoutX="937.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/icons/icons8-employee-96.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
          </children>

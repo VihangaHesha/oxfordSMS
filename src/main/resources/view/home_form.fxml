@@ -155,5 +155,10 @@
             <Image url="@../assets/icons/icons8-waving-hand-40.png" />
          </image>
       </ImageView>
+      <Label fx:id="lblDates111" alignment="CENTER" ellipsisString="" layoutX="239.0" layoutY="115.0" prefHeight="22.0" prefWidth="259.0" text="Student's Attendances" textFill="#1a1665" textOverrun="CLIP" underline="true">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="21.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

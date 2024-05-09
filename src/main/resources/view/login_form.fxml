@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -23,7 +23,7 @@
             <Font name="Century Gothic Bold" size="20.0" />
          </font>
       </Label>
-      <JFXButton fx:id="btnLogin" buttonType="RAISED" layoutX="245.0" layoutY="333.0" onAction="#btnLoginOnAction" prefHeight="36.0" prefWidth="223.0" style="-fx-background-color: #323640; -fx-text-fill: #F0F0F2;" text="Sign In">
+      <JFXButton fx:id="btnLogin" buttonType="RAISED" layoutX="245.0" layoutY="347.0" onAction="#btnLoginOnAction" prefHeight="36.0" prefWidth="223.0" style="-fx-background-color: #323640; -fx-text-fill: #F0F0F2;" text="Sign In">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
@@ -38,22 +38,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <TextField fx:id="txtUsername" layoutX="245.0" layoutY="144.0" prefHeight="36.0" prefWidth="223.0" promptText="Username" style="-fx-background-color: #323640; -fx-text-fill: #F0F0F2;">
-         <font>
-            <Font name="Arial Italic" size="15.0" />
-         </font>
-      </TextField>
-      <PasswordField fx:id="pfPassword" layoutX="245.0" layoutY="217.0" prefHeight="36.0" prefWidth="223.0" promptText="Password" style="-fx-background-color: #323640; -fx-text-fill: #F0F0F2;">
-         <font>
-            <Font name="Arial Italic" size="15.0" />
-         </font>
-      </PasswordField>
-      <Label layoutX="245.0" layoutY="297.0" text="Don't have an account ?">
+      <Label layoutX="245.0" layoutY="311.0" text="Don't have an account ?">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Hyperlink layoutX="385.0" layoutY="294.0" onAction="#linkActionOnRegister" style="-fx-text-fill: #F0F0F2;" text="Sign Up here">
+      <Hyperlink layoutX="385.0" layoutY="308.0" onAction="#linkActionOnRegister" style="-fx-text-fill: #F0F0F2;" text="Sign Up here">
          <font>
             <Font size="13.0" />
          </font>
@@ -63,16 +53,21 @@
             <Image url="@../assets/icons/Oxford%20Educational%20Institute%20(1).png" />
          </image>
       </ImageView>
-      <Label layoutX="245.0" layoutY="122.0" text="Username :">
+      <Label layoutX="245.0" layoutY="112.0" text="Username :">
          <font>
-            <Font name="Arial" size="12.0" />
+            <Font name="Arial Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="245.0" layoutY="195.0" text="Password :" />
-      <Hyperlink layoutX="300.0" layoutY="261.0" onAction="#linkActionOnForgetPassword" style="-fx-text-fill: #F0F0F2;" text="Forget Password ?">
+      <Label layoutX="244.0" layoutY="189.0" text="Password :">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font></Label>
+      <Hyperlink layoutX="299.0" layoutY="255.0" onAction="#linkActionOnForgetPassword" style="-fx-text-fill: #F0F0F2;" text="Forget Password ?">
          <font>
             <Font size="13.0" />
          </font>
       </Hyperlink>
+      <JFXTextField fx:id="txtUsername" layoutX="247.0" layoutY="129.0" onKeyReleased="#txtUserNameOnKeyReleased" prefHeight="36.0" prefWidth="223.0" />
+      <JFXPasswordField fx:id="pfPassword" layoutX="246.0" layoutY="211.0" onKeyReleased="#txtPwOnKeyReleased" prefHeight="36.0" prefWidth="223.0" />
    </children>
 </AnchorPane>

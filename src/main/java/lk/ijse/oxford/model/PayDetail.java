@@ -9,9 +9,9 @@ import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Payment {
+public class PayDetail {
     private String payId;
-    private double amount;
-    private Date date;
     private String stId;
+    private double fee;
+    private Date date;
 }

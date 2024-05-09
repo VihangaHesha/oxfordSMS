@@ -12,9 +12,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="addEquipmentPane" prefHeight="541.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" stylesheets="@../../style/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.equipment_form_controllers.AddEquipmentFormController">
+<Pane fx:id="addEquipmentPane" prefHeight="541.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.equipment_form_controllers.AddEquipmentFormController">
    <children>
-      <TableView fx:id="tblEquipment" layoutX="256.0" layoutY="229.0" prefHeight="298.0" prefWidth="609.0">
+      <TableView fx:id="tblEquipment" layoutX="256.0" layoutY="229.0" prefHeight="298.0" prefWidth="609.0" stylesheets="@../../style/NormalStyleSheet.css">
          <columns>
             <TableColumn fx:id="colEquipmentId" prefWidth="99.0" text="ID" />
             <TableColumn fx:id="colEquipmentDesc" prefWidth="334.0" text="Description" />

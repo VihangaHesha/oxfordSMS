@@ -2,18 +2,17 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="studentFeesPane" prefHeight="541.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" stylesheets="@../../style/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.student_form_controllers.StudentFeesController">
+<Pane fx:id="studentFeesPane" prefHeight="541.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.student_form_controllers.StudentFeesController">
    <children>
       <Label alignment="CENTER" layoutX="460.0" layoutY="24.0" prefHeight="34.0" prefWidth="221.0" text="Class Fees">
          <font>
@@ -21,7 +20,7 @@
          </font>
       </Label>
       <Separator layoutX="453.0" layoutY="55.0" prefHeight="6.0" prefWidth="234.0" style="-fx-background-color: black;" />
-      <JFXButton buttonType="RAISED" layoutX="932.0" layoutY="137.0" onAction="#btnCheckOutOnAction" prefHeight="48.0" prefWidth="150.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Check Out" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="944.0" layoutY="213.0" onAction="#btnCheckOutOnAction" prefHeight="48.0" prefWidth="150.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Check Out" textFill="WHITE">
          <font>
             <Font name="Bookman Old Style Bold" size="16.0" />
          </font>
@@ -33,61 +32,58 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <TableView fx:id="tblFeePayment" layoutX="310.0" layoutY="299.0" prefHeight="221.0" prefWidth="564.0">
+      <TableView fx:id="tblFeePayment" layoutX="346.0" layoutY="299.0" prefHeight="221.0" prefWidth="564.0" stylesheets="@../../style/NormalStyleSheet.css">
         <columns>
-          <TableColumn fx:id="colSubId" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="colSubDesc" prefWidth="230.0" text="Description" />
-            <TableColumn fx:id="colFeeAmount" prefWidth="171.0" text="Fee Amount" />
-            <TableColumn fx:id="colAction" prefWidth="87.0" text="Action" />
+          <TableColumn fx:id="colSubId" prefWidth="66.0" text="ID" />
+          <TableColumn fx:id="colSubDesc" prefWidth="139.0" text="Description" />
+            <TableColumn fx:id="colFeeAmount" prefWidth="112.0" text="Fee Amount" />
+            <TableColumn fx:id="colSeats" prefWidth="54.0" text="Seats" />
+            <TableColumn fx:id="colTotal" prefWidth="118.0" text="Total" />
+            <TableColumn fx:id="colAction" prefWidth="74.0" text="Action" />
         </columns>
       </TableView>
-      <JFXComboBox fx:id="cmbSubjectName" layoutX="747.0" layoutY="102.0" onAction="#cmbSubjectOnAction" prefHeight="25.0" prefWidth="156.0" />
-      <Label layoutX="310.0" layoutY="161.0" prefHeight="34.0" prefWidth="84.0" text="Amount :">
+      <JFXComboBox fx:id="cmbSubjectName" layoutX="785.0" layoutY="102.0" onAction="#cmbSubjectOnAction" prefHeight="25.0" prefWidth="166.0" />
+      <Label layoutX="348.0" layoutY="161.0" prefHeight="34.0" prefWidth="121.0" text="Fee Amount :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="310.0" layoutY="106.0" prefHeight="26.0" prefWidth="66.0" text="ID :">
+      <Label layoutX="348.0" layoutY="106.0" prefHeight="26.0" prefWidth="66.0" text="ID :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtPayId" layoutX="343.0" layoutY="102.0" prefHeight="34.0" prefWidth="214.0" promptText="Insert Name" style="-fx-background-color: #737373; -fx-text-fill: black;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
-      <Label layoutX="673.0" layoutY="161.0" prefHeight="34.0" prefWidth="58.0" text="Date :">
+      <Label layoutX="714.0" layoutY="254.0" prefHeight="34.0" prefWidth="58.0" text="Date :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="673.0" layoutY="102.0" prefHeight="34.0" prefWidth="73.0" text="Subject :">
+      <Label layoutX="714.0" layoutY="102.0" prefHeight="34.0" prefWidth="73.0" text="Subject :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="489.0" layoutY="237.0" prefHeight="34.0" prefWidth="109.0" text="Payment ID :">
+      <Label layoutX="350.0" layoutY="254.0" prefHeight="34.0" prefWidth="109.0" text="Payment ID :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblSubFee" layoutX="401.0" layoutY="161.0" prefHeight="34.0" prefWidth="115.0" underline="true">
+      <Label fx:id="lblSubFee" layoutX="469.0" layoutY="161.0" prefHeight="34.0" prefWidth="121.0" underline="true">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblPaymentId" layoutX="602.0" layoutY="237.0" prefHeight="34.0" prefWidth="93.0" underline="true">
+      <Label fx:id="lblPaymentId" layoutX="463.0" layoutY="254.0" prefHeight="34.0" prefWidth="93.0" underline="true">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblDate" layoutX="737.0" layoutY="161.0" prefHeight="34.0" prefWidth="130.0" underline="true">
+      <Label fx:id="lblDate" layoutX="778.0" layoutY="254.0" prefHeight="34.0" prefWidth="130.0" underline="true">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="924.0" layoutY="399.0" onAction="#btnPayFeesOnAction" prefHeight="61.0" prefWidth="166.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Pay The Fee(s)" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="936.0" layoutY="399.0" onAction="#btnPayFeesOnAction" prefHeight="61.0" prefWidth="166.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Pay The Fee(s)" textFill="WHITE">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="16.0" />
          </font>
@@ -99,13 +95,60 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="460.0" layoutX="14.0" layoutY="64.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="214.0" />
-      <Label layoutX="888.0" layoutY="327.0" prefHeight="34.0" prefWidth="93.0" text="Net Total:">
+      <Label layoutX="973.0" layoutY="299.0" prefHeight="34.0" prefWidth="93.0" text="Total Fee:">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblNetTotal" layoutX="976.0" layoutY="327.0" prefHeight="34.0" prefWidth="115.0" underline="true">
+      <Label fx:id="lblNetTotal" alignment="CENTER" contentDisplay="CENTER" layoutX="955.0" layoutY="333.0" prefHeight="34.0" prefWidth="130.0" underline="true">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtStudentId" layoutX="381.0" layoutY="102.0" prefHeight="34.0" prefWidth="214.0">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </JFXTextField>
+      <TableView fx:id="tblLastTransactions" layoutX="14.0" layoutY="78.0" prefHeight="442.0" prefWidth="290.0" stylesheets="@../../style/NormalStyleSheet.css">
+        <columns>
+          <TableColumn fx:id="colPayId" prefWidth="47.0" text="ID" />
+          <TableColumn fx:id="colStId" prefWidth="68.0" text="Student ID" />
+            <TableColumn fx:id="colFee" prefWidth="93.0" text="Fee Amount" />
+            <TableColumn fx:id="colDate" prefWidth="81.0" text="Date" />
+        </columns>
+      </TableView>
+      <Label layoutX="680.0" layoutY="161.0" prefHeight="34.0" prefWidth="141.0" text="Available Seats :">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblAbleSeats" layoutX="821.0" layoutY="161.0" prefHeight="34.0" prefWidth="121.0" underline="true">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="73.0" layoutY="24.0" prefHeight="48.0" prefWidth="172.0" text="Last Transaction(s)" underline="true">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="714.0" layoutY="213.0" prefHeight="26.0" prefWidth="66.0" text="Seats :">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtSeats" layoutX="773.0" layoutY="209.0" prefHeight="34.0" prefWidth="42.0">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="346.0" layoutY="209.0" prefHeight="34.0" prefWidth="93.0" text="Subject Id :">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSubId" layoutX="439.0" layoutY="209.0" prefHeight="34.0" prefWidth="121.0" underline="true">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>

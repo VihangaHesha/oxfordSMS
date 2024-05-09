@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="salaryEmpPane" prefHeight="541.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" stylesheets="@../../style/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.employee_form_controllers.EmployeeSalaryFormController">
+<Pane fx:id="salaryEmpPane" prefHeight="541.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.employee_form_controllers.EmployeeSalaryFormController">
    <children>
       <Label alignment="CENTER" layoutX="455.0" layoutY="14.0" prefHeight="34.0" prefWidth="211.0" text="Employee Salary">
          <font>
@@ -21,7 +21,7 @@
          </font>
       </Label>
       <Separator layoutX="443.0" layoutY="44.0" prefHeight="8.0" prefWidth="234.0" style="-fx-background-color: black;" />
-      <TableView fx:id="tblSalary" layoutX="210.0" layoutY="260.0" onMouseClicked="#empSalarySearchOnAction" prefHeight="252.0" prefWidth="701.0">
+      <TableView fx:id="tblSalary" layoutX="210.0" layoutY="260.0" onMouseClicked="#empSalarySearchOnAction" prefHeight="252.0" prefWidth="701.0" stylesheets="@../../style/NormalStyleSheet.css">
          <columns>
             <TableColumn fx:id="colSalaryId" prefWidth="88.0" text="ID" />
             <TableColumn fx:id="colEmpId" prefWidth="109.0" text="Emp ID" />

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -71,36 +71,6 @@
          </graphic>
       </JFXButton>
       <Separator layoutX="422.0" layoutY="36.0" prefHeight="7.0" prefWidth="279.0" style="-fx-background-color: black;" />
-      <TextField fx:id="txtStudentName" layoutX="253.0" layoutY="79.0" prefHeight="34.0" prefWidth="214.0" promptText="Insert Name" style="-fx-background-color: #737373; -fx-text-fill: black;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtContactNumber" layoutX="252.0" layoutY="131.0" prefHeight="34.0" prefWidth="167.0" promptText="Insert Contact Number" style="-fx-background-color: #737373; -fx-text-fill: black;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtGrade" layoutX="664.0" layoutY="188.0" prefHeight="34.0" prefWidth="149.0" promptText="Insert Grade" style="-fx-background-color: #737373; -fx-text-fill: black;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtStudentId" layoutX="664.0" layoutY="82.0" prefHeight="34.0" prefWidth="149.0" promptText="Insert ID" style="-fx-background-color: #737373; -fx-text-fill: black;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtUserId" layoutX="663.0" layoutY="135.0" prefHeight="34.0" prefWidth="149.0" promptText="Insert User ID" style="-fx-background-color: #737373; -fx-text-fill: black;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtAddress" layoutX="253.0" layoutY="182.0" prefHeight="34.0" prefWidth="320.0" promptText="Insert Address" style="-fx-background-color: #737373; -fx-text-fill: black;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
       <JFXButton buttonType="RAISED" layoutX="942.0" layoutY="161.0" onAction="#btnStudentRefreshOnAction" prefHeight="59.0" prefWidth="138.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Refresh" textFill="WHITE">
          <font>
             <Font name="Bookman Old Style Bold" size="18.0" />
@@ -113,5 +83,35 @@
             </ImageView>
          </graphic>
       </JFXButton>
+      <JFXTextField fx:id="txtStudentName" labelFloat="true" layoutX="250.0" layoutY="78.0" prefHeight="29.0" prefWidth="250.0">
+         <font>
+            <Font name="Bookman Old Style" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtContactNumber" layoutX="249.0" layoutY="128.0" prefHeight="34.0" prefWidth="167.0">
+         <font>
+            <Font name="Bookman Old Style" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtAddress" layoutX="249.0" layoutY="179.0" prefHeight="34.0" prefWidth="320.0">
+         <font>
+            <Font name="Bookman Old Style" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtStudentId" layoutX="662.0" layoutY="79.0" prefHeight="34.0" prefWidth="149.0">
+         <font>
+            <Font name="Bookman Old Style Bold" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtUserId" layoutX="661.0" layoutY="136.0" prefHeight="31.0" prefWidth="149.0">
+         <font>
+            <Font name="Bookman Old Style" size="12.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtGrade" layoutX="661.0" layoutY="190.0" prefHeight="31.0" prefWidth="149.0">
+         <font>
+            <Font name="Bookman Old Style" size="12.0" />
+         </font>
+      </JFXTextField>
    </children>
 </Pane>

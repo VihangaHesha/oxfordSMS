@@ -1,16 +1,22 @@
 package lk.ijse.oxford.contoller;
 
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import lk.ijse.oxford.db.DbConnection;
+import lk.ijse.oxford.util.Regex;
+import lk.ijse.oxford.util.TextFields;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -19,25 +25,29 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LoginFormController {
-    public TextField txtUsername;
-    public PasswordField pfPassword;
+    @FXML
+    public JFXTextField txtUsername;
+    @FXML
+    public JFXPasswordField pfPassword;
+    @FXML
     public AnchorPane rootNode;
 
 
     public void btnLoginOnAction(javafx.event.ActionEvent actionEvent) throws IOException {
         String username = txtUsername.getText();
         String pw = pfPassword.getText();
-
-        try {
-            checkCredentionals(username,pw);
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, "OOPS! something went wrong").show();
+        if(isValid()){
+            try {
+                checkCredentionals(username,pw);
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, "OOPS! something went wrong").show();
+            }
         }
     }
 
     private void checkCredentionals(String username, String pw) throws SQLException, IOException {
 
-        String sql="SELECT Name,Password,UserId FROM user WHERE Name =? ";
+        String sql="SELECT Name,Password FROM user WHERE Name =? ";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -45,7 +55,6 @@ public class LoginFormController {
         pstm.setObject(1,username);
 
         ResultSet resultSet = pstm.executeQuery();
-        String userId=resultSet.getString(3);
         if (resultSet.next()){
             String dbPw = resultSet.getString(2);
             if (dbPw.equals(pw)){
@@ -92,5 +101,18 @@ public class LoginFormController {
         stage.setTitle("New Password");
 
         stage.show();
+    }
+
+    public void txtUserNameOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.UNAME,txtUsername);
+    }
+
+    public boolean isValid(){
+        if (!Regex.setTextColor(TextFields.UNAME,txtUsername)) return false;
+        if (!Regex.setTextColor(TextFields.PW,pfPassword)) return false;
+        return true;
+    }
+    public void txtPwOnKeyReleased(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.PW,pfPassword);
     }
 }

@@ -4,14 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Payment {
-    private String payId;
-    private double amount;
-    private Date date;
-    private String stId;
+public class Subject {
+    private String SubId;
+    private String description;
+    private double feeAmount;
+    private int availableSeats;
 }

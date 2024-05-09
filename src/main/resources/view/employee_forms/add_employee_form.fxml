@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
@@ -19,7 +18,7 @@
             <Font name="Bookman Old Style Bold" size="24.0" />
          </font></Label>
       <Separator layoutX="434.0" layoutY="43.0" prefHeight="7.0" prefWidth="243.0" style="-fx-background-color: black;" />
-      <TableView fx:id="tblEmployee" layoutX="206.0" layoutY="256.0" prefHeight="271.0" prefWidth="708.0">
+      <TableView fx:id="tblEmployee" layoutX="206.0" layoutY="256.0" prefHeight="271.0" prefWidth="708.0" stylesheets="@../../style/NormalStyleSheet.css">
          <columns>
             <TableColumn fx:id="colEmpId" prefWidth="50.0" text="ID" />
             <TableColumn fx:id="colUserId" prefWidth="56.0" text="User" />
@@ -114,8 +113,4 @@
          </graphic>
       </JFXButton>
    </children>
-   <stylesheets>
-      <URL value="@../../style/NormalStyleSheet.css" />
-      <URL value="@../../style/PaneStyles.css" />
-   </stylesheets>
 </Pane>

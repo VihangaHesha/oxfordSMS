@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -27,7 +29,7 @@
          <children>
             <Pane prefHeight="69.0" prefWidth="1120.0" style="-fx-background-color: #ACB4FF;">
                <children>
-                  <JFXButton buttonType="RAISED" layoutX="136.0" layoutY="13.0" onAction="#btnStudentAddOnAction" prefHeight="46.0" prefWidth="137.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Add Student" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="148.0" layoutY="13.0" onAction="#btnStudentAddOnAction" prefHeight="46.0" prefWidth="137.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Add Student" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -42,7 +44,7 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="314.0" layoutY="13.0" onAction="#btnStudentDeleteOnAction" prefHeight="46.0" prefWidth="137.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Delete Student" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="307.0" layoutY="13.0" onAction="#btnStudentDeleteOnAction" prefHeight="46.0" prefWidth="137.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Delete Student" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -57,7 +59,7 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="492.0" layoutY="13.0" onAction="#btnStudentEditOnAction" prefHeight="46.0" prefWidth="137.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Edit Student" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="463.0" layoutY="13.0" onAction="#btnStudentEditOnAction" prefHeight="46.0" prefWidth="137.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Edit Student" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -72,7 +74,7 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="670.0" layoutY="11.0" onAction="#btnStudentAttendanceOnAction" prefHeight="46.0" prefWidth="137.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Attendance" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="619.0" layoutY="12.0" onAction="#btnStudentAttendanceOnAction" prefHeight="46.0" prefWidth="137.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Attendance" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -87,7 +89,7 @@
                         <Font name="Bookman Old Style Bold" size="12.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="848.0" layoutY="11.0" onAction="#btnStudentFeesOnAction" prefHeight="46.0" prefWidth="137.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Class Fees" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="776.0" layoutY="11.0" onAction="#btnStudentFeesOnAction" prefHeight="46.0" prefWidth="137.0" styleClass="formButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Class Fees" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -102,9 +104,19 @@
                         </ImageView>
                      </graphic>
                   </JFXButton>
-                  <ImageView fitHeight="68.0" fitWidth="78.0" layoutX="1051.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="68.0" fitWidth="78.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../assets/icons/Oxford%20Educational%20Institute%20(1).png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="1009.0" layoutY="12.0" prefHeight="45.0" prefWidth="116.0" text="STUDENT" textFill="#1a1665" underline="true">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="26.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="47.0" fitWidth="58.0" layoutX="961.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/icons/icons8-student-96.png" />
                      </image>
                   </ImageView>
                </children>

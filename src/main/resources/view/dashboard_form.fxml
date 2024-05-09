@@ -87,7 +87,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="7.0" layoutY="29.0" onAction="#btnUserOnAction" prefHeight="45.0" prefWidth="55.0" stylesheets="@../style/ProjectStyleSheet.css" text=" ">
+                  <JFXButton buttonType="RAISED" layoutX="7.0" layoutY="29.0" onAction="#btnUserOnAction" opacity="0.0" prefHeight="45.0" prefWidth="55.0" stylesheets="@../style/ProjectStyleSheet.css" text=" ">
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                            <image>

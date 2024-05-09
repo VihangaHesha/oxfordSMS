@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" stylesheets="@../../style/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.equipment_form_controllers.EditEquipmentFormController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.equipment_form_controllers.EditEquipmentFormController">
    <children>
       <JFXButton buttonType="RAISED" layoutX="929.0" layoutY="113.0" onAction="#btnEquipmentEditOnAction" prefHeight="64.0" prefWidth="177.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Change the Data" textFill="WHITE">
          <font>
@@ -32,7 +32,7 @@
          </font>
       </Label>
       <Separator layoutX="421.0" layoutY="42.0" prefHeight="6.0" prefWidth="328.0" style="-fx-background-color: black;" />
-      <TableView fx:id="tblEquipment" layoutX="280.0" layoutY="237.0" onMouseClicked="#equipEditOnAction" prefHeight="298.0" prefWidth="609.0">
+      <TableView fx:id="tblEquipment" layoutX="280.0" layoutY="237.0" onMouseClicked="#equipEditOnAction" prefHeight="298.0" prefWidth="609.0" stylesheets="@../../style/NormalStyleSheet.css">
          <columns>
             <TableColumn fx:id="colEquipmentId" prefWidth="99.0" text="ID" />
             <TableColumn fx:id="colEquipmentDesc" prefWidth="334.0" text="Description" />

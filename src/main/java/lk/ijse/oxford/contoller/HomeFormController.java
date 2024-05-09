@@ -3,17 +3,19 @@ package lk.ijse.oxford.contoller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.oxford.db.DbConnection;
 import lk.ijse.oxford.model.TimeTable;
 import lk.ijse.oxford.model.tm.TimeTableTm;
 import lk.ijse.oxford.repository.*;
 
-import java.sql.Date;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -39,6 +41,7 @@ public class HomeFormController {
     private int totalSalary;
     @FXML
     private Label lblTotalPayment;
+    private int totalPayments;
     @FXML
     private TableColumn<TimeTableTm,String> colSubjectNo;
     @FXML
@@ -61,10 +64,16 @@ public class HomeFormController {
         setCellFactory();
         loadTimeTable();
         try {
+            studentAttendance(bcStudentChart);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        try {
             studentCount = StudentRepo.getStudentCount();
             employeeCount = EmployeRepo.getEmployeeCount();
             equipmentCount = EquipmentRepo.getEquipmentCount();
             totalSalary = SalaryRepo.getTotalSalary();
+            totalPayments = PaymentRepo.getTotalPayments();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -72,6 +81,11 @@ public class HomeFormController {
         setEmployeeCount(employeeCount);
         setEquipmentCount(equipmentCount);
         setTotalSalary(totalSalary);
+        setTotalPayment(totalPayments);
+    }
+
+    private void setTotalPayment(int totalPayments) {
+        lblTotalPayment.setText(String.valueOf("Rs."+totalPayments+"/="));
     }
 
     private void setTotalSalary(int totalSalary) {
@@ -135,6 +149,29 @@ public class HomeFormController {
 
         lblDates.setText(formattedDate);
         lblTimes.setText(formattedTime);
+    }
+    private void studentAttendance(BarChart<String , Number> bcStudentChart) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "select MONTHNAME(date) as month, count(AttendMark) attendMark from Attendance group by MONTHNAME(date);";
+
+        PreparedStatement pstm = connection.prepareStatement(sql);
+
+        ResultSet resultSet = pstm.executeQuery();
+
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+
+        while (resultSet.next()) {
+            String month = resultSet.getString("month");
+            int attendMark = resultSet.getInt("attendMark");
+            series.getData().add(new XYChart.Data<>(month, attendMark));
+        }
+
+        bcStudentChart.getData().add(series);
+
+        for(Node n:bcStudentChart.lookupAll(".default-color0.chart-bar")) {
+            n.setStyle("-fx-bar-fill: #0C87F2;");
+        }
     }
 
 }

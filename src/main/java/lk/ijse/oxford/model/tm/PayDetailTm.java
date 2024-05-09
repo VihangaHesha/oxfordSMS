@@ -1,4 +1,4 @@
-package lk.ijse.oxford.model;
+package lk.ijse.oxford.model.tm;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,9 +9,9 @@ import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Payment {
+public class PayDetailTm {
     private String payId;
-    private double amount;
-    private Date date;
     private String stId;
+    private double fee;
+    private Date date;
 }

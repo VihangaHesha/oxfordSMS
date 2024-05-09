@@ -17,17 +17,17 @@ import java.util.List;
 
 public class AddStudentFormContoller {
     @FXML
-    private TextField txtStudentName;
+    private JFXTextField txtStudentName;
     @FXML
-    private TextField txtStudentId;
+    private JFXTextField txtStudentId;
     @FXML
-    private TextField txtContactNumber;
+    private JFXTextField txtContactNumber;
     @FXML
-    private TextField txtUserId;
+    private JFXTextField txtUserId;
     @FXML
-    private TextField txtGrade;
+    private JFXTextField txtGrade;
     @FXML
-    private TextField txtAddress;
+    private JFXTextField txtAddress;
     @FXML
     private TableColumn<?,?>colStId;
     @FXML
@@ -96,7 +96,6 @@ public class AddStudentFormContoller {
         String userId = txtUserId.getText();
 
         Student student = new Student(id, grade,name , tel,address,userId);
-        System.out.println(student.toString());
 
         try {
             boolean isSaved = StudentRepo.save(student);
