@@ -1,55 +1,139 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="userNode" prefHeight="511.0" prefWidth="781.0" stylesheets="@../style/NormalStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.UserFormController">
+<AnchorPane fx:id="userNode" prefHeight="700.0" prefWidth="1120.0" style="-fx-background-color: #ACDCFE;" stylesheets="@../style/ProjectStyleSheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.UserFormController">
    <children>
-      <ImageView fitHeight="536.0" fitWidth="803.0" layoutX="-7.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../assets/images/alexander-grey-eMP4sYPJ9x0-unsplash.jpg" />
-         </image>
-      </ImageView>
-      <Label alignment="CENTER" layoutX="310.0" layoutY="24.0" prefHeight="45.0" prefWidth="176.0" text="Hello User !">
+      <Rectangle arcHeight="100.0" arcWidth="100.0" fill="#eeeeee" height="221.0" layoutX="650.0" layoutY="167.0" stroke="#aeaeae" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.5" width="508.0" />
+      <Rectangle arcHeight="100.0" arcWidth="100.0" fill="#eeeeee" height="221.0" layoutX="50.0" layoutY="167.0" stroke="#aeaeae" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeWidth="1.5" width="508.0" />
+      <Label alignment="CENTER" layoutX="465.0" layoutY="14.0" prefHeight="65.0" prefWidth="270.0" text="Greetings User!" underline="true">
          <font>
-            <Font name="Bookman Old Style Bold" size="22.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="30.0" />
          </font>
          <graphic>
-            <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="43.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/icons/icons8-waving-hand-40.png" />
                </image>
             </ImageView>
          </graphic>
       </Label>
-      <Label layoutX="43.0" layoutY="117.0" prefHeight="30.0" prefWidth="78.0" text="Name :">
+      <Label layoutX="71.0" layoutY="213.0" prefHeight="41.0" prefWidth="99.0" text="Name :">
+         <font>
+            <Font name="Arial" size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="71.0" layoutY="292.0" prefHeight="41.0" prefWidth="131.0" text="Password :">
+         <font>
+            <Font name="Arial" size="26.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblUserName" alignment="CENTER" layoutX="170.0" layoutY="213.0" prefHeight="41.0" prefWidth="291.0">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="43.0" layoutY="173.0" prefHeight="30.0" prefWidth="99.0" text="Address :">
+      <Label fx:id="lblUserPw" alignment="CENTER" layoutX="205.0" layoutY="292.0" prefHeight="41.0" prefWidth="197.0">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <JFXButton buttonType="RAISED" ellipsisString="" layoutX="471.0" layoutY="211.0" onAction="#btnNameInAction" prefHeight="45.0" prefWidth="49.0" styleClass="formInFormButtons" stylesheets="@../style/ProjectStyleSheet.css" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons/icons8-edit-file-96.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" ellipsisString="" layoutX="477.0" layoutY="290.0" onAction="#btnPwEditOnAction" prefHeight="45.0" prefWidth="49.0" styleClass="formInFormButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Button" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons/icons8-edit-file-96.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" ellipsisString="" layoutX="409.0" layoutY="290.0" onAction="#btnPwDisplayOnAction" prefHeight="45.0" prefWidth="49.0" styleClass="formInFormButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Button" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons/icons8-show-password-96.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Label layoutX="674.0" layoutY="217.0" prefHeight="41.0" prefWidth="107.0" text="Contact :">
+         <font>
+            <Font name="Arial" size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="695.0" layoutY="298.0" prefHeight="41.0" prefWidth="92.0" text="Email :">
+         <font>
+            <Font name="Arial" size="26.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblContact" alignment="CENTER" layoutX="787.0" layoutY="217.0" prefHeight="41.0" prefWidth="176.0">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="43.0" layoutY="227.0" prefHeight="22.0" prefWidth="123.0" text="Description :">
+      <Label fx:id="lblEmail" alignment="CENTER" layoutX="787.0" layoutY="298.0" prefHeight="41.0" prefWidth="284.0">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lblUserDesc" alignment="TOP_LEFT" layoutX="166.0" layoutY="234.0" prefHeight="70.0" prefWidth="262.0">
+      <Label layoutX="87.0" layoutY="111.0" prefHeight="41.0" prefWidth="149.0" text="General Info" underline="true">
          <font>
-            <Font size="15.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="26.0" />
          </font>
       </Label>
-      <Label fx:id="lblUserName" layoutX="126.0" layoutY="113.0" prefHeight="30.0" prefWidth="262.0">
+      <Label layoutX="674.0" layoutY="111.0" prefHeight="41.0" prefWidth="149.0" text="Contact Info" underline="true">
          <font>
-            <Font size="17.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="26.0" />
          </font>
       </Label>
-      <Label fx:id="lblUserAddress" layoutX="142.0" layoutY="173.0" prefHeight="30.0" prefWidth="314.0" />
+      <JFXButton buttonType="RAISED" ellipsisString="" layoutX="971.0" layoutY="215.0" onAction="#btnContactOnAction" prefHeight="45.0" prefWidth="49.0" styleClass="formInFormButtons" stylesheets="@../style/ProjectStyleSheet.css" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons/icons8-edit-file-96.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" ellipsisString="" layoutX="1077.0" layoutY="295.0" onAction="#btnEmailOnAction" prefHeight="45.0" prefWidth="49.0" styleClass="formInFormButtons" stylesheets="@../style/ProjectStyleSheet.css" text="Button" textOverrun="CLIP">
+         <graphic>
+            <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/icons/icons8-edit-file-96.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <Label fx:id="lblTime" alignment="CENTER" layoutX="430.0" layoutY="463.0" prefHeight="70.0" prefWidth="341.0">
+         <font>
+            <Font name="Segoe UI Bold" size="57.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDate" alignment="CENTER" layoutX="462.0" layoutY="533.0" prefHeight="43.0" prefWidth="276.0">
+         <font>
+            <Font name="Segoe UI Bold" size="19.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

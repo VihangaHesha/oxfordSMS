@@ -17,15 +17,19 @@ public class PlacePaymentRepo {
         try {
             boolean isPaymentSaved = PaymentRepo.save(po.getPayment());
             if (isPaymentSaved) {
+                System.out.println(isPaymentSaved);
                 boolean isPaymentDetailSaved = PaymentDetailsRepo.save(po.getPdList());
                 if (isPaymentDetailSaved) {
+                    System.out.println(isPaymentDetailSaved);
                     boolean isSubjectSeatsUpdate = SubjectRepo.updateSeats(po.getPdList());
                     if (isSubjectSeatsUpdate) {
-                        boolean isClassroomSeatsUpdate = ClassroomRepo.updateSeats(po.getPdList());
+                        System.out.println(isSubjectSeatsUpdate);
+                        connection.commit();
+                        return true;
+                        /*boolean isClassroomSeatsUpdate = ClassroomRepo.updateSeats(po.getPdList());
                         if (isClassroomSeatsUpdate){
-                            connection.commit();
-                            return true;
-                        }
+
+                        }*/
                     }
                 }
             }

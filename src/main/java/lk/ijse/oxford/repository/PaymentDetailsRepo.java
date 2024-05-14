@@ -12,6 +12,7 @@ public class PaymentDetailsRepo {
     public static boolean save(List<PaymentDetails> pdList) throws SQLException {
         for (PaymentDetails pd : pdList) {
             if(!save(pd)) {
+                System.out.println(pd.toString());
                 return false;
             }
         }

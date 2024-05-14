@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -30,12 +30,12 @@
             <TableColumn fx:id="colEmpType" prefWidth="102.0" text="Type" />
          </columns>
       </TableView>
-      <Label layoutX="419.0" layoutY="181.0" prefHeight="26.0" prefWidth="66.0" text="Name :">
+      <Label layoutX="433.0" layoutY="172.0" prefHeight="26.0" prefWidth="66.0" text="Name :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="467.0" layoutY="117.0" prefHeight="26.0" prefWidth="41.0" text="ID :">
+      <Label layoutX="464.0" layoutY="107.0" prefHeight="26.0" prefWidth="41.0" text="ID :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
@@ -52,16 +52,6 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <TextField fx:id="txtEmployeeName" layoutX="487.0" layoutY="182.0" prefHeight="34.0" prefWidth="214.0" promptText="Insert Name" style="-fx-background-color: #737373; -fx-text-fill: black;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtEmpId" layoutX="505.0" layoutY="113.0" prefHeight="34.0" prefWidth="149.0" promptText="Insert ID" style="-fx-background-color: #737373; -fx-text-fill: black;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
       <JFXButton buttonType="RAISED" layoutX="926.0" layoutY="155.0" onAction="#btnEmpRefreshOnAction" prefHeight="59.0" prefWidth="138.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Refresh" textFill="WHITE">
          <font>
             <Font name="Bookman Old Style Bold" size="18.0" />
@@ -90,5 +80,7 @@
             <Image url="@../../assets/icons/icons8-employee-96.png" />
          </image>
       </ImageView>
+      <JFXTextField fx:id="txtEmployeeName" layoutX="502.0" layoutY="168.0" onKeyPressed="#txtEmpNameCheckOnAction" prefHeight="34.0" prefWidth="214.0" />
+      <JFXTextField fx:id="txtEmpId" layoutX="507.0" layoutY="103.0" onKeyPressed="#txtEmpIdCheckOnAction" prefHeight="34.0" prefWidth="149.0" />
    </children>
 </Pane>

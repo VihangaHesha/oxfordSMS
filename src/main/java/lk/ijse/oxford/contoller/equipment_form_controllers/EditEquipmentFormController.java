@@ -1,15 +1,19 @@
 package lk.ijse.oxford.contoller.equipment_form_controllers;
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.oxford.model.Equipment;
 import lk.ijse.oxford.model.tm.EquipmentTm;
 import lk.ijse.oxford.repository.EquipmentRepo;
+import lk.ijse.oxford.util.Regex;
+import lk.ijse.oxford.util.TextFields;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -20,11 +24,11 @@ public class EditEquipmentFormController {
     private Label lblEquipCount;
     private int equipCount;
     @FXML
-    private TextField txtEquipId;
+    private JFXTextField txtEquipId;
     @FXML
-    private TextField txtEquiptDesc;
+    private JFXTextField txtEquiptDesc;
     @FXML
-    private TextField txtEquipQty;
+    private JFXTextField txtEquipQty;
     @FXML
     private TableColumn<?,?> colEquipmentId;
     @FXML
@@ -84,19 +88,22 @@ public class EditEquipmentFormController {
         colEquipmentQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
     }
     public void btnEquipmentEditOnAction(ActionEvent actionEvent) {
-        String id = txtEquipId.getText();
-        String desc = txtEquiptDesc.getText();
-        int qty = Integer.parseInt(txtEquipQty.getText());
+        if (isValidate()){
+            String id = txtEquipId.getText();
+            String desc = txtEquiptDesc.getText();
+            int qty = Integer.parseInt(txtEquipQty.getText());
 
-        Equipment equipment = new Equipment(id,desc,qty);
+            Equipment equipment = new Equipment(id,desc,qty);
 
-        try {
-            boolean isUpdated = EquipmentRepo.update(equipment);
-            if (isUpdated) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Student Data Is Updated!").show();
+            try {
+                boolean isUpdated = EquipmentRepo.update(equipment);
+                if (isUpdated) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Student Data Is Updated!").show();
+                    initialize();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 
@@ -107,7 +114,21 @@ public class EditEquipmentFormController {
         txtEquipQty.setText(String.valueOf(selectedItem.getQty()));
     }
 
-    public void btnEquipRefresh(ActionEvent actionEvent) {
-        initialize();
+    public boolean isValidate(){
+        if(!Regex.setTextColor(TextFields.DESC,txtEquiptDesc))return false;
+        if(!Regex.setTextColor(TextFields.QTY,txtEquipQty))return false;
+        if(!Regex.setTextColor(TextFields.EQID,txtEquipId))return false;
+        return true;
+    }
+    public void txtClassDescCheckOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.DESC,txtEquiptDesc);
+    }
+
+    public void txtClassIdCheckOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.EQID,txtEquipId);
+    }
+
+    public void txtQtyCheckOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.QTY,txtEquipQty);
     }
 }

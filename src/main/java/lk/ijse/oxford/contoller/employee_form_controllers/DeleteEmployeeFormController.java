@@ -1,15 +1,19 @@
 package lk.ijse.oxford.contoller.employee_form_controllers;
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.oxford.model.Employee;
 import lk.ijse.oxford.model.tm.EmployeeTm;
 import lk.ijse.oxford.repository.EmployeRepo;
+import lk.ijse.oxford.util.Regex;
+import lk.ijse.oxford.util.TextFields;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -20,9 +24,9 @@ public class DeleteEmployeeFormController {
     private Label lblEmployeeCount;
     private int employeeCount;
     @FXML
-    private TextField txtEmpId;
+    private JFXTextField txtEmpId;
     @FXML
-    private TextField txtEmployeeName;
+    private JFXTextField txtEmployeeName;
     @FXML
     private TableColumn<?,?> colEmpId;
     @FXML
@@ -93,16 +97,18 @@ public class DeleteEmployeeFormController {
         colUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
     }
     public void btnEmpDeleteOnAction(ActionEvent actionEvent) {
-        String id = txtEmpId.getText();
+       if (isValidate()){
+           String id = txtEmpId.getText();
 
-        try {
-            boolean isDeleted = EmployeRepo.delete(id);
-            if (isDeleted) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Employee Data Deleted!").show();
-            }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
+           try {
+               boolean isDeleted = EmployeRepo.delete(id);
+               if (isDeleted) {
+                   new Alert(Alert.AlertType.CONFIRMATION, "Employee Data Deleted!").show();
+               }
+           } catch (SQLException e) {
+               new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+           }
+       }
     }
 
     public void empDeleteOnAction(MouseEvent mouseEvent) {
@@ -115,5 +121,17 @@ public class DeleteEmployeeFormController {
         initialize();
         txtEmployeeName.setText("");
         txtEmpId.setText("");
+    }
+
+    public boolean isValidate(){
+        if(!Regex.setTextColor(TextFields.NAME,txtEmployeeName))return false;
+        if(!Regex.setTextColor(TextFields.EID,txtEmpId))return false;
+        return true;
+    }
+    public void txtEmpNameCheckOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.NAME,txtEmployeeName);
+    }
+    public void txtEmpIdCheckOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.EID,txtEmpId);
     }
 }

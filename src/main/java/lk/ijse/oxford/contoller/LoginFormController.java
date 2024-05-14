@@ -8,8 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -47,7 +45,7 @@ public class LoginFormController {
 
     private void checkCredentionals(String username, String pw) throws SQLException, IOException {
 
-        String sql="SELECT Name,Password FROM user WHERE Name =? ";
+        String sql="SELECT Name,Password,UserId FROM user WHERE Name =? ";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -58,7 +56,8 @@ public class LoginFormController {
         if (resultSet.next()){
             String dbPw = resultSet.getString(2);
             if (dbPw.equals(pw)){
-                navigateToDashboard();
+                String uId = resultSet.getString(3);
+                navigateToDashboard(uId);
             }else {
                 new Alert(Alert.AlertType.ERROR , "Incorrect Password! Please try again!").show();
             }
@@ -68,9 +67,9 @@ public class LoginFormController {
 
     }
 
-    private void navigateToDashboard() throws IOException {
-        BorderPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml"));
+    private void navigateToDashboard(String uId) throws IOException {
 
+        BorderPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml"));
         Scene scene = new Scene(rootNode);
         Stage stage = (Stage) this.rootNode.getScene().getWindow();
         stage.setScene(scene);

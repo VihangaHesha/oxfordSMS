@@ -5,6 +5,7 @@ import lk.ijse.oxford.model.Classroom;
 import lk.ijse.oxford.model.Equipment;
 import lk.ijse.oxford.model.PaymentDetails;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -85,7 +86,7 @@ public class ClassroomRepo {
     }
 
     public static boolean update(Classroom classroom) throws SQLException {
-        String sql = "UPDATE Student SET Description = ? , Capacity = ?, SubId=? WHERE ClassId = ?";
+        String sql = "UPDATE Classroom SET Description = ? , Capacity = ?, SubId=? WHERE ClassId = ?";
 
         PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement(sql);
 
@@ -107,7 +108,7 @@ public class ClassroomRepo {
     }
 
     private static boolean updateSeates(PaymentDetails od) throws SQLException {
-        String sql = "UPDATE Classroom SET Capacity = Capacity - ? WHERE SubId = ?";
+        String sql = "update Classroom set Capacity=Capacity-? where SubId=?";
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
 
@@ -117,4 +118,16 @@ public class ClassroomRepo {
         return pstm.executeUpdate() > 0;
     }
 
+    public static String currentId() throws SQLException {
+        String sql = "SELECT ClassId FROM Classroom ORDER BY ClassId desc LIMIT 1";
+
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
+
+        if(resultSet.next()) {
+            return resultSet.getString(1);
+        }
+        return null;
+    }
 }

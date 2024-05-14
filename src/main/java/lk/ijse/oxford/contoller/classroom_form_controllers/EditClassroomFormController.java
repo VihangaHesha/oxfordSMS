@@ -1,16 +1,20 @@
 package lk.ijse.oxford.contoller.classroom_form_controllers;
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.oxford.model.Classroom;
 import lk.ijse.oxford.model.tm.ClassTm;
 import lk.ijse.oxford.repository.ClassroomRepo;
 import lk.ijse.oxford.repository.EquipmentRepo;
+import lk.ijse.oxford.util.Regex;
+import lk.ijse.oxford.util.TextFields;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -24,13 +28,13 @@ public class EditClassroomFormController {
     private Label lblClassCapacity;
     private int classCapacity;
     @FXML
-    private TextField txtClassId;
+    private JFXTextField txtClassId;
     @FXML
-    private TextField txtClassDesc;
+    private JFXTextField txtClassDesc;
     @FXML
-    private TextField txtCapacity;
+    private JFXTextField txtCapacity;
     @FXML
-    private TextField txtSubId;
+    private JFXTextField txtSubId;
     @FXML
     private TableColumn<?,?> colClassId;
     @FXML
@@ -99,24 +103,27 @@ public class EditClassroomFormController {
     }
 
     public void btnClassEditOnAction(ActionEvent actionEvent) {
-        String classId = txtClassId.getText();
-        String desc = txtClassDesc.getText();
-        String subId = txtSubId.getText();
-        int capacity = Integer.parseInt(txtCapacity.getText());
+        if (isValidate()){
+            String classId = txtClassId.getText();
+            String desc = txtClassDesc.getText();
+            String subId = txtSubId.getText();
+            int capacity = Integer.parseInt(txtCapacity.getText());
 
-        Classroom classroom = new Classroom(classId,desc,capacity,subId);
+            Classroom classroom = new Classroom(classId,desc,capacity,subId);
 
-        try {
-            boolean isUpdated = ClassroomRepo.update(classroom);
-            if (isUpdated) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Student Data Is Updated!").show();
-                txtSubId.setText("");
-                txtClassDesc.setText("");
-                txtClassId.setText("");
-                txtCapacity.setText("");
+            try {
+                boolean isUpdated = ClassroomRepo.update(classroom);
+                if (isUpdated) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Student Data Is Updated!").show();
+                    txtSubId.setText("");
+                    txtClassDesc.setText("");
+                    txtClassId.setText("");
+                    txtCapacity.setText("");
+                    initialize();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 
@@ -128,11 +135,26 @@ public class EditClassroomFormController {
         txtSubId.setText(selectedItem.getSubId());
     }
 
-    public void btnClassRefreshOnAction(ActionEvent actionEvent) {
-        initialize();
-        txtSubId.setText("");
-        txtClassDesc.setText("");
-        txtClassId.setText("");
-        txtCapacity.setText("");
+    public void textDescCheckOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.DESC,txtClassDesc);
+    }
+
+    public void textCapacityCheckOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.CAPACITY,txtCapacity);
+    }
+
+    public void textIdCheckOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.CID,txtClassId);
+    }
+
+    public void textSubIdCheckOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.SUBID,txtSubId);
+    }
+    public boolean isValidate(){
+        if(!Regex.setTextColor(TextFields.CID,txtClassId))return false;
+        if(!Regex.setTextColor(TextFields.DESC,txtClassDesc))return false;
+        if(!Regex.setTextColor(TextFields.CAPACITY,txtCapacity))return false;
+        if(!Regex.setTextColor(TextFields.SUBID,txtSubId))return false;
+        return true;
     }
 }

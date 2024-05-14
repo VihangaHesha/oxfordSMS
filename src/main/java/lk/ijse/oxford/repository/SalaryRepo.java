@@ -1,5 +1,6 @@
 package lk.ijse.oxford.repository;
 
+import javafx.collections.ObservableList;
 import lk.ijse.oxford.db.DbConnection;
 import lk.ijse.oxford.model.Employee;
 import lk.ijse.oxford.model.Salary;
@@ -13,7 +14,7 @@ import java.util.List;
 
 public class SalaryRepo {
     public static List<Salary> getAll() throws SQLException {
-        String sql = "SELECT s.SalaryId,s.Amount,s.Date,s.EmpId,e.Name FROM Salary s JOIN Employee e ON s.EmpId=e.EmpId;";
+        String sql = "SELECT s.SalaryId,s.Amount,s.Date,s.EmpId,e.Name FROM Salary s JOIN Employee e ON s.EmpId=e.EmpId";
 
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
@@ -23,7 +24,7 @@ public class SalaryRepo {
         List<Salary> salaryList = new ArrayList<>();
         while (resultSet.next()) {
             String id = resultSet.getString(1);
-            double amount = Double.parseDouble(resultSet.getString(2));
+            String amount = String.valueOf(Double.parseDouble(resultSet.getString(2)));
             Date date = Date.valueOf(resultSet.getString(3));
             String empId = resultSet.getString(4);
             String name = resultSet.getString(5);
@@ -45,7 +46,7 @@ public class SalaryRepo {
         if(resultSet.next()) {
             return new Salary(
                     resultSet.getString(1),
-                    resultSet.getDouble(2),
+                    resultSet.getString(2),
                     resultSet.getDate(3),
                     resultSet.getString(4),
                     resultSet.getString(5)

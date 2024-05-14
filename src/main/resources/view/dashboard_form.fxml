@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" styleClass="stackPanes" stylesheets="@../style/PaneStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.DashboardFormController">
+<BorderPane fx:id="rootNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" styleClass="stackPanes" stylesheets="@../style/PaneStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.DashboardFormController">
    <left>
       <VBox prefHeight="566.0" prefWidth="80.0" styleClass="boarder" stylesheets="@../style/ProjectStyleSheet.css" BorderPane.alignment="CENTER">
          <children>
             <Pane prefHeight="700.0" prefWidth="80.0" style="-fx-background-color: #4F62E5;" styleClass="pane" stylesheets="@../style/ProjectStyleSheet.css">
                <children>
-                  <JFXButton buttonType="RAISED" layoutX="7.0" layoutY="111.0" onAction="#btnHomeOnAction" prefHeight="45.0" prefWidth="55.0" stylesheets="@../style/ProjectStyleSheet.css" text=" ">
+                  <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="160.0" onAction="#btnHomeOnAction" prefHeight="45.0" prefWidth="55.0" stylesheets="@../style/ProjectStyleSheet.css" text=" ">
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -27,7 +27,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" contentDisplay="CENTER" layoutX="4.0" layoutY="193.0" onAction="#btnStudentOnAction" prefHeight="52.0" prefWidth="67.0" stylesheets="@../style/ProjectStyleSheet.css" text=" ">
+                  <JFXButton buttonType="RAISED" contentDisplay="CENTER" layoutX="4.0" layoutY="242.0" onAction="#btnStudentOnAction" prefHeight="52.0" prefWidth="67.0" stylesheets="@../style/ProjectStyleSheet.css" text=" ">
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -39,7 +39,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="8.0" layoutY="275.0" onAction="#btnClassroomOnAction" prefHeight="45.0" prefWidth="55.0" stylesheets="@../style/ProjectStyleSheet.css" text=" ">
+                  <JFXButton buttonType="RAISED" layoutX="8.0" layoutY="324.0" onAction="#btnClassroomOnAction" prefHeight="45.0" prefWidth="55.0" stylesheets="@../style/ProjectStyleSheet.css" text=" ">
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -51,7 +51,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="7.0" layoutY="357.0" onAction="#btnEmployeeOnAction" prefHeight="45.0" prefWidth="55.0" styleClass="EmployeeButton" stylesheets="@../style/ProjectStyleSheet.css" text=" ">
+                  <JFXButton buttonType="RAISED" layoutX="7.0" layoutY="406.0" onAction="#btnEmployeeOnAction" prefHeight="45.0" prefWidth="55.0" styleClass="EmployeeButton" stylesheets="@../style/ProjectStyleSheet.css" text=" ">
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -63,7 +63,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="8.0" layoutY="439.0" onAction="#btnEquipmentOnAction" prefHeight="45.0" prefWidth="55.0" stylesheets="@../style/ProjectStyleSheet.css" text=" ">
+                  <JFXButton buttonType="RAISED" layoutX="8.0" layoutY="488.0" onAction="#btnEquipmentOnAction" prefHeight="45.0" prefWidth="55.0" stylesheets="@../style/ProjectStyleSheet.css" text=" ">
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -75,7 +75,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="7.0" layoutY="521.0" onAction="#btnExitOnAction" prefHeight="45.0" prefWidth="55.0" stylesheets="@../style/ProjectStyleSheet.css" text=" ">
+                  <JFXButton buttonType="RAISED" layoutX="7.0" layoutY="570.0" onAction="#btnExitOnAction" prefHeight="45.0" prefWidth="55.0" stylesheets="@../style/ProjectStyleSheet.css" text=" ">
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -87,7 +87,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="7.0" layoutY="29.0" onAction="#btnUserOnAction" opacity="0.0" prefHeight="45.0" prefWidth="55.0" stylesheets="@../style/ProjectStyleSheet.css" text=" ">
+                  <JFXButton buttonType="RAISED" layoutX="7.0" layoutY="78.0" onAction="#btnUserOnAction" prefHeight="45.0" prefWidth="55.0" stylesheets="@../style/ProjectStyleSheet.css" text=" ">
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                            <image>

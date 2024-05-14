@@ -16,7 +16,7 @@ public class Regex {
                 field = "^([A-Z][0-9]{3})$";
                 break;
             case NAME:
-                field = "^[A-z|\\\\s]{3,}$";
+                field = "^(([A-z|\\\\\\s]{3,})| ([\\\\\\s][A-z|\\\\\\s]{3,}))$";
                 break;
             case SUBID:
                 field = "^(([S][U][B])([0-9]{3}))$";

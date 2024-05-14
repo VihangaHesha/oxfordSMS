@@ -37,6 +37,7 @@ public class EmployeeFormController implements Initializable {
 
     public void btnEmployeeAddOnAction(ActionEvent actionEvent) throws IOException {
         Parent fxml = FXMLLoader.load(getClass().getResource("/view/employee_forms/add_employee_form.fxml"));
+
         employeeContainer.getChildren().removeAll();
         employeeContainer.getChildren().setAll(fxml);
     }

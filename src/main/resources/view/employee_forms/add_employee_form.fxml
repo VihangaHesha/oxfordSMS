@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -58,7 +58,7 @@
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="934.0" layoutY="93.0" onAction="#btnEmpAddOnAction" prefHeight="68.0" prefWidth="161.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Add New Data" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="930.0" layoutY="129.0" onAction="#btnEmpAddOnAction" prefHeight="68.0" prefWidth="161.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Add New Data" textFill="WHITE">
          <font>
             <Font name="Bookman Old Style Bold" size="14.0" />
          </font>
@@ -70,47 +70,11 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <TextField fx:id="txtEmployeeName" layoutX="251.0" layoutY="90.0" prefHeight="34.0" prefWidth="214.0" promptText="Insert Name" style="-fx-background-color: #737373; -fx-text-fill: black;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtContactNumber" layoutX="250.0" layoutY="142.0" prefHeight="34.0" prefWidth="167.0" promptText="Insert Contact Number" style="-fx-background-color: #737373; -fx-text-fill: black;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtEmpType" layoutX="709.0" layoutY="199.0" prefHeight="34.0" prefWidth="149.0" promptText="Insert Employee Type" style="-fx-background-color: #737373; -fx-text-fill: black;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtEmpId" layoutX="709.0" layoutY="93.0" prefHeight="34.0" prefWidth="149.0" promptText="Insert ID" style="-fx-background-color: #737373; -fx-text-fill: black;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtUserId" layoutX="708.0" layoutY="146.0" prefHeight="34.0" prefWidth="149.0" promptText="Insert User ID" style="-fx-background-color: #737373; -fx-text-fill: black;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtAddress" layoutX="251.0" layoutY="193.0" prefHeight="34.0" prefWidth="320.0" promptText="Insert Address" style="-fx-background-color: #737373; -fx-text-fill: black;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
-      <JFXButton buttonType="RAISED" layoutX="946.0" layoutY="176.0" onAction="#btnEmpRefreshOnAction" prefHeight="59.0" prefWidth="138.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Refresh" textFill="WHITE">
-         <font>
-            <Font name="Bookman Old Style Bold" size="18.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../assets/icons/icons8-refresh-96.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
+      <JFXTextField fx:id="txtEmployeeName" layoutX="251.0" layoutY="90.0" onKeyPressed="#txtEmpNameCheckOnAction" prefHeight="34.0" prefWidth="214.0" />
+      <JFXTextField fx:id="txtContactNumber" layoutX="249.0" layoutY="142.0" onKeyPressed="#txtContactCheckOnAction" prefHeight="34.0" prefWidth="167.0" />
+      <JFXTextField fx:id="txtAddress" layoutX="250.0" layoutY="193.0" onKeyPressed="#txtAddressCheckOnAction" prefHeight="34.0" prefWidth="320.0" />
+      <JFXTextField fx:id="txtEmpId" layoutX="708.0" layoutY="93.0" onKeyPressed="#txtEmpIdCheckOnAction" prefHeight="34.0" prefWidth="149.0" />
+      <JFXTextField fx:id="txtUserId" layoutX="708.0" layoutY="146.0" onKeyPressed="#txtUserIdCheckOnAction" prefHeight="34.0" prefWidth="149.0" />
+      <JFXTextField fx:id="txtEmpType" layoutX="709.0" layoutY="199.0" onKeyPressed="#txtEmpTypeCheckOnAction" prefHeight="34.0" prefWidth="149.0" />
    </children>
 </Pane>

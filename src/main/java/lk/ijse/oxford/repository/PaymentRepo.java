@@ -51,8 +51,8 @@ public class PaymentRepo {
         PreparedStatement pstm = DbConnection.getInstance().getConnection()
                 .prepareStatement(sql);
         pstm.setString(1, payment.getPayId());
-        pstm.setString(2, payment.getStId());
-        pstm.setDate(3, payment.getDate());
+        pstm.setString(3, payment.getStId());
+        pstm.setDate(2, payment.getDate());
         pstm.setDouble(4, payment.getAmount());
 
         return pstm.executeUpdate() > 0;

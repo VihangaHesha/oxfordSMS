@@ -11,7 +11,7 @@ import java.sql.Date;
 @Data
 public class Salary {
     private String salaryId;
-    private double amount;
+    private String amount;
     private Date date;
     private String EmpId;
     private String name;

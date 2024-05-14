@@ -12,16 +12,16 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.HomeFormController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.HomeFormController">
    <children>
-      <Label fx:id="lblTimes" alignment="CENTER" layoutX="828.0" layoutY="14.0" prefHeight="70.0" prefWidth="182.0" textFill="#1a1665">
+      <Label fx:id="lblTimes" alignment="CENTER" layoutX="771.0" layoutY="15.0" prefHeight="70.0" prefWidth="250.0" textFill="#1a1665">
          <font>
-            <Font name="Colonna MT" size="42.0" />
+            <Font name="Segoe UI Bold" size="42.0" />
          </font>
       </Label>
-      <Label fx:id="lblDates" alignment="CENTER" ellipsisString="" layoutX="703.0" layoutY="70.0" prefHeight="70.0" prefWidth="412.0" textFill="#1a1665" textOverrun="CLIP">
+      <Label fx:id="lblDates" alignment="CENTER" ellipsisString="" layoutX="771.0" layoutY="71.0" prefHeight="40.0" prefWidth="250.0" textFill="#1a1665" textOverrun="CLIP">
          <font>
-            <Font name="Engravers MT" size="24.0" />
+            <Font name="Segoe UI Bold" size="24.0" />
          </font>
       </Label>
       <TableView fx:id="tblSchedule" layoutX="50.0" layoutY="384.0" prefHeight="205.0" prefWidth="637.0" stylesheets="@../style/NormalStyleSheet.css">
@@ -40,7 +40,7 @@
             <NumberAxis fx:id="yStudentNumber" side="LEFT" />
          </yAxis>
       </BarChart>
-      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="205.0" layoutX="891.0" layoutY="384.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="215.0" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="205.0" layoutX="872.0" layoutY="384.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="215.0" />
       <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="205.0" layoutX="891.0" layoutY="151.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="215.0" />
       <Label fx:id="lblTotalSalary" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="896.0" layoutY="464.0" prefHeight="50.0" prefWidth="205.0" styleClass="text" stylesheets="@../style/ProjectStyleSheet.css">
          <font>

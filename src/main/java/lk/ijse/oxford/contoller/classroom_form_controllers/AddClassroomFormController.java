@@ -1,17 +1,22 @@
 package lk.ijse.oxford.contoller.classroom_form_controllers;
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.oxford.model.Classroom;
 import lk.ijse.oxford.model.Equipment;
 import lk.ijse.oxford.model.tm.ClassTm;
 import lk.ijse.oxford.model.tm.EquipmentTm;
 import lk.ijse.oxford.repository.ClassroomRepo;
 import lk.ijse.oxford.repository.EquipmentRepo;
+import lk.ijse.oxford.repository.PaymentRepo;
+import lk.ijse.oxford.util.Regex;
+import lk.ijse.oxford.util.TextFields;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -25,13 +30,13 @@ public class AddClassroomFormController {
     private Label lblClassCapacity;
     private int classCapacity;
     @FXML
-    private TextField txtClassId;
+    private Label lblClassId;
     @FXML
-    private TextField txtClassDesc;
+    private JFXTextField txtClassDesc;
     @FXML
-    private TextField txtCapacity;
+    private JFXTextField txtCapacity;
     @FXML
-    private TextField txtSubId;
+    private JFXTextField txtSubId;
     @FXML
     private TableColumn<?,?> colClassId;
     @FXML
@@ -47,6 +52,7 @@ public class AddClassroomFormController {
         this.classroomList = getAllClassrooms();
         setCellValueFactory();
         loadClassroomTable();
+        loadNextClassId();
         try {
             classCount=ClassroomRepo.getClassCount();
             classCapacity=ClassroomRepo.getClassCapacity();
@@ -99,34 +105,76 @@ public class AddClassroomFormController {
         colSubId.setCellValueFactory(new PropertyValueFactory<>("subId"));
     }
 
-    public void btnClassAddOnAction(ActionEvent actionEvent) {
-        String classId = txtClassId.getText();
-        String desc = txtClassDesc.getText();
-        String subId = txtSubId.getText();
-        int capacity = Integer.parseInt(txtCapacity.getText());
-
-        Classroom classroom = new Classroom(classId,desc,capacity,subId);
-
-
+    private void loadNextClassId() {
         try {
-            boolean isSaved = ClassroomRepo.save(classroom);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Classroom Data Saved!").show();
-                txtSubId.setText("");
-                txtClassDesc.setText("");
-                txtCapacity.setText("");
-                txtClassId.setText("");
-            }
+            String currentId = ClassroomRepo.currentId();
+            String nextId = nextId(currentId);
+
+            lblClassId.setText(nextId);
         } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            throw new RuntimeException(e);
         }
     }
 
-    public void btnClassRefreshOnAction(ActionEvent actionEvent) {
-        initialize();
-        txtSubId.setText("");
-        txtClassDesc.setText("");
-        txtClassId.setText("");
-        txtCapacity.setText("");
+    private String nextId(String currentId) {
+        if (currentId != null) {
+
+            String[] split = currentId.split("C");
+            if (currentId.equals("C010")){
+                int id = Integer.parseInt(split[1]);
+                return "C0" + ++id;
+            } else if (currentId.equals("C100")) {
+                int id = Integer.parseInt(split[1]);
+                return "C" + ++id;
+            } else {
+                int id = Integer.parseInt(split[1]);
+                return "C00" + ++id;
+            }
+
+        }
+        return "C001";
+    }
+
+    public void btnClassAddOnAction(ActionEvent actionEvent) {
+        if (isValidate()){
+            String classId = lblClassId.getText();
+            String desc = txtClassDesc.getText();
+            String subId = txtSubId.getText();
+            int capacity = Integer.parseInt(txtCapacity.getText());
+
+            Classroom classroom = new Classroom(classId,desc,capacity,subId);
+
+
+            try {
+                boolean isSaved = ClassroomRepo.save(classroom);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Classroom Data Saved!").show();
+                    txtSubId.setText("");
+                    txtClassDesc.setText("");
+                    txtCapacity.setText("");
+                    initialize();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            }
+        }
+    }
+
+    public void textDescCheckOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.DESC,txtClassDesc);
+    }
+
+    public void textCapacityCheckOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.CAPACITY,txtCapacity);
+    }
+
+    public void textSubIdCheckOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.SUBID,txtSubId);
+    }
+    public boolean isValidate(){
+        if(!Regex.setTextColor(TextFields.DESC,txtClassDesc))return false;
+        if(!Regex.setTextColor(TextFields.CAPACITY,txtCapacity))return false;
+        if(!Regex.setTextColor(TextFields.SUBID,txtSubId))return false;
+        return true;
     }
 }

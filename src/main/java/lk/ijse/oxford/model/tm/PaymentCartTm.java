@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class PaymentCartTm {
     private String id;
+    private String payId;
     private String desc;
     private double fee;
     private double total;

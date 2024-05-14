@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="bdEquipment" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1120.0" styleClass="stackPanes" stylesheets="@../style/PaneStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.EquipmentFormController">
+<BorderPane fx:id="bdEquipment" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1120.0" styleClass="stackPanes" stylesheets="@../style/PaneStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.EquipmentFormController">
    <top>
       <HBox prefHeight="69.0" prefWidth="781.0" styleClass="formPanes" stylesheets="@../style/PaneStyles.css" BorderPane.alignment="CENTER">
          <children>
@@ -84,9 +84,9 @@
       </HBox>
    </top>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="1108.0" BorderPane.alignment="CENTER">
          <children>
-            <StackPane fx:id="equipmentContainer" prefHeight="531.0" prefWidth="1120.0" />
+            <StackPane fx:id="equipmentContainer" layoutX="-6.0" prefHeight="636.0" prefWidth="1126.0" />
          </children>
       </AnchorPane>
    </center>

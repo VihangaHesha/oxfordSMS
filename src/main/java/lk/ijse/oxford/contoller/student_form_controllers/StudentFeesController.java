@@ -167,6 +167,7 @@ public class StudentFeesController {
     @FXML
     void btnPayFeesOnAction(ActionEvent actionEvent) {
         String payId = lblPaymentId.getText();
+        String subId = lblSubId.getText();
         String stId = txtStudentId.getText();
         double fee = Double.parseDouble(lblSubFee.getText());
         Date date = Date.valueOf(LocalDate.now());
@@ -201,6 +202,7 @@ public class StudentFeesController {
 
     public void btnCheckOutOnAction(ActionEvent actionEvent) {
         String id = lblSubId.getText();
+        String payId = lblPaymentId.getText();
         String desc = cmbSubjectName.getValue();
         double fee = Double.parseDouble(lblSubFee.getText());
         int seats = Integer.parseInt(txtSeats.getText());
@@ -245,7 +247,7 @@ public class StudentFeesController {
             }
         }
 
-        PaymentCartTm paymentCartTm = new PaymentCartTm(id,desc,fee,total,seats,btnRemove);
+        PaymentCartTm paymentCartTm = new PaymentCartTm(id,payId,desc,fee,total,seats,btnRemove);
 
         paymentsTm.add(paymentCartTm);
 
@@ -265,10 +267,9 @@ public class StudentFeesController {
 
     public void cmbSubjectOnAction(ActionEvent actionEvent) {
         String subName = cmbSubjectName.getValue();
-
+        System.out.println(subName);
         try {
             Subject subject = SubjectRepo.searchByName(subName);
-
             lblSubFee.setText(String.valueOf(subject.getFeeAmount()));
             lblAbleSeats.setText(String.valueOf(subject.getAvailableSeats()));
             lblSubId.setText(subject.getSubId());

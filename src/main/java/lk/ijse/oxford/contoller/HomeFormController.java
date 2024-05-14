@@ -1,5 +1,6 @@
 package lk.ijse.oxford.contoller;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ import lk.ijse.oxford.model.tm.TimeTableTm;
 import lk.ijse.oxford.repository.*;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -57,6 +59,7 @@ public class HomeFormController {
     private TableView<TimeTableTm> tblSchedule;
     @FXML
     private List<TimeTable> timeTableList = new ArrayList<>();
+    private volatile boolean stop = false;
 
     public void initialize(){
         this.timeTableList = getTimeTable();
@@ -139,16 +142,27 @@ public class HomeFormController {
 
     }
     private void setDate() {
-        LocalTime time = LocalTime.now();
+
         LocalDate date = LocalDate.now();
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a");
-        DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("EEEE(dd)-MMM-yyyy");
-        String formattedTime = time.format(formatter);
-        String formattedDate = date.format(formatter1);
-
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, MMM dd");
+        String formattedDate = date.format(formatter);
         lblDates.setText(formattedDate);
-        lblTimes.setText(formattedTime);
+
+        Thread thread = new Thread(() ->{
+            SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm:ss a");
+            while (!stop){
+                try {
+                    Thread.sleep(1000);
+                }catch (Exception e){
+                   throw new RuntimeException(e);
+                }
+                final String timeNow = dateFormat.format(new java.util.Date());
+                Platform.runLater(()->{
+                    lblTimes.setText(timeNow);
+                });
+            }
+        });
+        thread.start();
     }
     private void studentAttendance(BarChart<String , Number> bcStudentChart) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();

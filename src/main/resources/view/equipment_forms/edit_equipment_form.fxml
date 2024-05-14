@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -39,48 +39,21 @@
             <TableColumn fx:id="colEquipmentQty" prefWidth="174.0" text="Qty" />
          </columns>
       </TableView>
-      <JFXButton buttonType="RAISED" layoutX="943.0" layoutY="205.0" onAction="#btnEquipRefresh" prefHeight="64.0" prefWidth="149.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Refresh" textFill="WHITE">
-         <font>
-            <Font name="Bookman Old Style Bold" size="13.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="36.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../assets/icons/icons8-refresh-96.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <Label layoutX="451.0" layoutY="181.0" prefHeight="34.0" prefWidth="93.0" text="Quantity :">
+      <Label layoutX="430.0" layoutY="177.0" prefHeight="34.0" prefWidth="93.0" text="Quantity :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="236.0" layoutY="107.0" prefHeight="26.0" prefWidth="106.0" text="Description :">
+      <Label layoutX="232.0" layoutY="100.0" prefHeight="26.0" prefWidth="106.0" text="Description :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="698.0" layoutY="111.0" prefHeight="26.0" prefWidth="41.0" text="ID :">
+      <Label layoutX="699.0" layoutY="101.0" prefHeight="26.0" prefWidth="41.0" text="ID :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtEquiptDesc" layoutX="347.0" layoutY="103.0" prefHeight="34.0" prefWidth="214.0" promptText="Insert Description" style="-fx-background-color: #737373; -fx-text-fill: black;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtEquipQty" layoutX="557.0" layoutY="181.0" prefHeight="34.0" prefWidth="167.0" promptText="Insert Quantity" style="-fx-background-color: #737373; -fx-text-fill: black;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtEquipId" layoutX="736.0" layoutY="107.0" prefHeight="34.0" prefWidth="149.0" promptText="Insert ID" style="-fx-background-color: #737373; -fx-text-fill: black;">
-         <font>
-            <Font name="System Italic" size="12.0" />
-         </font>
-      </TextField>
       <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="137.0" layoutX="37.0" layoutY="250.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="214.0" />
       <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="48.0" layoutY="249.0" prefHeight="40.0" prefWidth="193.0" styleClass="text" stylesheets="@../../style/ProjectStyleSheet.css" text="Total Equipments Count">
          <font>
@@ -97,5 +70,8 @@
             <Image url="@../../assets/icons/icons8-stationary-65.png" />
          </image>
       </ImageView>
+      <JFXTextField fx:id="txtEquiptDesc" layoutX="340.0" layoutY="96.0" onKeyPressed="#txtClassDescCheckOnAction" prefHeight="35.0" prefWidth="214.0" />
+      <JFXTextField fx:id="txtEquipQty" layoutX="523.0" layoutY="177.0" onKeyPressed="#txtQtyCheckOnAction" prefHeight="35.0" prefWidth="167.0" />
+      <JFXTextField fx:id="txtEquipId" layoutX="740.0" layoutY="97.0" onKeyPressed="#txtClassIdCheckOnAction" prefHeight="34.0" prefWidth="149.0" />
    </children>
 </Pane>
