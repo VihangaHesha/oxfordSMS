@@ -60,6 +60,9 @@ public class Regex {
             case CAPACITY:
                 field = "^([\\d]{3}|[\\d]{2}|[\\d]{1})$";
                 break;
+            case SID:
+                field = "^(([S])([0-9]{3}))$";
+                break;
         }
 
         Pattern pattern = Pattern.compile(field);

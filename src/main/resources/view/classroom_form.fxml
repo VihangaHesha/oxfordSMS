@@ -86,7 +86,7 @@
    <center>
       <AnchorPane prefHeight="700.0" prefWidth="1120.0" BorderPane.alignment="CENTER">
          <children>
-            <StackPane fx:id="classroomContainer" prefHeight="632.0" prefWidth="1124.0" />
+            <StackPane fx:id="classroomContainer" layoutX="2.0" layoutY="-2.0" prefHeight="634.0" prefWidth="1114.0" />
          </children>
       </AnchorPane>
    </center>

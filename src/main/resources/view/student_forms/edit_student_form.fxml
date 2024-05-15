@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="stEditPane" prefHeight="541.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" stylesheets="@../../style/PaneStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.student_form_controllers.EditStudentFormController">
+<Pane fx:id="stEditPane" prefHeight="641.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" stylesheets="@../../style/PaneStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.student_form_controllers.EditStudentFormController">
    <children>
-      <TableView fx:id="tblStudent" layoutX="180.0" layoutY="274.0" onMouseClicked="#studentEditClickedOnAction" prefHeight="253.0" prefWidth="761.0" stylesheets="@../../style/NormalStyleSheet.css">
+      <TableView fx:id="tblStudent" layoutX="180.0" layoutY="274.0" onMouseClicked="#studentEditClickedOnAction" prefHeight="341.0" prefWidth="765.0" stylesheets="@../../style/NormalStyleSheet.css">
          <columns>
             <TableColumn fx:id="colStId" prefWidth="59.0" text="ID" />
             <TableColumn fx:id="colUserId" prefWidth="65.33334350585938" text="User" />
@@ -58,7 +58,7 @@
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="936.0" layoutY="81.0" onAction="#btnStudentEditOnAction" prefHeight="68.0" prefWidth="149.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Update Detail" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="936.0" layoutY="131.0" onAction="#btnStudentEditOnAction" prefHeight="68.0" prefWidth="149.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Update Detail" textFill="WHITE">
          <font>
             <Font name="Bookman Old Style Bold" size="14.0" />
          </font>
@@ -71,44 +71,32 @@
          </graphic>
       </JFXButton>
       <Separator layoutX="422.0" layoutY="36.0" prefHeight="7.0" prefWidth="279.0" style="-fx-background-color: black;" />
-      <JFXButton buttonType="RAISED" layoutX="942.0" layoutY="161.0" onAction="#btnStudentRefreshOnAction" prefHeight="59.0" prefWidth="138.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Refresh" textFill="WHITE">
-         <font>
-            <Font name="Bookman Old Style Bold" size="18.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../assets/icons/icons8-refresh-96.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <JFXTextField fx:id="txtStudentName" labelFloat="true" layoutX="250.0" layoutY="78.0" prefHeight="29.0" prefWidth="250.0">
+      <JFXTextField fx:id="txtStudentName" labelFloat="true" layoutX="250.0" layoutY="78.0" onKeyPressed="#txtStNameCheckOnAction" prefHeight="29.0" prefWidth="250.0">
          <font>
             <Font name="Bookman Old Style" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtContactNumber" layoutX="249.0" layoutY="128.0" prefHeight="34.0" prefWidth="167.0">
+      <JFXTextField fx:id="txtContactNumber" layoutX="249.0" layoutY="128.0" onKeyPressed="#txtStContactOnAction" prefHeight="34.0" prefWidth="167.0">
          <font>
             <Font name="Bookman Old Style" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtAddress" layoutX="249.0" layoutY="179.0" prefHeight="34.0" prefWidth="320.0">
+      <JFXTextField fx:id="txtAddress" layoutX="249.0" layoutY="179.0" onKeyPressed="#txtAddressCheckOnAction" prefHeight="34.0" prefWidth="320.0">
          <font>
             <Font name="Bookman Old Style" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtStudentId" layoutX="662.0" layoutY="79.0" prefHeight="34.0" prefWidth="149.0">
+      <JFXTextField fx:id="txtStudentId" layoutX="662.0" layoutY="79.0" onKeyPressed="#txtStIdCheckOnAction" prefHeight="34.0" prefWidth="149.0">
          <font>
             <Font name="Bookman Old Style Bold" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtUserId" layoutX="661.0" layoutY="136.0" prefHeight="31.0" prefWidth="149.0">
+      <JFXTextField fx:id="txtUserId" layoutX="661.0" layoutY="136.0" onKeyPressed="#txtUserIdCheckOnAction" prefHeight="31.0" prefWidth="149.0">
          <font>
             <Font name="Bookman Old Style" size="12.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtGrade" layoutX="661.0" layoutY="190.0" prefHeight="31.0" prefWidth="149.0">
+      <JFXTextField fx:id="txtGrade" layoutX="661.0" layoutY="190.0" onKeyPressed="#txtGradeCheckOnAction" prefHeight="31.0" prefWidth="149.0">
          <font>
             <Font name="Bookman Old Style" size="12.0" />
          </font>

@@ -7,9 +7,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.oxford.model.Student;
 import lk.ijse.oxford.model.tm.StudentTm;
 import lk.ijse.oxford.repository.StudentRepo;
+import lk.ijse.oxford.util.Regex;
+import lk.ijse.oxford.util.TextFields;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -88,33 +91,65 @@ public class AddStudentFormContoller {
     }
 
     public void btnStudentAddOnAction(ActionEvent actionEvent) {
-        String id = txtStudentId.getText();
-        String name = txtStudentName.getText();
-        String address = txtAddress.getText();
-        String tel = txtContactNumber.getText();
-        String grade = txtGrade.getText();
-        String userId = txtUserId.getText();
+        if (isValidate()){
+            String id = txtStudentId.getText();
+            String name = txtStudentName.getText();
+            String address = txtAddress.getText();
+            String tel = txtContactNumber.getText();
+            String grade = txtGrade.getText();
+            String userId = txtUserId.getText();
 
-        Student student = new Student(id, grade,name , tel,address,userId);
+            Student student = new Student(id, grade,name , tel,address,userId);
 
-        try {
-            boolean isSaved = StudentRepo.save(student);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Student Data Saved!").show();
-                txtStudentName.setText("");
-                txtContactNumber.setText("");
-                txtAddress.setText("");
-                txtStudentId.setText("");
-                txtGrade.setText("");
-                txtUserId.setText("");
+            try {
+                boolean isSaved = StudentRepo.save(student);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "Student Data Saved!").show();
+                    txtStudentName.setText("");
+                    txtContactNumber.setText("");
+                    txtAddress.setText("");
+                    txtStudentId.setText("");
+                    txtGrade.setText("");
+                    txtUserId.setText("");
+                    initialize();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
-
     }
 
-    public void btnStudentRefreshOnAction(ActionEvent actionEvent) {
-        initialize();
+    public boolean isValidate(){
+        if(!Regex.setTextColor(TextFields.NAME,txtStudentName))return false;
+        if(!Regex.setTextColor(TextFields.SID,txtStudentId))return false;
+        if(!Regex.setTextColor(TextFields.ADDRESS,txtAddress))return false;
+        if(!Regex.setTextColor(TextFields.CONTACT,txtContactNumber))return false;
+        if(!Regex.setTextColor(TextFields.USERID,txtUserId))return false;
+        if(!Regex.setTextColor(TextFields.GRADE,txtGrade))return false;
+        return true;
+    }
+
+    public void txtGradeCheckOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.GRADE,txtGrade);
+    }
+
+    public void txtUserIdCheckOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.USERID,txtUserId);
+    }
+
+    public void txtStIdCheckOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.SID,txtStudentId);
+    }
+
+    public void txtAddressCheckOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.ADDRESS,txtAddress);
+    }
+
+    public void txtStContactOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.CONTACT,txtContactNumber);
+    }
+
+    public void txtStNameCheckOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.NAME,txtStudentName);
     }
 }

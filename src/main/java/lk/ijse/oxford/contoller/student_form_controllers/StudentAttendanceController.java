@@ -1,11 +1,13 @@
 package lk.ijse.oxford.contoller.student_form_controllers;
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.oxford.model.Attendance;
 import lk.ijse.oxford.model.Student;
@@ -13,7 +15,10 @@ import lk.ijse.oxford.model.tm.AttedanceTm;
 import lk.ijse.oxford.model.tm.StudentTm;
 import lk.ijse.oxford.repository.AttendanceRepo;
 import lk.ijse.oxford.repository.StudentRepo;
+import lk.ijse.oxford.util.Regex;
+import lk.ijse.oxford.util.TextFields;
 
+import java.sql.JDBCType;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -30,7 +35,7 @@ public class StudentAttendanceController {
     @FXML
     private Label lblAttendMark;
     @FXML
-    private TextField txtStudentId;
+    private JFXTextField txtStudentId;
     @FXML
     private TableColumn<?,?> colStId;
     @FXML
@@ -97,18 +102,20 @@ public class StudentAttendanceController {
         colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
     }
     public void btnAttendSearchOnAction(ActionEvent actionEvent) {
-        String id =txtStudentId.getText();
+        if (isValidate()){
+            String id =txtStudentId.getText();
 
-        try {
-            Attendance attendance = AttendanceRepo.searchById(id);
+            try {
+                Attendance attendance = AttendanceRepo.searchById(id);
 
-            if (attendance != null) {
-                lblStudentName.setText(attendance.getName());
-                lblAttendDate.setText(String.valueOf(attendance.getDate()));
-                lblAttendMark.setText(attendance.getAttendMark());
+                if (attendance != null) {
+                    lblStudentName.setText(attendance.getName());
+                    lblAttendDate.setText(String.valueOf(attendance.getDate()));
+                    lblAttendMark.setText(attendance.getAttendMark());
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 
@@ -118,5 +125,13 @@ public class StudentAttendanceController {
         lblAttendDate.setText(String.valueOf(selectedItem.getDate()));
         lblAttendMark.setText(selectedItem.getAttendMark());
         txtStudentId.setText(selectedItem.getStId());
+    }
+
+    public boolean isValidate(){
+        if(!Regex.setTextColor(TextFields.SID,txtStudentId))return false;
+        return true;
+    }
+    public void txtStIdCheckOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.SID,txtStudentId);
     }
 }

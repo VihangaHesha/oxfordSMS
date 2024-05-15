@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
+import lk.ijse.oxford.db.DbConnection;
 import lk.ijse.oxford.model.*;
 import lk.ijse.oxford.model.tm.PayDetailTm;
 import lk.ijse.oxford.model.tm.PaymentCartTm;
@@ -17,14 +19,18 @@ import lk.ijse.oxford.repository.PaymentRepo;
 import lk.ijse.oxford.repository.PlacePaymentRepo;
 import lk.ijse.oxford.repository.StudentRepo;
 import lk.ijse.oxford.repository.SubjectRepo;
+import lk.ijse.oxford.util.Regex;
+import lk.ijse.oxford.util.TextFields;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class StudentFeesController {
     @FXML
@@ -32,7 +38,7 @@ public class StudentFeesController {
     @FXML
     private JFXTextField txtStudentId;
     @FXML
-    private JFXTextField txtSeats;
+    private Label lblSeats;
     @FXML
     private Label lblSubFee;
     @FXML
@@ -80,6 +86,11 @@ public class StudentFeesController {
         loadNextOrderId();
         setDate();
         getSubjects();
+        setSeat();
+    }
+
+    private void setSeat() {
+        lblSeats.setText("1");
     }
 
     private List<PayDetail> getLastFiveTransaction() {
@@ -144,13 +155,14 @@ public class StudentFeesController {
         if (currentId != null) {
             String[] split = currentId.split("P");
             int id = Integer.parseInt(split[1]);
-            return "P" + ++id;
+            id++;
 
+            // Format the ID with leading zeros using String.format
+            return "P" + String.format("%03d", id);
+        } else {
+            return "P001";
         }
-        return "P1";
     }
-
-
 
     private void setCellValueFactory() {
         colStId.setCellValueFactory(new PropertyValueFactory<>("stId"));
@@ -166,37 +178,40 @@ public class StudentFeesController {
     }
     @FXML
     void btnPayFeesOnAction(ActionEvent actionEvent) {
-        String payId = lblPaymentId.getText();
-        String subId = lblSubId.getText();
-        String stId = txtStudentId.getText();
-        double fee = Double.parseDouble(lblSubFee.getText());
-        Date date = Date.valueOf(LocalDate.now());
+        if (isValidate()){
+            String payId = lblPaymentId.getText();
+            String subId = lblSubId.getText();
+            String stId = txtStudentId.getText();
+            double fee = Double.parseDouble(lblSubFee.getText());
+            Date date = Date.valueOf(LocalDate.now());
 
-        var payment = new Payment(payId,fee, date, stId);
+            var payment = new Payment(payId,fee, date, stId,subId);
 
-        List<PaymentDetails> odList = new ArrayList<>();
-        for (int i = 0; i < tblFeePayment.getItems().size(); i++) {
-            PaymentCartTm tm = paymentsTm.get(i);
+            List<PaymentDetails> poList = new ArrayList<>();
 
-            PaymentDetails od = new PaymentDetails(
-                    payId,
-                    tm.getId(),
-                    tm.getFee(),
-                    tm.getAbleSeats()
-            );
-            odList.add(od);
-        }
+            for (int i = 0; i < tblFeePayment.getItems().size(); i++) {
+                PaymentCartTm tm = paymentsTm.get(i);
 
-        PlacePayment po = new PlacePayment(payment, odList);
-        try {
-            boolean isPlaced = PlacePaymentRepo.placePayment(po);
-            if(isPlaced) {
-                new Alert(Alert.AlertType.CONFIRMATION, "order placed!").show();
-            } else {
-                new Alert(Alert.AlertType.WARNING, "order not placed!").show();
+                PaymentDetails od = new PaymentDetails(
+                        payId,
+                        tm.getId(),
+                        tm.getFee(),
+                        tm.getAbleSeats()
+                );
+                poList.add(od);
             }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+
+            PlacePayment po = new PlacePayment(payment, poList);
+            try {
+                boolean isPlaced = PlacePaymentRepo.placePayment(po);
+                if(isPlaced) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "order placed!").show();
+                } else {
+                    new Alert(Alert.AlertType.WARNING, "order not placed!").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            }
         }
     }
 
@@ -205,7 +220,7 @@ public class StudentFeesController {
         String payId = lblPaymentId.getText();
         String desc = cmbSubjectName.getValue();
         double fee = Double.parseDouble(lblSubFee.getText());
-        int seats = Integer.parseInt(txtSeats.getText());
+        int seats = Integer.parseInt(lblSeats.getText());
         double total = seats * fee;
         JFXButton btnRemove = new JFXButton("Remove");
         btnRemove.setCursor(Cursor.HAND);
@@ -241,7 +256,7 @@ public class StudentFeesController {
                 paymentsTm.get(i).setTotal(total);
 
                 tblFeePayment.refresh();
-                txtSeats.setText("");
+                lblSeats.setText("");
                 calculateNetTotal();
                 return;
             }
@@ -253,7 +268,7 @@ public class StudentFeesController {
 
         tblFeePayment.setItems(paymentsTm);
         System.out.println(paymentsTm.toString());
-        txtSeats.setText("");
+        lblSeats.setText("");
         calculateNetTotal();
     }
 
@@ -277,5 +292,34 @@ public class StudentFeesController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void btnPrintBillOnAction(ActionEvent actionEvent) throws JRException, SQLException {
+        JasperDesign jasperDesign =
+                JRXmlLoader.load("src/main/resources/report/ClassCardFee.jrxml");
+
+        JRDesignQuery jrDesignQuery = new JRDesignQuery();
+        jrDesignQuery.setText("SELECT * FROM Payment ORDER BY PayId desc LIMIT 1");
+
+        jasperDesign.setQuery(jrDesignQuery);
+
+        JasperReport jasperReport =
+                JasperCompileManager.compileReport(jasperDesign);
+
+        JasperPrint jasperPrint =
+                JasperFillManager.fillReport(
+                        jasperReport,
+                        null,
+                        DbConnection.getInstance().getConnection());
+
+        JasperViewer.viewReport(jasperPrint,false);
+    }
+
+    public boolean isValidate(){
+        if(!Regex.setTextColor(TextFields.SID,txtStudentId))return false;
+        return true;
+    }
+    public void txtStIdCheckOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.SID,txtStudentId);
     }
 }

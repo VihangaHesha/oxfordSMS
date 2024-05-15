@@ -118,21 +118,15 @@ public class AddClassroomFormController {
 
     private String nextId(String currentId) {
         if (currentId != null) {
-
             String[] split = currentId.split("C");
-            if (currentId.equals("C010")){
-                int id = Integer.parseInt(split[1]);
-                return "C0" + ++id;
-            } else if (currentId.equals("C100")) {
-                int id = Integer.parseInt(split[1]);
-                return "C" + ++id;
-            } else {
-                int id = Integer.parseInt(split[1]);
-                return "C00" + ++id;
-            }
+            int id = Integer.parseInt(split[1]);
+            id++;
 
+            // Format the ID with leading zeros using String.format
+            return "C" + String.format("%03d", id);
+        } else {
+            return "C001";
         }
-        return "C001";
     }
 
     public void btnClassAddOnAction(ActionEvent actionEvent) {

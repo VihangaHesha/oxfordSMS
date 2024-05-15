@@ -96,7 +96,7 @@
             <Image url="@../../assets/icons/icons8-student-96.png" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="txtStudentId" layoutX="506.0" layoutY="80.0" prefHeight="34.0" prefWidth="149.0">
+      <JFXTextField fx:id="txtStudentId" layoutX="506.0" layoutY="80.0" onKeyPressed="#txtStIdCheckOnAction" prefHeight="34.0" prefWidth="149.0">
          <font>
             <Font name="Bookman Old Style Bold" size="12.0" />
          </font>

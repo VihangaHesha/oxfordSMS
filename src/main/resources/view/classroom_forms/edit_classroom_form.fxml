@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="editClassPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.classroom_form_controllers.EditClassroomFormController">
+<Pane fx:id="editClassPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.classroom_form_controllers.EditClassroomFormController">
    <children>
       <Label alignment="CENTER" layoutX="463.0" layoutY="14.0" prefHeight="35.0" prefWidth="237.0" text="Edit A Classroom">
          <font>
