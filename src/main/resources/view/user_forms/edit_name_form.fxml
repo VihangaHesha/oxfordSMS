@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #869BAD;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.user_form_controller.EditNameFormController">
+   <children>
+      <Label alignment="CENTER" layoutX="134.0" layoutY="6.0" prefHeight="30.0" prefWidth="133.0" text="Edit Username" underline="true">
+         <font>
+            <Font name="Segoe UI Black" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="170.0" layoutY="58.0" prefHeight="25.0" prefWidth="61.0" text="User ID :">
+         <font>
+            <Font name="Segoe UI Semibold" size="15.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="155.0" layoutY="150.0" prefHeight="25.0" prefWidth="94.0" text="New Name :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="99.0" layoutY="240.0" nodeOrientation="LEFT_TO_RIGHT" onAction="#btnUsernameSaveOnAction" prefHeight="33.0" prefWidth="203.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Save" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXTextField fx:id="txtUserId" layoutX="115.0" layoutY="98.0" onKeyPressed="#txtIdCheckOnAction" prefHeight="33.0" prefWidth="173.0" />
+      <JFXTextField fx:id="txtUsername" layoutX="81.0" layoutY="182.0" onKeyPressed="#txtnameCheckOnAction" prefHeight="33.0" prefWidth="241.0" />
+   </children>
+</AnchorPane>

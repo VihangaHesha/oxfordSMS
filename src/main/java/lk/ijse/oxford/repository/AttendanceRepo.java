@@ -1,13 +1,11 @@
 package lk.ijse.oxford.repository;
 
 import lk.ijse.oxford.db.DbConnection;
+import lk.ijse.oxford.model.AttendMarking;
 import lk.ijse.oxford.model.Attendance;
-import lk.ijse.oxford.model.Student;
+import lk.ijse.oxford.model.CheckPayment;
 
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -73,5 +71,49 @@ public class AttendanceRepo {
             attendCount=resultSet.getInt("attend_count");
         }
         return attendCount;
+    }
+
+    public static String currentId() throws SQLException {
+        String sql = "SELECT AttendId FROM Attendance ORDER BY AttendId desc LIMIT 1";
+
+        Connection connection = DbConnection.getInstance().getConnection();
+        PreparedStatement pstm = connection.prepareStatement(sql);
+        ResultSet resultSet = pstm.executeQuery();
+
+        if(resultSet.next()) {
+            return resultSet.getString(1);
+        }
+        return null;
+    }
+
+    public static boolean save(AttendMarking attendMarking) throws SQLException {
+        String sql = "INSERT INTO Attendance VALUES (?,?,?,?)";
+        PreparedStatement pstm = DbConnection.getInstance().getConnection()
+                .prepareStatement(sql);
+
+        pstm.setString(1, attendMarking.getAttendId());
+        pstm.setString(2, attendMarking.getDate());
+        pstm.setString(3, attendMarking.getAttendMark());
+        pstm.setString(4, attendMarking.getStId());
+
+        return pstm.executeUpdate() > 0;
+    }
+
+    public static boolean getFromPayId(CheckPayment checkPayment) throws SQLException {
+        String sql = "SELECT p.StId as StudentID , p.MONTHNAME(date) as month FROM Payment p INNER JOIN Student s ON p.StId = s.StId WHERE s.StId =?";
+
+        PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement(sql);
+
+        pstm.setObject(1,checkPayment.getStId());
+        ResultSet resultSet = pstm.executeQuery(sql);
+        System.out.println(resultSet.toString());
+        if (resultSet.next()){
+            String id = resultSet.getString(1);
+            String tmonth = resultSet.getString(2);
+            if (id.equals(checkPayment.getStId())&& tmonth.equals(checkPayment.getMonth())){
+                    return true;
+            }
+        }
+        return false;
     }
 }

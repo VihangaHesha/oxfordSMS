@@ -83,7 +83,7 @@ public class StudentFeesController {
         this.payDetail = getLastFiveTransaction();
         setCellValueFactory();
         loadTransactionTable();
-        loadNextOrderId();
+        loadNextPayId();
         setDate();
         getSubjects();
         setSeat();
@@ -140,7 +140,7 @@ public class StudentFeesController {
         lblDate.setText(String.valueOf(now));
     }
 
-    private void loadNextOrderId() {
+    private void loadNextPayId() {
         try {
             String currentId = PaymentRepo.currentId();
             String nextId = nextId(currentId);

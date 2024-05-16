@@ -1,20 +1,26 @@
 package lk.ijse.oxford.contoller;
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import lk.ijse.oxford.db.DbConnection;
-import lk.ijse.oxford.model.TimeTable;
+import lk.ijse.oxford.model.*;
 import lk.ijse.oxford.model.tm.TimeTableTm;
 import lk.ijse.oxford.repository.*;
+import lk.ijse.oxford.util.Regex;
+import lk.ijse.oxford.util.TextFields;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
@@ -25,6 +31,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFormController {
+    @FXML
+    private JFXTextField txtStId;
     @FXML
     private Label lblDates;
     @FXML
@@ -60,12 +68,14 @@ public class HomeFormController {
     @FXML
     private List<TimeTable> timeTableList = new ArrayList<>();
     private volatile boolean stop = false;
+    private String nextId;
 
     public void initialize(){
         this.timeTableList = getTimeTable();
         setDate();
         setCellFactory();
         loadTimeTable();
+        loadNextAttendId();
         try {
             studentAttendance(bcStudentChart);
         } catch (SQLException e) {
@@ -187,5 +197,63 @@ public class HomeFormController {
             n.setStyle("-fx-bar-fill: #0C87F2;");
         }
     }
+    private void loadNextAttendId() {
+        try {
+            String currentId =AttendanceRepo.currentId();
+            nextId = nextId(currentId);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
+    private String nextId(String currentId) {
+        if (currentId != null) {
+            String[] split = currentId.split("A");
+            int id = Integer.parseInt(split[1]);
+            id++;
+
+            // Format the ID with leading zeros using String.format
+            return "A" + String.format("%03d", id);
+        } else {
+            return "A001";
+        }
+    }
+
+    public void btnMarkAttendanceOnAction(ActionEvent actionEvent) {
+        if (isValidate()){
+            LocalDate date = LocalDate.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM");
+            String month = date.format(formatter);
+            String thisDate = String.valueOf(LocalDate.now());
+            String stId = txtStId.getText();
+            String attendMark ="I";
+            String attendId = nextId;
+
+            AttendMarking attendMarking = new AttendMarking(attendId,attendMark,stId,thisDate);
+            CheckPayment checkPayment = new CheckPayment(stId,month);
+
+            MarkAttendance markAttendance = new MarkAttendance(attendMarking,checkPayment);
+            System.out.println(markAttendance.toString());
+            try {
+                boolean isChecked = SetAttendanceRepo.markAttendance(markAttendance);
+                System.out.println(isChecked);
+                if(isChecked) {
+                        new Alert(Alert.AlertType.CONFIRMATION, "order placed!").show();
+                } else {
+                    new Alert(Alert.AlertType.WARNING,
+                            "You Haven't Paid The Class Fees For This Month! Pay it through the Student Form.").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            }
+        }
+    }
+
+    public boolean isValidate(){
+        if(!Regex.setTextColor(TextFields.SID,txtStId))return false;
+        return true;
+    }
+    public void txtStIdCheckOnAction(KeyEvent keyEvent) {
+        Regex.setTextColor(TextFields.SID,txtStId);
+    }
 }

@@ -28,7 +28,7 @@ public class LoginFormController {
     @FXML
     public JFXPasswordField pfPassword;
     @FXML
-    public AnchorPane rootNode;
+    public BorderPane rootNode;
 
 
     public void btnLoginOnAction(javafx.event.ActionEvent actionEvent) throws IOException {
@@ -69,7 +69,12 @@ public class LoginFormController {
 
     private void navigateToDashboard(String uId) throws IOException {
 
-        BorderPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml"));
+//        BorderPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/dashboard_form.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/dashboard_form.fxml"));
+        rootNode = loader.load();
+        DashboardFormController dashController = loader.getController();
+        dashController.btnUser(uId);
+
         Scene scene = new Scene(rootNode);
         Stage stage = (Stage) this.rootNode.getScene().getWindow();
         stage.setScene(scene);

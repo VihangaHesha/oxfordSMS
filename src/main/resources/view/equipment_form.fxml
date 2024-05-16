@@ -84,9 +84,9 @@
       </HBox>
    </top>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="1108.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="641.0" prefWidth="1106.0" BorderPane.alignment="CENTER">
          <children>
-            <StackPane fx:id="equipmentContainer" layoutX="-6.0" prefHeight="636.0" prefWidth="1126.0" />
+            <StackPane fx:id="equipmentContainer" layoutX="-1.0" prefHeight="631.0" prefWidth="1120.0" />
          </children>
       </AnchorPane>
    </center>

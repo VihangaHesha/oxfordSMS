@@ -16,15 +16,11 @@ public class PlacePaymentRepo {
 
         try {
             boolean isPaymentSaved = PaymentRepo.save(po.getPayment());
-            System.out.println(isPaymentSaved);
             if (isPaymentSaved) {
-                System.out.println(isPaymentSaved);
                 boolean isPaymentDetailSaved = PaymentDetailsRepo.save(po.getPdList());
                 if (isPaymentDetailSaved) {
-                    System.out.println(isPaymentDetailSaved);
                     boolean isSubjectSeatsUpdate = SubjectRepo.updateSeats(po.getPdList());
                     if (isSubjectSeatsUpdate) {
-                        System.out.println(isSubjectSeatsUpdate);
                         connection.commit();
                         return true;
                     }

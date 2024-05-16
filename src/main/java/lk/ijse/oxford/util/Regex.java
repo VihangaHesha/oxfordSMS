@@ -63,6 +63,9 @@ public class Regex {
             case SID:
                 field = "^(([S])([0-9]{3}))$";
                 break;
+            case EMAIL:
+                field = "^([A-z])([A-z0-9.]){1,}[@]([A-z0-9]){1,10}[.]([A-z]){2,5}$";
+                break;
         }
 
         Pattern pattern = Pattern.compile(field);
