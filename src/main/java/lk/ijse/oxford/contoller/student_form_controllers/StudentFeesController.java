@@ -182,10 +182,10 @@ public class StudentFeesController {
             String payId = lblPaymentId.getText();
             String subId = lblSubId.getText();
             String stId = txtStudentId.getText();
-            double fee = Double.parseDouble(lblSubFee.getText());
+            double totalFee = Double.parseDouble(lblNetTotal.getText());
             Date date = Date.valueOf(LocalDate.now());
 
-            var payment = new Payment(payId,fee, date, stId,subId);
+            var payment = new Payment(payId,totalFee, date, stId,subId);
 
             List<PaymentDetails> poList = new ArrayList<>();
 
@@ -256,7 +256,6 @@ public class StudentFeesController {
                 paymentsTm.get(i).setTotal(total);
 
                 tblFeePayment.refresh();
-                lblSeats.setText("");
                 calculateNetTotal();
                 return;
             }
@@ -268,7 +267,6 @@ public class StudentFeesController {
 
         tblFeePayment.setItems(paymentsTm);
         System.out.println(paymentsTm.toString());
-        lblSeats.setText("");
         calculateNetTotal();
     }
 
