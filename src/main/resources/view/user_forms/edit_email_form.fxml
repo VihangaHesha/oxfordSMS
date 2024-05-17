@@ -30,6 +30,6 @@
          </cursor>
       </JFXButton>
       <JFXTextField fx:id="txtUserId" layoutX="115.0" layoutY="98.0" onKeyPressed="#txtIdCheckOnAction" prefHeight="33.0" prefWidth="173.0" />
-      <JFXTextField fx:id="txtEmail" layoutX="63.0" layoutY="182.0" onKeyPressed="#txtEmailCheckOnAction" prefHeight="33.0" prefWidth="278.0" />
+      <JFXTextField fx:id="txtEmail" layoutX="63.0" layoutY="182.0" onKeyPressed="#txtnameCheckOnAction" prefHeight="33.0" prefWidth="278.0" />
    </children>
 </AnchorPane>
