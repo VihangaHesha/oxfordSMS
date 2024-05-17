@@ -1,63 +1,180 @@
-('A002', '2024-06-10', 'I', 'S031'),
-('A003', '2024-06-10', 'I', 'S031'),
-('A004', '2024-06-10', 'O', 'S028'),
-('A005', '2024-06-10', 'I', 'S026'),
-('A006', '2024-06-10', 'I', 'S022'),
-('A007', '2024-06-10', 'I', 'S015'),
-('A008', '2024-06-10', 'O', 'S034'),
-('A009', '2024-06-10', 'I', 'S033'),
-('A010', '2024-06-10', 'I', 'S001'),
-('A011', '2024-06-10', 'I', 'S025'),
-('A012', '2024-06-10', 'I', 'S029'),
-('A013', '2024-06-10', 'I', 'S024'),
-('A014', '2024-05-10', 'I', 'S021'),
-('A015', '2024-05-10', 'O', 'S004'),
-('A016', '2024-05-10', 'I', 'S009'),
-('A017', '2024-05-10', 'I', 'S032'),
-('A018', '2024-05-10', 'I', 'S020'),
-('A019', '2024-05-10', 'O', 'S012'),
-('A020', '2024-05-10', 'O', 'S006'),
-('A021', '2024-05-10', 'I', 'S011'),
-('A022', '2024-05-10', 'I', 'S008'),
-('A023', '2024-05-10', 'I', 'S005'),
-('A024', '2024-05-11', 'I', 'S027'),
-('A025', '2024-05-11', 'I', 'S013'),
-('A026', '2024-05-11', 'I', 'S002'),
-('A027', '2024-05-11', 'I', 'S019'),
-('A028', '2024-05-11', 'I', 'S007'),
-('A029', '2024-05-11', 'I', 'S010'),
-('A030', '2024-05-11', 'I', 'S016'),
-('A031', '2024-05-11', 'O', 'S030'),
-('A032', '2024-05-11', 'I', 'S023'),
-('A033', '2024-06-11', 'I', 'S031'),
-('A034', '2024-06-11', 'O', 'S028'),
-('A035', '2024-06-11', 'I', 'S026'),
-('A036', '2024-06-11', 'I', 'S022'),
-('A037', '2024-06-11', 'I', 'S015'),
-('A038', '2024-06-11', 'O', 'S034'),
-('A039', '2024-06-11', 'I', 'S033'),
-('A040', '2024-05-11', 'I', 'S001'),
-('A041', '2024-05-11', 'I', 'S025'),
-('A042', '2024-05-11', 'I', 'S029'),
-('A043', '2024-05-11', 'I', 'S024'),
-('A044', '2024-05-12', 'I', 'S021'),
-('A045', '2024-07-12', 'O', 'S004'),
-('A046', '2024-07-12', 'I', 'S009'),
-('A047', '2024-07-12', 'I', 'S032'),
-('A048', '2024-07-12', 'I', 'S020'),
-('A049', '2024-07-12', 'O', 'S012'),
-('A050', '2024-07-12', 'O', 'S006'),
-('A051', '2024-07-12', 'I', 'S011'),
-('A052', '2024-07-12', 'I', 'S008'),
-('A053', '2024-07-12', 'I', 'S005'),
-('A054', '2024-05-12', 'I', 'S027'),
-('A055', '2024-05-12', 'I', 'S013'),
-('A056', '2024-05-12', 'I', 'S002'),
-('A057', '2024-05-12', 'I', 'S019'),
-('A058', '2024-05-12', 'I', 'S018'),
-('A059', '2024-05-12', 'I', 'S007'),
-('A060', '2024-05-12', 'I', 'S010'),
-('A061', '2024-05-12', 'I', 'S016'),
-('A062', '2024-05-12', 'O', 'S030'),
-('A063', '2024-05-12', 'I', 'S023'),
-('A064', '2024-05-12', 'I', 'S003');
+create database oxford;
+
+use oxford;
+
+create table Parent(
+parentId varchar(10)primary key,
+Name varchar (60),
+Contact varchar(10),
+Address varchar(80));
+
+create table User(
+UserId varchar(10) primary key,
+Name varchar(60),
+Password varchar(16),
+Contact varchar(10),
+Email varchar(40));
+
+create table Student(
+StId varchar(10) primary key,
+Name varchar(60),
+Grade varchar(3),
+Contact varchar(10),
+Address varchar(80),
+UserId varchar(10),
+foreign key(UserId) references User(UserId) on update cascade on delete cascade);
+
+
+create table Employee(
+EmpId varchar(10) primary key,
+Name varchar(60),
+Contact varchar(10),
+Address varchar(80),
+Type varchar(20),
+UserId varchar(10),
+foreign key(UserId) references User(UserId) on update cascade on delete cascade);
+
+
+create table Payment(
+PayId varchar(10) primary key,
+Amount double,
+Date date,
+PayType varchar(20),
+Subject varchar(40),
+StId varchar(10),
+foreign key(StId) references Student(StId) on update cascade on delete cascade);
+
+
+create table StudentTeacherDetails(
+StId varchar(10),
+EmpId varchar(10),
+Subject varchar(40),
+foreign key(StId) references Student(StId) on update cascade on delete cascade,
+foreign key(EmpId) references Employee(EmpId) on update cascade on delete cascade);
+
+
+create table StudentDetails(
+StId varchar(10),
+ParentId varchar(10),
+foreign key(StId) references Student(StId) on update cascade on delete cascade,
+foreign key(ParentId) references Parent(ParentId) on update cascade on delete cascade);
+
+
+create table Attendance(
+AttendId varchar(10) primary key,
+Date date,
+AttendMark varchar(1),
+StId varchar(10),
+foreign key(StId) references Student(StId) on update cascade on delete cascade);
+
+
+create table Equipment(
+EquipId varchar(10) primary key,
+Description varchar(50),
+QTY int(20));
+
+
+create table SubjectEquipments(
+EmpId varchar(10),
+EquipId varchar(10),
+foreign key(EmpId) references Employee(EmpId) on update cascade on delete cascade,
+foreign key(EquipId) references Equipment(EquipId) on update cascade on delete cascade);
+
+
+create table TimeTable(
+TimeId varchar(10) primary key,
+TimePeriod varchar(12),
+Subject varchar(40));
+
+
+create table SubjectSchedule(
+TimeId varchar(10),
+EmpId varchar(10),
+foreign key(EmpId) references Employee(EmpId) on update cascade on delete cascade,
+foreign key(TimeId) references TimeTable(TimeId) on update cascade on delete cascade);
+
+
+create table Salary(
+SalaryId varchar(10) primary key,
+Amount double,
+Date date,
+EmpId varchar(10),
+foreign key(EmpId) references Employee(EmpId) on update cascade on delete cascade);
+
+create table Classroom(
+ClassId varchar(10) primary key,
+Description varchar(50),
+Capacity int(6));
+
+create table StudentClass(
+StId varchar(10),
+ClassId varchar(10),
+foreign key(StId) references Student(StId) on update cascade on delete cascade,
+foreign key(ClassId) references Classroom(ClassId) on update cascade on delete cascade);
+
+
+create table ClassroomSchedule(
+ClassId varchar(10),
+TimeId varchar(10),
+foreign key(ClassId) references Classroom(ClassId) on update cascade on delete cascade,
+foreign key(TimeId) references TimeTable(TimeId) on update cascade on delete cascade);
+
+create table ClassroomDetails(
+ClassId varchar(10),
+EmpId varchar(10),
+foreign key(ClassId) references Classroom(ClassId) on update cascade on delete cascade,
+foreign key(EmpId) references Employee(EmpId) on update cascade on delete cascade);
+#################################################################################
+INSERT INTO Parent (ParentId, Name, Contact, Address) 
+VALUES ('P001', 'Jayantha Perera', '0112345678', '123 Galle Road, Hikkaduwa');
+
+INSERT INTO User (UserId, Name, Password)
+VALUES ('U001', 'Chaminda', 'Pass@4321');
+
+INSERT INTO Student (StId, Name, Grade, Contact, Address,UserId)
+VALUES ('S001', 'Amali Jayawardena', '10', '0777123456', 'N0.51, Kuruduwatta, Ginimallagaha','U001');
+
+INSERT INTO Employee (EmpId, Name, Contact, Address, Type,UserId)
+VALUES ('E001', 'Sachini Madushani', '0112987654', 'Kamal, Adurathvila, Poddala', 'Teacher','U001');
+
+INSERT INTO Subject (SubId,Description,FeeAmount,AvailableSeats,EmpId) VALUES
+('SUB001','Mathematics',2500.00,35,'E001');
+
+INSERT INTO Payment (PayId, Amount, Date, PayType, Subject, StId)
+VALUES ('PAY001', 25000.00, '2023-04-09', 'Cash', 'Mathematics', 'S001');
+
+INSERT INTO StudentTeacherDetails (StId, EmpId, Subject)
+VALUES ('S001', 'E001', 'Mathematics');
+
+INSERT INTO StudentDetails (StId, ParentId)
+VALUES ('S001', 'P001');
+
+INSERT INTO Attendance (AttendId, Date, AttendMark, StId)
+VALUES ('A001', '2024-04-09', 'I', 'S001');
+
+INSERT INTO Equipment (EquipId, Description, QTY)
+VALUES ('EQ001', 'Whiteboard Marker', 50);
+
+INSERT INTO SubjectEquipments (EmpId, EquipId)
+VALUES ('E001', 'EQ001');
+
+INSERT INTO TimeTable (TimeId, TimePeriod, Subject)
+VALUES ('T001', '08:00-09:00', 'Mathematics');
+
+INSERT INTO SubjectSchedule (TimeId, EmpId)
+VALUES ('T001', 'E001');
+
+INSERT INTO Salary (SalaryId, Amount, Date, EmpId)
+VALUES ('S001', 75000.00, '2023-04-01', 'E001');
+
+INSERT INTO Classroom (ClassId, Description, Capacity,SubId)
+VALUES ('C001', 'Mathematics Classroom', 35,'SUB001');
+
+INSERT INTO StudentClass (StId, ClassId)
+VALUES ('S001', 'C001');
+
+INSERT INTO ClassroomSchedule (ClassId, TimeId)
+VALUES ('C001', 'T001');
+
+INSERT INTO ClassroomDetails (ClassId, EmpId)
+VALUES ('C001', 'E001');
