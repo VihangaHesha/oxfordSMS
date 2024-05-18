@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <Pane fx:id="empDeletePane" prefHeight="541.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.employee_form_controllers.DeleteEmployeeFormController">
    <children>
@@ -19,8 +20,8 @@
             <Font name="Bookman Old Style Bold" size="24.0" />
          </font>
       </Label>
-      <Separator layoutX="413.0" layoutY="46.0" prefHeight="5.0" prefWidth="294.0" style="-fx-background-color: black;" />
-      <TableView fx:id="tblEmployee" layoutX="206.0" layoutY="256.0" onMouseClicked="#empDeleteOnAction" prefHeight="271.0" prefWidth="708.0" stylesheets="@../../style/NormalStyleSheet.css">
+      <Separator layoutX="413.0" layoutY="46.0" prefHeight="5.0" prefWidth="294.0" style="-fx-background-color: black;" visible="false" />
+      <TableView fx:id="tblEmployee" layoutX="26.0" layoutY="246.0" onMouseClicked="#empDeleteOnAction" prefHeight="271.0" prefWidth="806.0" stylesheets="@../../style/NormalStyleSheet.css">
          <columns>
             <TableColumn fx:id="colEmpId" prefWidth="50.0" text="ID" />
             <TableColumn fx:id="colUserId" prefWidth="56.0" text="User" />
@@ -30,17 +31,17 @@
             <TableColumn fx:id="colEmpType" prefWidth="102.0" text="Type" />
          </columns>
       </TableView>
-      <Label layoutX="433.0" layoutY="172.0" prefHeight="26.0" prefWidth="66.0" text="Name :">
+      <Label layoutX="369.0" layoutY="137.0" prefHeight="26.0" prefWidth="66.0" text="Name :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="464.0" layoutY="107.0" prefHeight="26.0" prefWidth="41.0" text="ID :">
+      <Label layoutX="74.0" layoutY="137.0" prefHeight="26.0" prefWidth="41.0" text="ID :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="914.0" layoutY="72.0" onAction="#btnEmpDeleteOnAction" prefHeight="68.0" prefWidth="161.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Delete Data" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="898.0" layoutY="112.0" onAction="#btnEmpDeleteOnAction" prefHeight="68.0" prefWidth="161.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Delete Data" textFill="WHITE">
          <font>
             <Font name="Bookman Old Style Bold" size="14.0" />
          </font>
@@ -52,35 +53,23 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="926.0" layoutY="155.0" onAction="#btnEmpRefreshOnAction" prefHeight="59.0" prefWidth="138.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Refresh" textFill="WHITE">
-         <font>
-            <Font name="Bookman Old Style Bold" size="18.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="33.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../assets/icons/icons8-refresh-96.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </JFXButton>
-      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="137.0" layoutX="26.0" layoutY="31.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="201.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="27.0" layoutY="26.0" prefHeight="40.0" prefWidth="201.0" styleClass="text" stylesheets="@../../style/ProjectStyleSheet.css" text="Current Employee Count ">
-         <font>
-            <Font name="Berlin Sans FB Demi Bold" size="17.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblEmployeeCount" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="75.0" layoutY="55.0" prefHeight="70.0" prefWidth="105.0" styleClass="text" stylesheets="@../../style/ProjectStyleSheet.css">
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="179.0" layoutX="876.0" layoutY="284.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="204.0" />
+      <Label fx:id="lblEmployeeCount" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="926.0" layoutY="337.0" prefHeight="70.0" prefWidth="105.0" styleClass="text" stylesheets="@../../style/ProjectStyleSheet.css">
          <font>
             <Font name="Bookman Old Style Bold" size="28.0" />
          </font>
       </Label>
-      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="108.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="959.0" layoutY="413.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../assets/icons/icons8-employee-96.png" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="txtEmployeeName" layoutX="502.0" layoutY="168.0" onKeyPressed="#txtEmpNameCheckOnAction" prefHeight="34.0" prefWidth="214.0" />
-      <JFXTextField fx:id="txtEmpId" layoutX="507.0" layoutY="103.0" onKeyPressed="#txtEmpIdCheckOnAction" prefHeight="34.0" prefWidth="149.0" />
+      <JFXTextField fx:id="txtEmployeeName" layoutX="438.0" layoutY="133.0" onKeyPressed="#txtEmpNameCheckOnAction" prefHeight="34.0" prefWidth="214.0" />
+      <JFXTextField fx:id="txtEmpId" layoutX="117.0" layoutY="133.0" onKeyPressed="#txtEmpIdCheckOnAction" prefHeight="34.0" prefWidth="149.0" />
+      <Text fontSmoothingType="LCD" layoutX="896.0" layoutY="310.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Employee Count " textAlignment="CENTER" wrappingWidth="166.72705078125">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Text>
    </children>
 </Pane>

@@ -18,7 +18,7 @@ public class SetAttendanceRepo {
         connection.setAutoCommit(false);
 
         try {
-            boolean isChecked = AttendanceRepo.getFromPayId(markAttendance.getCheckPayment());
+            boolean isChecked = PaymentRepo.getFromPayId(markAttendance.getCheckPayment());
             if (isChecked) {
                 System.out.println(isChecked);
                 boolean isAttendMarked = AttendanceRepo.save(markAttendance.getAttendMarking());

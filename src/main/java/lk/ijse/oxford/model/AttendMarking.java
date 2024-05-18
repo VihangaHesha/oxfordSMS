@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -11,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class AttendMarking {
 
     private String attendId;
+    private Date date;
     private String attendMark;
     private String  stId;
-    private String date;
 }

@@ -92,28 +92,11 @@ public class AttendanceRepo {
                 .prepareStatement(sql);
 
         pstm.setString(1, attendMarking.getAttendId());
-        pstm.setString(2, attendMarking.getDate());
+        pstm.setDate(2, attendMarking.getDate());
         pstm.setString(3, attendMarking.getAttendMark());
         pstm.setString(4, attendMarking.getStId());
 
         return pstm.executeUpdate() > 0;
     }
 
-    public static boolean getFromPayId(CheckPayment checkPayment) throws SQLException {
-        String sql = "SELECT p.StId as StudentID , p.MONTHNAME(date) as month FROM Payment p INNER JOIN Student s ON p.StId = s.StId WHERE s.StId =?";
-
-        PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement(sql);
-
-        pstm.setObject(1,checkPayment.getStId());
-        ResultSet resultSet = pstm.executeQuery(sql);
-        System.out.println(resultSet.toString());
-        if (resultSet.next()){
-            String id = resultSet.getString(1);
-            String tmonth = resultSet.getString(2);
-            if (id.equals(checkPayment.getStId())&& tmonth.equals(checkPayment.getMonth())){
-                    return true;
-            }
-        }
-        return false;
-    }
 }

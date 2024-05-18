@@ -221,16 +221,20 @@ public class HomeFormController {
 
     public void btnMarkAttendanceOnAction(ActionEvent actionEvent) {
         if (isValidate()){
+            // Get the current date
+            LocalDate currentDate = LocalDate.now();
+            // Get the month number
+            int monthNumber = currentDate.getMonthValue();
             LocalDate date = LocalDate.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM");
-            String month = date.format(formatter);
-            String thisDate = String.valueOf(LocalDate.now());
+            Date thisDate = Date.valueOf(date);
             String stId = txtStId.getText();
             String attendMark ="I";
             String attendId = nextId;
 
-            AttendMarking attendMarking = new AttendMarking(attendId,attendMark,stId,thisDate);
-            CheckPayment checkPayment = new CheckPayment(stId,month);
+            System.out.println(monthNumber);
+
+            AttendMarking attendMarking = new AttendMarking(attendId,thisDate,attendMark,stId);
+            CheckPayment checkPayment = new CheckPayment(stId,monthNumber);
 
             MarkAttendance markAttendance = new MarkAttendance(attendMarking,checkPayment);
             System.out.println(markAttendance.toString());
@@ -238,7 +242,7 @@ public class HomeFormController {
                 boolean isChecked = SetAttendanceRepo.markAttendance(markAttendance);
                 System.out.println(isChecked);
                 if(isChecked) {
-                        new Alert(Alert.AlertType.CONFIRMATION, "order placed!").show();
+                    new Alert(Alert.AlertType.CONFIRMATION, "order placed!").show();
                 } else {
                     new Alert(Alert.AlertType.WARNING,
                             "You Haven't Paid The Class Fees For This Month! Pay it through the Student Form.").show();

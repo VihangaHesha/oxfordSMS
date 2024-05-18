@@ -56,25 +56,4 @@ public class UserRepo {
         return pstm.executeUpdate() > 0;
     }
 
-    public static List<User> getAll(String uId) throws SQLException {
-        String sql = "SELECT Name,Password,Contact,Email FROM User WHERE UserId =?";
-
-        PreparedStatement pstm = DbConnection.getInstance().getConnection()
-                .prepareStatement(sql);
-
-        pstm.setObject(1,uId);
-        ResultSet resultSet = pstm.executeQuery();
-
-        List<User> userList = new ArrayList<>();
-        while (resultSet.next()) {
-            String name = resultSet.getString(1);
-            String pw = resultSet.getString(2);
-            String contact = resultSet.getString(3);
-            String email = resultSet.getString(4);
-
-            User user = new User(name, pw,contact,email);
-            userList.add(user);
-        }
-        return userList;
-    }
 }

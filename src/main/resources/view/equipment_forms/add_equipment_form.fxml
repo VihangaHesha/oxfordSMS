@@ -11,10 +11,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <Pane fx:id="addEquipmentPane" prefHeight="641.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.equipment_form_controllers.AddEquipmentFormController">
    <children>
-      <TableView fx:id="tblEquipment" layoutX="256.0" layoutY="229.0" prefHeight="298.0" prefWidth="609.0" stylesheets="@../../style/NormalStyleSheet.css">
+      <TableView fx:id="tblEquipment" layoutX="43.0" layoutY="305.0" prefHeight="298.0" prefWidth="747.0" stylesheets="@../../style/NormalStyleSheet.css">
          <columns>
             <TableColumn fx:id="colEquipmentId" prefWidth="99.0" text="ID" />
             <TableColumn fx:id="colEquipmentDesc" prefWidth="334.0" text="Description" />
@@ -26,23 +27,23 @@
             <Font name="Bookman Old Style Bold" size="24.0" />
          </font>
       </Label>
-      <Separator layoutX="426.0" layoutY="46.0" prefHeight="7.0" prefWidth="269.0" style="-fx-background-color: black;" />
-      <Label layoutX="428.0" layoutY="171.0" prefHeight="34.0" prefWidth="93.0" text="Quantity :">
+      <Separator layoutX="426.0" layoutY="46.0" prefHeight="7.0" prefWidth="269.0" style="-fx-background-color: black;" visible="false" />
+      <Label layoutX="286.0" layoutY="220.0" prefHeight="34.0" prefWidth="93.0" text="Quantity :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="233.0" layoutY="100.0" prefHeight="26.0" prefWidth="106.0" text="Description :">
+      <Label layoutX="91.0" layoutY="149.0" prefHeight="26.0" prefWidth="106.0" text="Description :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="695.0" layoutY="97.0" prefHeight="26.0" prefWidth="41.0" text="ID :">
+      <Label layoutX="553.0" layoutY="146.0" prefHeight="26.0" prefWidth="41.0" text="ID :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="942.0" layoutY="107.0" onAction="#btnEquipmentAddOnAction" prefHeight="70.0" prefWidth="157.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Add New Data" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="875.0" layoutY="137.0" onAction="#btnEquipmentAddOnAction" prefHeight="70.0" prefWidth="157.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Add New Data" textFill="WHITE">
          <font>
             <Font name="Bookman Old Style Bold" size="14.0" />
          </font>
@@ -54,24 +55,24 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="137.0" layoutX="17.0" layoutY="230.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="214.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="28.0" layoutY="229.0" prefHeight="40.0" prefWidth="193.0" styleClass="text" stylesheets="@../../style/ProjectStyleSheet.css" text="Total Equipments Count">
-         <font>
-            <Font name="Berlin Sans FB Demi Bold" size="17.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblEquipCount" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="72.0" layoutY="264.0" prefHeight="70.0" prefWidth="105.0" styleClass="text" stylesheets="@../../style/ProjectStyleSheet.css">
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="177.0" layoutX="845.0" layoutY="358.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="217.0" />
+      <Label fx:id="lblEquipCount" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="901.0" layoutY="409.0" prefHeight="70.0" prefWidth="105.0" styleClass="text" stylesheets="@../../style/ProjectStyleSheet.css">
          <font>
             <Font name="Bookman Old Style Bold" size="28.0" />
          </font>
       </Label>
-      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="104.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="933.0" layoutY="482.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../assets/icons/icons8-stationary-65.png" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="txtEquiptDesc" layoutX="344.0" layoutY="93.0" onKeyPressed="#txtClassDescCheckOnAction" prefHeight="35.0" prefWidth="214.0" />
-      <JFXTextField fx:id="txtEquipQty" layoutX="521.0" layoutY="171.0" onKeyPressed="#txtQtyCheckOnAction" prefHeight="35.0" prefWidth="167.0" />
-      <JFXTextField fx:id="txtEquipId" layoutX="736.0" layoutY="93.0" onKeyPressed="#txtClassIdCheckOnAction" prefHeight="34.0" prefWidth="149.0" />
+      <JFXTextField fx:id="txtEquiptDesc" layoutX="202.0" layoutY="142.0" onKeyPressed="#txtClassDescCheckOnAction" prefHeight="35.0" prefWidth="214.0" />
+      <JFXTextField fx:id="txtEquipQty" layoutX="379.0" layoutY="220.0" onKeyPressed="#txtQtyCheckOnAction" prefHeight="35.0" prefWidth="167.0" />
+      <JFXTextField fx:id="txtEquipId" layoutX="594.0" layoutY="142.0" onKeyPressed="#txtClassIdCheckOnAction" prefHeight="34.0" prefWidth="149.0" />
+      <Text layoutX="870.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Equipments Count" textAlignment="CENTER" wrappingWidth="166.9999999999999">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="17.0" />
+         </font>
+      </Text>
    </children>
 </Pane>

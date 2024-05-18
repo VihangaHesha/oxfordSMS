@@ -17,8 +17,8 @@
          <font>
             <Font name="Bookman Old Style Bold" size="24.0" />
          </font></Label>
-      <Separator layoutX="434.0" layoutY="43.0" prefHeight="7.0" prefWidth="243.0" style="-fx-background-color: black;" />
-      <TableView fx:id="tblEmployee" layoutX="206.0" layoutY="256.0" prefHeight="271.0" prefWidth="708.0" stylesheets="@../../style/NormalStyleSheet.css">
+      <Separator layoutX="434.0" layoutY="43.0" prefHeight="7.0" prefWidth="243.0" style="-fx-background-color: black;" visible="false" />
+      <TableView fx:id="tblEmployee" layoutX="21.0" layoutY="256.0" prefHeight="271.0" prefWidth="1080.0" stylesheets="@../../style/NormalStyleSheet.css">
          <columns>
             <TableColumn fx:id="colEmpId" prefWidth="50.0" text="ID" />
             <TableColumn fx:id="colUserId" prefWidth="56.0" text="User" />
@@ -28,37 +28,37 @@
             <TableColumn fx:id="colEmpType" prefWidth="102.0" text="Type" />
          </columns>
       </TableView>
-      <Label layoutX="96.0" layoutY="137.0" prefHeight="34.0" prefWidth="161.0" text="Contact Number :">
+      <Label layoutX="66.0" layoutY="130.0" prefHeight="34.0" prefWidth="161.0" text="Contact Number :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="183.0" layoutY="89.0" prefHeight="26.0" prefWidth="66.0" text="Name :">
+      <Label layoutX="150.0" layoutY="82.0" prefHeight="26.0" prefWidth="66.0" text="Name :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="168.0" layoutY="192.0" prefHeight="26.0" prefWidth="83.0" text="Address :">
+      <Label layoutX="135.0" layoutY="185.0" prefHeight="26.0" prefWidth="83.0" text="Address :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="643.0" layoutY="200.0" prefHeight="26.0" prefWidth="66.0" text="Type :">
+      <Label layoutX="619.0" layoutY="193.0" prefHeight="26.0" prefWidth="66.0" text="Type :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="671.0" layoutY="97.0" prefHeight="26.0" prefWidth="41.0" text="ID :">
+      <Label layoutX="639.0" layoutY="87.0" prefHeight="26.0" prefWidth="41.0" text="ID :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="634.0" layoutY="149.0" prefHeight="26.0" prefWidth="74.0" text="User Id :">
+      <Label layoutX="604.0" layoutY="142.0" prefHeight="26.0" prefWidth="74.0" text="User Id :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="930.0" layoutY="129.0" onAction="#btnEmpAddOnAction" prefHeight="68.0" prefWidth="161.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Add New Data" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="900.0" layoutY="129.0" onAction="#btnEmpAddOnAction" prefHeight="68.0" prefWidth="161.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Add New Data" textFill="WHITE">
          <font>
             <Font name="Bookman Old Style Bold" size="14.0" />
          </font>
@@ -70,11 +70,11 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXTextField fx:id="txtEmployeeName" layoutX="251.0" layoutY="90.0" onKeyPressed="#txtEmpNameCheckOnAction" prefHeight="34.0" prefWidth="214.0" />
-      <JFXTextField fx:id="txtContactNumber" layoutX="249.0" layoutY="142.0" onKeyPressed="#txtContactCheckOnAction" prefHeight="34.0" prefWidth="167.0" />
-      <JFXTextField fx:id="txtAddress" layoutX="250.0" layoutY="193.0" onKeyPressed="#txtAddressCheckOnAction" prefHeight="34.0" prefWidth="320.0" />
-      <JFXTextField fx:id="txtEmpId" layoutX="708.0" layoutY="93.0" onKeyPressed="#txtEmpIdCheckOnAction" prefHeight="34.0" prefWidth="149.0" />
-      <JFXTextField fx:id="txtUserId" layoutX="708.0" layoutY="146.0" onKeyPressed="#txtUserIdCheckOnAction" prefHeight="34.0" prefWidth="149.0" />
-      <JFXTextField fx:id="txtEmpType" layoutX="709.0" layoutY="199.0" onKeyPressed="#txtEmpTypeCheckOnAction" prefHeight="34.0" prefWidth="149.0" />
+      <JFXTextField fx:id="txtEmployeeName" layoutX="218.0" layoutY="83.0" onKeyPressed="#txtEmpNameCheckOnAction" prefHeight="34.0" prefWidth="214.0" />
+      <JFXTextField fx:id="txtContactNumber" layoutX="219.0" layoutY="135.0" onKeyPressed="#txtContactCheckOnAction" prefHeight="34.0" prefWidth="167.0" />
+      <JFXTextField fx:id="txtAddress" layoutX="217.0" layoutY="186.0" onKeyPressed="#txtAddressCheckOnAction" prefHeight="34.0" prefWidth="320.0" />
+      <JFXTextField fx:id="txtEmpId" layoutX="676.0" layoutY="83.0" onKeyPressed="#txtEmpIdCheckOnAction" prefHeight="34.0" prefWidth="149.0" />
+      <JFXTextField fx:id="txtUserId" layoutX="678.0" layoutY="139.0" onKeyPressed="#txtUserIdCheckOnAction" prefHeight="34.0" prefWidth="149.0" />
+      <JFXTextField fx:id="txtEmpType" layoutX="685.0" layoutY="192.0" onKeyPressed="#txtEmpTypeCheckOnAction" prefHeight="34.0" prefWidth="149.0" />
    </children>
 </Pane>

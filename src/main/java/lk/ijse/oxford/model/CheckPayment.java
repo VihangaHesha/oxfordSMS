@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @Data
 public class CheckPayment {
     private String stId;
-    private String month;
+    private int month;
 }

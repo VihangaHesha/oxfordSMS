@@ -14,7 +14,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="1120.0" style="-fx-background-color: #B3DAF2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.oxford.contoller.classroom_form_controllers.DeleteClassroomFormController">
    <children>
-      <TableView fx:id="tblClassroom" layoutX="255.0" layoutY="233.0" onMouseClicked="#classDeleteOnAction" prefHeight="298.0" prefWidth="693.0" stylesheets="@../../style/NormalStyleSheet.css">
+      <TableView fx:id="tblClassroom" layoutX="30.0" layoutY="270.0" onMouseClicked="#classDeleteOnAction" prefHeight="337.0" prefWidth="779.0" stylesheets="@../../style/NormalStyleSheet.css">
          <columns>
             <TableColumn fx:id="colClassId" prefWidth="99.0" text="ID" />
             <TableColumn fx:id="colClassDesc" prefWidth="334.0" text="Description" />
@@ -27,18 +27,18 @@
             <Font name="Bookman Old Style Bold" size="24.0" />
          </font>
       </Label>
-      <Separator layoutX="426.0" layoutY="46.0" prefHeight="7.0" prefWidth="269.0" style="-fx-background-color: black;" />
-      <Label layoutX="398.0" layoutY="172.0" prefHeight="26.0" prefWidth="106.0" text="Description :">
+      <Separator layoutX="426.0" layoutY="46.0" prefHeight="7.0" prefWidth="269.0" style="-fx-background-color: black;" visible="false" />
+      <Label layoutX="385.0" layoutY="148.0" prefHeight="26.0" prefWidth="106.0" text="Description :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="467.0" layoutY="104.0" prefHeight="26.0" prefWidth="41.0" text="ID :">
+      <Label layoutX="73.0" layoutY="150.0" prefHeight="26.0" prefWidth="89.0" text="Class ID :">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
          </font>
       </Label>
-      <JFXButton buttonType="RAISED" layoutX="952.0" layoutY="117.0" onAction="#btnClassDeleteOnAction" prefHeight="70.0" prefWidth="157.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Delete Data" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="884.0" layoutY="115.0" onAction="#btnClassDeleteOnAction" prefHeight="70.0" prefWidth="157.0" styleClass="formInFormButtons" stylesheets="@../../style/ProjectStyleSheet.css" text="Delete Data" textFill="WHITE">
          <font>
             <Font name="Bookman Old Style Bold" size="14.0" />
          </font>
@@ -50,39 +50,39 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="137.0" layoutX="27.0" layoutY="319.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="214.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="38.0" layoutY="318.0" prefHeight="40.0" prefWidth="193.0" styleClass="text" stylesheets="@../../style/ProjectStyleSheet.css" text="Total Classroom Count">
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="137.0" layoutX="855.0" layoutY="459.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="214.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="866.0" layoutY="458.0" prefHeight="40.0" prefWidth="193.0" styleClass="text" stylesheets="@../../style/ProjectStyleSheet.css" text="Total Classroom Count">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="lblClassCount" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="82.0" layoutY="353.0" prefHeight="70.0" prefWidth="105.0" styleClass="text" stylesheets="@../../style/ProjectStyleSheet.css">
+      <Label fx:id="lblClassCount" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="910.0" layoutY="493.0" prefHeight="70.0" prefWidth="105.0" styleClass="text" stylesheets="@../../style/ProjectStyleSheet.css">
          <font>
             <Font name="Bookman Old Style Bold" size="28.0" />
          </font>
       </Label>
-      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="114.0" layoutY="407.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="942.0" layoutY="547.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../assets/icons/icons8-classroom-96.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="137.0" layoutX="27.0" layoutY="164.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="214.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="38.0" layoutY="163.0" prefHeight="40.0" prefWidth="193.0" styleClass="text" stylesheets="@../../style/ProjectStyleSheet.css" text="Total Classroom Capacity">
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="WHITE" height="137.0" layoutX="855.0" layoutY="300.0" stroke="#bfbfbf" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="1.5" width="214.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="866.0" layoutY="299.0" prefHeight="40.0" prefWidth="193.0" styleClass="text" stylesheets="@../../style/ProjectStyleSheet.css" text="Total Classroom Capacity">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="lblClassCapacity" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="82.0" layoutY="198.0" prefHeight="70.0" prefWidth="105.0" styleClass="text" stylesheets="@../../style/ProjectStyleSheet.css">
+      <Label fx:id="lblClassCapacity" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="2.0" layoutX="910.0" layoutY="334.0" prefHeight="70.0" prefWidth="105.0" styleClass="text" stylesheets="@../../style/ProjectStyleSheet.css">
          <font>
             <Font name="Bookman Old Style Bold" size="28.0" />
          </font>
       </Label>
-      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="114.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="942.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../assets/icons/icons8-student-center-96.png" />
          </image>
       </ImageView>
-      <JFXTextField fx:id="txtClassDesc" layoutX="509.0" layoutY="170.0" onKeyPressed="#txtDescCheckOnAction" prefHeight="34.0" prefWidth="214.0" />
-      <JFXTextField fx:id="txtClassId" layoutX="511.0" layoutY="100.0" onKeyPressed="#txtIdCheckOnAction" prefHeight="34.0" prefWidth="149.0" />
+      <JFXTextField fx:id="txtClassDesc" layoutX="496.0" layoutY="146.0" onKeyPressed="#txtDescCheckOnAction" prefHeight="34.0" prefWidth="214.0" />
+      <JFXTextField fx:id="txtClassId" layoutX="153.0" layoutY="146.0" onKeyPressed="#txtIdCheckOnAction" prefHeight="34.0" prefWidth="149.0" />
    </children>
 </Pane>

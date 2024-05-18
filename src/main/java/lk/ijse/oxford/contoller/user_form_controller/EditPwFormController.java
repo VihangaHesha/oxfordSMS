@@ -42,6 +42,6 @@ public class EditPwFormController {
     }
 
     public void txtnameCheckOnAction(KeyEvent keyEvent) {
-        Regex.setTextColor(TextFields.USERID,txtPw);
+        Regex.setTextColor(TextFields.PW,txtPw);
     }
 }

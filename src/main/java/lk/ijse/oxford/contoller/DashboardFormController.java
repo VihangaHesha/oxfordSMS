@@ -18,6 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import lk.ijse.oxford.model.TimeTable;
+import lk.ijse.oxford.model.User;
 import lk.ijse.oxford.model.tm.TimeTableTm;
 import lk.ijse.oxford.repository.TimeTableRepo;
 
@@ -40,6 +41,12 @@ public class DashboardFormController implements Initializable {
     private JFXButton btnUser;
 
     private String userId;
+    private User user;
+
+
+    public void setUser(User user) {
+        this.user = user;
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -77,9 +84,8 @@ public class DashboardFormController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/user_form.fxml"));
 //        Parent fxml = FXMLLoader.load(getClass().getResource("/view/user_form.fxml"));
         Parent fxml = loader.load();
-        UserFormController userController = new UserFormController(userId);
-        loader.setController(userController);
-
+        UserFormController userController = loader.getController();
+        userController.setUser(user);
 
         dashContainer.getChildren().removeAll();
         dashContainer.getChildren().setAll(fxml);

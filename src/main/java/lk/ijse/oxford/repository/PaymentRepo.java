@@ -1,6 +1,7 @@
 package lk.ijse.oxford.repository;
 
 import lk.ijse.oxford.db.DbConnection;
+import lk.ijse.oxford.model.CheckPayment;
 import lk.ijse.oxford.model.PayDetail;
 import lk.ijse.oxford.model.Payment;
 import lk.ijse.oxford.model.Student;
@@ -10,6 +11,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PaymentRepo {
+    public static boolean getFromPayId(CheckPayment checkPayment) throws SQLException {
+        String sql = "SELECT DISTINCT StId AS StudentID FROM Payment WHERE MONTH(Date) = ? AND StId = ?";
+
+        // Prepare the statement
+        PreparedStatement pstm = DbConnection.getInstance().getConnection().prepareStatement(sql);
+
+        // Set the parameters correctly
+        pstm.setInt(1, checkPayment.getMonth());
+        pstm.setString(2, checkPayment.getStId());
+
+        // Execute the query
+        ResultSet resultSet = pstm.executeQuery();
+
+        // Check if the student ID exists in the result set
+        if (resultSet.next()) {
+            String id = resultSet.getString(1);
+            if (id.equals(checkPayment.getStId())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 
     public static String currentId() throws SQLException {

@@ -1,24 +1,23 @@
 package lk.ijse.oxford.contoller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import lk.ijse.oxford.model.TimeTable;
 import lk.ijse.oxford.model.User;
-import lk.ijse.oxford.repository.UserRepo;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class UserFormController {
     @FXML
-    private Label lblUsername;
+    private Label lblUserName;
 
     @FXML
     private Label lblUserPw;
@@ -26,43 +25,49 @@ public class UserFormController {
     private Label lblContact;
     @FXML
     private Label lblEmail;
-    private String uId;
-    private String name;
-    private String pw;
-    private String contact;
-    private String email;
+    @FXML
+    private Label lblTime;
+    @FXML
+    private Label lblDate;
+    private User user;
+    private volatile boolean stop = false;
 
-    public void initialize(){
-        setUserDetails();
+
+    public void setUser(User user) {
+        this.user = user;
+        System.out.println(user.toString());
+        setUserDetails(user);
+        setDate();
     }
+    private void setDate() {
 
-    private void setUserDetails() {
-        List<User> userList =null;
-        try {
-            userList = UserRepo.getAll(uId);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        for (User user : userList) {
-            User users = new User(
-                    user.getName(),
-                    user.getPw(),
-                    user.getContact(),
-                    user.getEmail()
-            );
-            name = users.getName();
-            pw = users.getPw();
-            contact = users.getContact();
-            email = users.getEmail();
-        }
-        lblUsername.setText(name);
-        lblUserPw.setText(pw);
-        lblContact.setText(contact);
-        lblEmail.setText(email);
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, MMM dd");
+        String formattedDate = date.format(formatter);
+        lblDate.setText(formattedDate);
+
+        Thread thread = new Thread(() ->{
+            SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm:ss a");
+            while (!stop){
+                try {
+                    Thread.sleep(1000);
+                }catch (Exception e){
+                    throw new RuntimeException(e);
+                }
+                final String timeNow = dateFormat.format(new java.util.Date());
+                Platform.runLater(()->{
+                    lblTime.setText(timeNow);
+                });
+            }
+        });
+        thread.start();
     }
+    private void setUserDetails(User user) {
 
-    public UserFormController(String userId) {
-        uId = userId;
+        lblUserName.setText(this.user.getName());
+        lblUserPw.setText(this.user.getPw());
+        lblContact.setText(this.user.getContact());
+        lblEmail.setText(this.user.getEmail());
     }
 
     public void btnNameInAction(ActionEvent actionEvent) throws IOException {
